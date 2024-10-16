@@ -23,6 +23,8 @@ export ARLAS_DEMO_LOCAL_DATA_PATH="${PWD}/data"
 python download_raw_data.py
 ```
 
+The OSM and IGN data are a section of the original data, with only the buildings with a type and the towns of Occitanie kept to limit the size of the downloads.
+
 The path `ARLAS_DEMO_LOCAL_DATA_PATH` can be changed to any path of your liking.
 
 ## Transform the data

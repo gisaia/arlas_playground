@@ -58,6 +58,6 @@ def download_files_from_bucket(files_relative_path: str, recursive: bool = False
 if __name__ == '__main__':
     # Download raw data from gisaia-storage bucket
     download_files_from_bucket("sunny_osm/photovoltaic_potential", recursive=True)
-    download_files_from_bucket("sunny_osm/languedoc-roussillon_OSM", recursive=True)
-    download_files_from_bucket("sunny_osm/commune_IGN", recursive=True)
+    download_files_from_bucket("sunny_osm/osm.csv", recursive=False)
+    download_files_from_bucket("sunny_osm/commune.csv", recursive=False)
     download_files_from_bucket("sunny_osm/languedoc-roussillon.json", recursive=False)
