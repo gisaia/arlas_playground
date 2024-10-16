@@ -11,7 +11,7 @@ The OSM data is provided by [GeoFabrik's](https://download.geofabrik.de/europe/f
 ## Get in the right place
 
 ```shell
-cd meteo_france
+cd sunny_osm
 ```
 
 ## Get the data
