@@ -4,6 +4,35 @@
 
 Check the prerequisites [here](../README.md).
 
+It is also needed to create a virtual environment and to install the python requirements in `requirements.txt`.
+
+## Create/Activate python environment
+
+If it's the first time you run the project, create a virtual env before running the documentation.
+
+Run at project root:
+
+``` bash
+python -m venv env_arlas_playground
+```
+
+Now the `env_arlas_playground` env exists and is stored at project root.
+
+To activate the environment in your terminal:
+
+On Linux/Mac:
+``` bash
+source env_arlas_playground/bin/activate
+```
+
+## Install python dependencies in the environment
+
+Once the environment is activated:
+
+```
+pip install -r requirements.txt
+```
+
 ## Introduction
 
 The OSM data is provided by [GeoFabrik's](https://download.geofabrik.de/europe/france/languedoc-roussillon.html) regional download, the French administrative data by the [IGN](https://geoservices.ign.fr/adminexpress) and the photovoltaic potential data by [Solargis](https://solargis.com/resources/free-maps-and-gis-data?locality=france).
