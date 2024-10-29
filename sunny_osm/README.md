@@ -33,6 +33,12 @@ Once the environment is activated:
 pip install -r requirements.txt
 ```
 
+## Install the other dependencies
+
+```bash
+apt install gsutil libgdal-dev gdal-bin
+```
+
 ## Introduction
 
 The OSM data is provided by [GeoFabrik's](https://download.geofabrik.de/europe/france/languedoc-roussillon.html) regional download, the French administrative data by the [IGN](https://geoservices.ign.fr/adminexpress) and the photovoltaic potential data by [Solargis](https://solargis.com/resources/free-maps-and-gis-data?locality=france).
