@@ -4,6 +4,16 @@
 
 Check the prerequisites [here](../README.md).
 
+There also are additional requirements:
+- Java
+- gsutil
+
+On Linux, they can be installed by doing
+
+```shell
+apt install default-jdk gsutil
+```
+
 It is also needed to create a virtual environment and to install the python requirements in `requirements.txt`.
 
 ## Create/Activate python environment
@@ -33,12 +43,6 @@ Once the environment is activated:
 pip install -r requirements.txt
 ```
 
-## Install the other dependencies
-
-```bash
-apt install gsutil libgdal-dev gdal-bin
-```
-
 ## Introduction
 
 The OSM data is provided by [GeoFabrik's](https://download.geofabrik.de/europe/france/languedoc-roussillon.html) regional download, the French administrative data by the [IGN](https://geoservices.ign.fr/adminexpress) and the photovoltaic potential data by [Solargis](https://solargis.com/resources/free-maps-and-gis-data?locality=france).
@@ -62,6 +66,8 @@ The OSM and IGN data are a section of the original data, with only the buildings
 
 The path `ARLAS_DEMO_LOCAL_DATA_PATH` can be changed to any path of your liking.
 
+If the script does not work, the files can directly be retrieved on [Google Cloud](https://console.cloud.google.com/storage/browser/gisaia-public/demo/sunny_osm).
+
 ## Transform the data
 
 To transform the data, a notebook is available to cross the data sources.
@@ -81,6 +87,7 @@ arlas_cli indices \
     --no-fulltext unique_id \
     --no-fulltext name \
     --field-mapping time:date-epoch_second \
+    --field-mapping area:integer \
     --nb-lines 1000 \
     --push-on sunny_osm
 

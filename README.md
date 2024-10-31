@@ -4,6 +4,7 @@ This repo illustrates a couple of usages of ARLAS. In order to play with it, you
 
 - git version (>=2.39.3)
 - docker (>=27.0.3)
+- docker compose
 - python 3.10
 - curl (>=8.4.0)
 - csvkit (>=1.4.0)
