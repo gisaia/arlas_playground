@@ -7,7 +7,6 @@ apache-sedona[spark]
 xarray[io]
 matplotlib
 exactextract
-gdal==3.6.4
 numpy<2.0
 pyarrow
 pydantic
