@@ -94,7 +94,7 @@ arlas_cli --version
 By default, it is configured for a local ARLAS stack deployment.
 
 !!! tip 
-    To configure `arlas_cli` to access your ARLAS Cloud deployment, see [arlas_cli documentation](https://gisaia.github.io/arlas_cli/configuration/#arlas-cloud-configuration).
+    To configure `arlas_cli` to access your ARLAS Cloud account, see [arlas_cli documentation](https://gisaia.github.io/arlas_cli/configuration/#arlas-cloud-configuration).
 
     ⚠️ If this link is configured, the `--config` option in all tutorials `arlas_cli` commands must not be specified.
 
@@ -118,6 +118,7 @@ More details about deployment can be found on [ARLAS Stack Exploration project](
 ## Now you can play ...
 
 For the different examples, you will see how to:
+
 - Get the spatio-temporal data
 - Transform the data
 - Index the data

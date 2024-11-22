@@ -12,10 +12,10 @@ With this tutorial, you'll be able to:
 
 You will need :
 
-- Python 3.10 project environment activated (see [Get Started](../../get_started.md#python-virtual-environment))
-- ARLAS Exploration stack up and running [locally](../../get_started.md#install-and-run-arlas-exploration-stack)  (Only if you're not using ARLAS CLoud)
+- Python 3.10 (see [Get Started](../../get_started.md#python-virtual-environment))
+- ARLAS Exploration stack up and running [locally](../../get_started.md#install-and-run-arlas-exploration-stack)  (Not necessary if you have your own ARLAS instance such as ARLAS CLoud)
 
-- `arlas_cli` configured (see [Get Started](../../get_started.md#install-arlas_cli))
+- `arlas_cli` configured to target your ARLAS deployment (see [Get Started](../../get_started.md#install-arlas_cli))
 
 !!! warning
     If you are using ARLAS Cloud, the `--config` option in all tutorial `arlas_cli` commands must not be specified.
@@ -56,7 +56,7 @@ A line of the csv file looks like:
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 |20/11/2019 06:45:09|Class A|240305000|55.931783|17.345067|Under way using engine|0.0|10.5|257.0|259|9288710|SYEF|DELTA CAPTAIN|Tanker|""|44|249|GPS|10.0|FOR ORDERS|22/11/2019 06:00:00|AIS|216|33|22|22|
 
-## Add AIS data in ARLAS
+## Ingest AIS data in ARLAS
 
 We will explore this data using ARLAS.
 
@@ -225,7 +225,7 @@ We choose the `tuto_ais_geopoints` collection containing the igested data.
 
 ### Map configuration
 
-As a first step, I'll set the map at **zoom level 13** and the map's center coordinates at **Latitude=57.451545** and **Longitude=10.787131**.
+As a first step, let's set the map at **zoom level 13** and the map's center coordinates at **Latitude=57.451545** and **Longitude=10.787131**.
 
 This way, when loading the dashboard in ARLAS-wui, the map will be positioned over Denmark.
 
