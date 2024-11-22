@@ -13,13 +13,18 @@ With this tutorial, you'll be able to:
 You will need :
 
 - Python 3.10 project environment activated (see [Get Started](../../get_started.md#python-virtual-environment))
-- arlas_cli configured (see [Get Started](../../get_started.md#install-arlas_cli))
-- ARLAS Exploration stack up and running (see [Get Started](../../get_started.md#install-and-run-arlas-exploration-stack))
+- ARLAS Exploration stack up and running [locally](../../get_started.md#install-and-run-arlas-exploration-stack)  (Only if you're not using ARLAS CLoud)
 
+- `arlas_cli` configured (see [Get Started](../../get_started.md#install-arlas_cli))
+
+!!! warning
+    If you are using ARLAS Cloud, the `--config` option in all tutorial `arlas_cli` commands must not be specified.
 
 ### What will you get ?
 
-![Exploration app created in this tutorial](./images/ais_arlas_wui_widget.png)
+An ARLAS dashboard with map layers and graphs to explore a sample of AIS data.
+
+![Exploration app created in this tutorial](./images/ais_arlas_wui_widgets.png)
 
 <p align="center" style="font-style: italic;" >
  Exploration app created in this tutorial
@@ -380,8 +385,8 @@ Image: Dashboard preview in ARLAS Hub
 </p>
 
 
-
 ### Timeline configuration
+
 Let's find out the time period when these positions were emitted.
 
 For that, let's define a timeline: a histogram that will represent the number of boats positions over time.
@@ -401,7 +406,6 @@ In the Render tab we can set a title for the timeline, date format and the histo
 Image: Rendering of timeline
 </p>
 <br />
-<br />
 
 ### Search Bar configuration
 
@@ -416,7 +420,6 @@ To define the search bar we can set :
 Image: Define search bar
 </p>
 <br />
-<br />
 
 ### Analytics board
 
@@ -424,57 +427,114 @@ We focused on the geographical and temporal analysis. We can also explore other 
 
 #### Create a tab
 
-Let's see what does the heading distribution of these positions looks like.
+ARLAS proposes to organise all the analytic graphs (widgets) in tabs. A tab can correspond to a thematic analysis.
 
-To do so we need to create a histogram. ARLAS proposes to organise all the histograms and other widgets in an analytics board.
+Let's create a tab called 'Vessels' where will add our widgets.
 
-We can split the analytics board into tabs. Let's create a tab called 'Tracking' where will add our Heading distribution histogram
-
-![Creating tab in Analytics board](./images/ais_tracking_tab.png)
+![Creating tab in Analytics board](./images/ais_analytics_new_tab.png)
 <p align="center" style="font-style: italic;" >
 Image: Creating tab in Analytics board
 </p>
 <br />
 
+!!! note
+    We can configure the tab "icon" that will represent the tab in the dashboard.
+
 Once the tab is created, we can add groups and widgets.
 
 #### Distribution of Vessel type (term)
 
+We want to observe the distribution of the geopoints number per ship type.
+
+The first step is to create a group that we call 'Ship type' (we can configure its icon) and create a widget.
+
+![Creating tab in Analytics board](./images/ais_analytics_ship_type_group.png)
+<p align="center" style="font-style: italic;" >
+Image: Creating a 'Ship Type' group and add a widget
+</p>
+<br />
+
+The **Donut** widget and the **Powerbars** are well adapted to explore a term field distribution.
+
+##### Create a Donut
+
+Let's create a **Donut** widget
+
+![Add a Ship type Donut](./images/ais_analytics_ship_type_donut.png)
+<p align="center" style="font-style: italic;" >
+Image: Creating a Donut widget to explore 'Ship Type' distribution
+</p>
+
+The donut is base on the `Ship type` data field.
+
+<br />
+
+##### Create a Powerbars
+
+Let's create a **Powerbars** widget to complement the Ship type exploration:
+
+
+![Add a Ship type Powerbar](./images/ais_analytics_ship_type_add_powerbars.png)
+<p align="center" style="font-style: italic;" >
+Image: Add a Powerbar widget to explore 'Ship Type' distribution
+</p>
+<br />
+
+We create a **Powerbars** where each value of the aggregation field (`Ship type`) is represented by a bar corresponding to its number of datapoints.
+
+
+![Add a Ship type Powerbar](./images/ais_analytics_ship_type_powerbars.png)
+<p align="center" style="font-style: italic;" >
+Image: Configure the Powerbar widget to explore 'Ship Type' distribution
+</p>
+
+!!! tip
+    In the `Render` tab, you can color the powerbars 
+
+<br />
+
+The two widgets to explore the `Ship type` information are now available:
+
+![Add a Ship type Powerbar](./images/ais_analytics_ship_type_widgets.png)
+<p align="center" style="font-style: italic;" >
+Image: Configure the Powerbar widget to explore 'Ship Type' distribution
+</p>
+
+We can add as many tabs, groups and widgets as we want to explore our data.
+
+<br />
 
 #### Distribution of Heading (number)
 
-Once the tab is created, we can add in it a group of widgets. Let's name it 'Heading'.
+Let's see what does the heading distribution of these vessels looks like.
 
-![Creating a group in Analytics board tab](./images/ais_heading_group.png)
+We add a new group we call 'Heading' and create a histogram.
+
+![Creating a group in Analytics board tab](./images/ais_analytics_heading_add_histogram.png)
 <p align="center" style="font-style: italic;" >
 Image: Creating a group in Analytics board tab
 </p>
 <br />
 
-Let's now create our histogram.
-
-![Choosing a histogram for heading distribution](./images/ais_histogram.png)
-<p align="center" style="font-style: italic;" >
-Image: Choosing a histogram for heading distribution
-</p>
-<br />
-
-We can give a title to the Heading distribution histogram.
+Let's configure our histogram. We can give a title to the Heading distribution histogram.
 
 For the x-Axis we choose `Heading` field and for the y-Axis we choose `Hits count`: the number of positions in each bucket. 
 
-![Defining heading distribution histogram](./images/ais_histogram_data.png)
+![Defining heading distribution histogram](./images/ais_analytics_heading_histogram.png)
 <p align="center" style="font-style: italic;" >
 Image: Defining heading distribution histogram
 </p>
 <br />
 
-When we save the histogram we automatically get a preview of it in the analytics board!
+When we save the histogram we automatically get a preview of it in the analytics board.
 
-![Preview heading distribution histogram](./images/ais_histogram_preview.png)
+![Preview heading distribution histogram](./images/ais_analytics_widgets.png)
 <p align="center" style="font-style: italic;" >
 Image: Preview heading distribution histogram
 </p>
+
+!!! tip 
+    Feel free to add all the widget you want to explore the data ! 
 <br />
 
 ## Explore the dashboard in ARLAS-Wui
@@ -498,7 +558,7 @@ Image: List of created dashboards
 
 We can now open it in ARLAS-Wui to explore AIS locations:
 
-![Exploring Boats dashboard in ARLAS-wui](./images/ais_arlas_wui_widget.png)
+![Exploring Boats dashboard in ARLAS-wui](./images/ais_arlas_wui_widgets.png)
 <p align="center" style="font-style: italic;" >
 Image: Exploring Boats dashboard in ARLAS-wui
 </p>
