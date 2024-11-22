@@ -27,9 +27,8 @@ Run `./check_requirements.sh` to check these requirements.
 
 Then, we'll also install:
 - arlas_cli
-- ARLAS Exploration Stack
+- ARLAS Exploration Stack (Only to run ARLAS Locally)
 
-It is also needed to create a virtual environment and to install the python requirements in `requirements.txt`.
 
 ## Python virtual environment
 
@@ -72,13 +71,13 @@ See [venv documentation](https://docs.python.org/3.10/library/venv.html#creating
 
 ## Install python dependencies in the environment
 
-Once the environment is activated:
+Once the environment is activated, install the project dependency:
 
 ```
 pip install -r requirements.txt
 ```
 
-## Install arlas_cli:
+## Install arlas_cli
 
 `arlas_cli` is installed with the project requirements
 
@@ -97,11 +96,14 @@ By default, it is configured for a local ARLAS stack deployment.
 !!! tip 
     To configure `arlas_cli` to access your ARLAS Cloud deployment, see [arlas_cli documentation](https://gisaia.github.io/arlas_cli/configuration/#arlas-cloud-configuration).
 
-    ⚠️ If this link is configured, the `--config` option in `arlas_cli` commands must not be specified.
+    ⚠️ If this link is configured, the `--config` option in all tutorials `arlas_cli` commands must not be specified.
 
 Check [here](https://pypi.org/project/arlas-cli/#history) the available version and here the [full documentation](https://gisaia.github.io/arlas_cli/).
 
-## Install and run ARLAS Exploration Stack:
+## Install and run ARLAS Exploration Stack
+
+!!! warning
+    You don't need to install and ARLAS Exploration Stack if you are using ARLAS Cloud.
 
 To run the simplest ARLAS stack and elasticsearch on the local machine, clone the [ARLAS Stack Exploration](https://github.com/gisaia/ARLAS-Exploration-stack) project and run the stack:
 
