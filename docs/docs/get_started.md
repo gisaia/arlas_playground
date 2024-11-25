@@ -26,6 +26,7 @@ This repo illustrates a couple of usages of ARLAS. In order to play with it, you
 Run `./check_requirements.sh` to check these requirements.
 
 Then, we'll also install:
+
 - arlas_cli
 - ARLAS Exploration Stack (Only to run ARLAS Locally)
 
@@ -77,7 +78,7 @@ Once the environment is activated, install the project dependency:
 pip install -r requirements.txt
 ```
 
-## Install arlas_cli
+## Install and configure arlas_cli
 
 `arlas_cli` is installed with the project requirements
 
@@ -93,12 +94,12 @@ arlas_cli --version
 
 By default, it is configured for a local ARLAS stack deployment.
 
-!!! tip 
-    To configure `arlas_cli` to access your ARLAS Cloud account, see [arlas_cli documentation](https://gisaia.github.io/arlas_cli/configuration/#arlas-cloud-configuration).
+To configure `arlas_cli` to access your ARLAS Cloud account, see [arlas_cli documentation](https://gisaia.github.io/arlas_cli/configuration/#arlas-cloud-configuration).
 
-    ⚠️ If this link is configured, the `--config` option in all tutorials `arlas_cli` commands must not be specified.
+!!! warning 
+    If `arlas_cli` is configured for ARLAS Cloud, the `--config` option in all tutorials `arlas_cli` commands must not be specified.
 
-Check [here](https://pypi.org/project/arlas-cli/#history) the available version and here the [full documentation](https://gisaia.github.io/arlas_cli/).
+For more details, check the [full arlas_cli documentation](https://gisaia.github.io/arlas_cli/).
 
 ## Install and run ARLAS Exploration Stack
 
@@ -115,7 +116,7 @@ cd ARLAS-Exploration-stack
 
 More details about deployment can be found on [ARLAS Stack Exploration project](https://github.com/gisaia/ARLAS-Exploration-stack).
 
-## Now you can play ...
+## Now you can play
 
 For the different examples, you will see how to:
 
@@ -127,6 +128,4 @@ For the different examples, you will see how to:
 
 You can now choose an example of ARLAS usage on spatio-temporal data:
 
-- [Météo France Climatological data](../../resources/meteo_france/README.md)
 - [AIS Vessels location](tutorials/ais/ais_tutorial.md)
-- [Sun potential of buildings roofs](../../resources/sunny_osm/README.md)

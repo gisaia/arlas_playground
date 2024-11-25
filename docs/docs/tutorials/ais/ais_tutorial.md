@@ -1,4 +1,4 @@
-# ARLAS-stack-ais-tutorial
+# Vessel location (AIS) Tutorial
 
 ## About this tutorial
 ### What will you learn ?
@@ -10,15 +10,7 @@ With this tutorial, you'll be able to:
 
 ### What will you need ?
 
-You will need :
-
-- Python 3.10 (see [Get Started](../../get_started.md#python-virtual-environment))
-- ARLAS Exploration stack up and running [locally](../../get_started.md#install-and-run-arlas-exploration-stack)  (Not necessary if you have your own ARLAS instance such as ARLAS CLoud)
-
-- `arlas_cli` configured to target your ARLAS deployment (see [Get Started](../../get_started.md#install-arlas_cli))
-
-!!! warning
-    If you are using ARLAS Cloud, the `--config` option in all tutorial `arlas_cli` commands must not be specified.
+Follow the [Get Started](../../get_started.md) guide to configure your environment.
 
 ### What will you get ?
 
@@ -30,7 +22,9 @@ An ARLAS dashboard with map layers and graphs to explore a sample of AIS data.
  Exploration app created in this tutorial
 </p>
 
-## AIS data
+## The tutorial data
+
+### AIS data
 
 Let's explore some boats position data, provided by __Danish Maritime Authority__ on their [website](https://www.dma.dk/SikkerhedTilSoes/Sejladsinformation/AIS/Sider/default.aspx).
 
@@ -56,7 +50,7 @@ A line of the csv file looks like:
 |---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 |20/11/2019 06:45:09|Class A|240305000|55.931783|17.345067|Under way using engine|0.0|10.5|257.0|259|9288710|SYEF|DELTA CAPTAIN|Tanker|""|44|249|GPS|10.0|FOR ORDERS|22/11/2019 06:00:00|AIS|216|33|22|22|
 
-## Ingest AIS data in ARLAS
+### __Prepare AIS data__
 
 We will explore this data using ARLAS.
 
@@ -65,8 +59,6 @@ We will explore this data using ARLAS.
 ```shell
 ls -l ./tutorials/ais/data/ais_data_sample.csv
 ```
-
-### __Prepare AIS data__
 
 Apply basic transformations with a python scripts before ingesting the data. Run in a terminal at the project root:
 
@@ -78,6 +70,9 @@ Here the script create the points wkt geometry and a unique identifier and write
 
 !!! tip
     The script can be edited to enrich the data before the exploration.
+
+
+## Ingest AIS data in ARLAS
 
 ### __Index AIS data in Elasticsearch__
 

@@ -31,7 +31,6 @@ nav:
 - Getting started: get_started.md
 - Tutorials:
   - Vessel location (AIS): tutorials/ais/ais_tutorial.md
-  - Buildings Solar Potential: ../../sunny_osm/README.md
 - Concepts: concepts.md
 
 plugins:
