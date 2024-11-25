@@ -1,3 +1,4 @@
+termynal
 pandas
 geopandas
 jupyter
