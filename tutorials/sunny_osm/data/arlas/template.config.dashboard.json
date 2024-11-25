@@ -1,0 +1,1830 @@
+{
+    "arlas": {
+        "web": {
+            "contributors": [
+                {
+                    "type": "map",
+                    "identifier": "tuto_sunny_osm",
+                    "name": "Map tuto_sunny_osm",
+                    "collection": "tuto_sunny_osm",
+                    "geo_query_op": "Intersects",
+                    "geo_query_field": "geometry",
+                    "icon": "check_box_outline_blank",
+                    "layers_sources": [
+                        {
+                            "id": "arlas_id:Photovoltaic production (kWh/kWp * m²):1730974820867",
+                            "name": "Photovoltaic production (kWh/kWp * m²)",
+                            "source": "feature-metric-osm_id-geometry--14-tuto_sunny_osm",
+                            "minzoom": 12,
+                            "maxzoom": 23,
+                            "include_fields": [],
+                            "short_form_fields": [],
+                            "colors_from_fields": [
+                                "type"
+                            ],
+                            "provided_fields": [],
+                            "normalization_fields": [],
+                            "metrics": [
+                                {
+                                    "field": "monthly_production_surface",
+                                    "metric": "sum",
+                                    "normalize": true
+                                }
+                            ],
+                            "maxfeatures": 10000,
+                            "raw_geometry": {
+                                "geometry": "geometry",
+                                "sort": ""
+                            },
+                            "geometry_id": "osm_id",
+                            "network_fetching_level": 14
+                        },
+                        {
+                            "id": "arlas_id:Max photovoltaic production (kWh/kWp * m²):1732545679474",
+                            "name": "Max photovoltaic production (kWh/kWp * m²)",
+                            "source": "cluster-centroid-Fine-tile-cell-tuto_sunny_osm",
+                            "minzoom": 0,
+                            "maxzoom": 12,
+                            "include_fields": [],
+                            "short_form_fields": [],
+                            "colors_from_fields": [],
+                            "provided_fields": [],
+                            "normalization_fields": [],
+                            "metrics": [
+                                {
+                                    "field": "monthly_production_surface",
+                                    "metric": "max",
+                                    "normalize": true
+                                }
+                            ],
+                            "agg_geo_field": "centroid",
+                            "aggType": "tile",
+                            "granularity": "Fine",
+                            "minfeatures": 0,
+                            "aggregated_geometry": "cell"
+                        },
+                        {
+                            "id": "arlas_id:Max photovoltaic production (kWh/kWp * m²):1732545688487",
+                            "name": "Max photovoltaic production (kWh/kWp * m²)",
+                            "source": "cluster-centroid-Fine-tile-cell-tuto_sunny_osm",
+                            "minzoom": 12,
+                            "maxzoom": 23,
+                            "include_fields": [],
+                            "short_form_fields": [],
+                            "colors_from_fields": [],
+                            "provided_fields": [],
+                            "normalization_fields": [],
+                            "metrics": [
+                                {
+                                    "field": "monthly_production_surface",
+                                    "metric": "max",
+                                    "normalize": true
+                                }
+                            ],
+                            "agg_geo_field": "centroid",
+                            "aggType": "tile",
+                            "granularity": "Fine",
+                            "minfeatures": 10000,
+                            "aggregated_geometry": "cell"
+                        },
+                        {
+                            "id": "arlas_id:Photovoltaic production:1729155439979",
+                            "name": "Photovoltaic production",
+                            "source": "feature-metric-osm_id-centroid--11-tuto_sunny_osm",
+                            "minzoom": 16,
+                            "maxzoom": 23,
+                            "include_fields": [],
+                            "short_form_fields": [],
+                            "colors_from_fields": [],
+                            "provided_fields": [],
+                            "normalization_fields": [],
+                            "metrics": [
+                                {
+                                    "field": "monthly_production_surface",
+                                    "metric": "sum",
+                                    "normalize": false,
+                                    "short_format": true
+                                }
+                            ],
+                            "maxfeatures": 10000,
+                            "raw_geometry": {
+                                "geometry": "centroid",
+                                "sort": ""
+                            },
+                            "geometry_id": "osm_id",
+                            "network_fetching_level": 11
+                        },
+                        {
+                            "id": "arlas_id:Phtovoltaic potential:1729155501988",
+                            "name": "Phtovoltaic potential",
+                            "source": "feature-centroid-wide-tuto_sunny_osm",
+                            "minzoom": 12,
+                            "maxzoom": 23,
+                            "include_fields": [],
+                            "short_form_fields": [],
+                            "colors_from_fields": [],
+                            "provided_fields": [],
+                            "normalization_fields": [
+                                {
+                                    "on": "monthly_potential"
+                                }
+                            ],
+                            "metrics": [],
+                            "maxfeatures": 10000,
+                            "returned_geometry": "centroid",
+                            "render_mode": "wide"
+                        }
+                    ]
+                },
+                {
+                    "type": "search",
+                    "identifier": "search_tuto_sunny_osm_internal.fulltext_internal.autocomplete",
+                    "collection": "tuto_sunny_osm",
+                    "search_field": "internal.fulltext",
+                    "name": "Search...",
+                    "icon": "search",
+                    "autocomplete_field": "internal.autocomplete",
+                    "autocomplete_size": 10
+                },
+                {
+                    "type": "histogram",
+                    "identifier": "timeline",
+                    "collection": "tuto_sunny_osm",
+                    "name": "Timeline",
+                    "icon": "watch_later",
+                    "isOneDimension": false,
+                    "useUtc": true,
+                    "aggregationmodels": [
+                        {
+                            "type": "datehistogram",
+                            "field": "time",
+                            "interval": {
+                                "value": 1,
+                                "unit": "month"
+                            }
+                        }
+                    ],
+                    "additionalCollections": []
+                },
+                {
+                    "identifier": "tuto_sunny_osm-unique_id-100-Type-Month-Area -Production-Localisation-Building info-Potential-",
+                    "name": "Details",
+                    "title": "Details",
+                    "collection": "tuto_sunny_osm",
+                    "icon": "table_chart",
+                    "type": "resultlist",
+                    "search_size": 100,
+                    "fieldsConfiguration": {
+                        "idFieldName": "unique_id",
+                        "titleFieldNames": [
+                            {
+                                "fieldPath": "",
+                                "process": ""
+                            }
+                        ],
+                        "tooltipFieldNames": [
+                            {
+                                "fieldPath": "",
+                                "process": ""
+                            }
+                        ],
+                        "iconColorFieldName": "",
+                        "useHttpQuicklooks": false,
+                        "useHttpThumbnails": false,
+                        "urlImageTemplates": []
+                    },
+                    "columns": [
+                        {
+                            "columnName": "Type",
+                            "fieldName": "type",
+                            "dataType": "",
+                            "process": "",
+                            "useColorService": true,
+                            "sort": ""
+                        },
+                        {
+                            "columnName": "Month",
+                            "fieldName": "month",
+                            "dataType": "",
+                            "process": "",
+                            "useColorService": false,
+                            "sort": ""
+                        },
+                        {
+                            "columnName": "Area ",
+                            "fieldName": "area",
+                            "dataType": "m²",
+                            "process": "Math.round(result)",
+                            "useColorService": false,
+                            "sort": ""
+                        },
+                        {
+                            "columnName": "Production",
+                            "fieldName": "monthly_production_surface",
+                            "dataType": "kWh / (kWp/m²)",
+                            "process": "Math.round(result)",
+                            "useColorService": false,
+                            "sort": ""
+                        }
+                    ],
+                    "details": [
+                        {
+                            "name": "Localisation",
+                            "order": 1,
+                            "fields": [
+                                {
+                                    "path": "commune",
+                                    "label": "Commune",
+                                    "process": ""
+                                },
+                                {
+                                    "path": "department",
+                                    "label": "Department",
+                                    "process": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Building info",
+                            "order": 2,
+                            "fields": [
+                                {
+                                    "path": "type",
+                                    "label": "Type",
+                                    "process": ""
+                                },
+                                {
+                                    "path": "area",
+                                    "label": "Area",
+                                    "process": "Math.round(result)"
+                                },
+                                {
+                                    "path": "name",
+                                    "label": "Name",
+                                    "process": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Potential",
+                            "order": 3,
+                            "fields": [
+                                {
+                                    "path": "month",
+                                    "label": "Month",
+                                    "process": ""
+                                },
+                                {
+                                    "path": "monthly_potential",
+                                    "label": "Monthly potential",
+                                    "process": "Math.round(result, 3) + ' kWh per kWp'"
+                                },
+                                {
+                                    "path": "monthly_production_surface",
+                                    "label": "Monthly production per kWp/m²",
+                                    "process": "Math.round(result, 3)"
+                                }
+                            ]
+                        }
+                    ],
+                    "includeMetadata": []
+                },
+                {
+                    "identifier": "tuto_sunny_osm-osm_id-cardinality-0",
+                    "name": "Buildings",
+                    "title": "Buildings",
+                    "collection": "tuto_sunny_osm",
+                    "icon": "functions",
+                    "type": "metric",
+                    "function": "m[0]",
+                    "metrics": [
+                        {
+                            "field": "osm_id",
+                            "metric": "cardinality",
+                            "filter": {
+                                "righthand": false
+                            }
+                        }
+                    ]
+                },
+                {
+                    "identifier": "tuto_sunny_osm-m[0] * 0.22monthly_production_surface-avg-0",
+                    "name": "Average",
+                    "title": "Average",
+                    "collection": "tuto_sunny_osm",
+                    "icon": "functions",
+                    "type": "metric",
+                    "function": "m[0] * 0.22",
+                    "metrics": [
+                        {
+                            "field": "monthly_production_surface",
+                            "metric": "avg",
+                            "filter": {
+                                "righthand": false
+                            }
+                        }
+                    ]
+                },
+                {
+                    "identifier": "tuto_sunny_osm-monthly_potential-sum-0",
+                    "name": "Potential",
+                    "title": "Potential",
+                    "collection": "tuto_sunny_osm",
+                    "icon": "functions",
+                    "type": "metric",
+                    "function": "m[0]",
+                    "metrics": [
+                        {
+                            "field": "monthly_potential",
+                            "metric": "sum",
+                            "filter": {
+                                "righthand": false
+                            }
+                        }
+                    ]
+                },
+                {
+                    "identifier": "tuto_sunny_osm-m[0] * 0.22 * 1000monthly_production_surface-sum-0",
+                    "name": "Production",
+                    "title": "Production",
+                    "collection": "tuto_sunny_osm",
+                    "icon": "functions",
+                    "type": "metric",
+                    "function": "m[0] * 0.22 * 1000",
+                    "metrics": [
+                        {
+                            "field": "monthly_production_surface",
+                            "metric": "sum",
+                            "filter": {
+                                "righthand": false
+                            }
+                        }
+                    ]
+                },
+                {
+                    "identifier": "tuto_sunny_osm-area-sum-0",
+                    "name": "Area",
+                    "title": "Area",
+                    "collection": "tuto_sunny_osm",
+                    "icon": "functions",
+                    "type": "metric",
+                    "function": "m[0]",
+                    "metrics": [
+                        {
+                            "field": "area",
+                            "metric": "sum",
+                            "filter": {
+                                "righthand": false
+                            }
+                        }
+                    ]
+                },
+                {
+                    "identifier": "tuto_sunny_osm-monthly_potential-numeric-bucket-Count--50",
+                    "name": "Sun Potential",
+                    "title": "Sun Potential",
+                    "collection": "tuto_sunny_osm",
+                    "icon": "sunny",
+                    "charttype": "bars",
+                    "isOneDimension": false,
+                    "type": "histogram",
+                    "numberOfBuckets": 50,
+                    "jsonpath": "$.count",
+                    "aggregationmodels": [
+                        {
+                            "type": "histogram",
+                            "field": "monthly_potential"
+                        }
+                    ]
+                },
+                {
+                    "identifier": "tuto_sunny_osm-time-time-interval-AVG-monthly_production_surface-1-month",
+                    "name": "Average production over time",
+                    "title": "Average production over time",
+                    "collection": "tuto_sunny_osm",
+                    "icon": "sunny",
+                    "charttype": "curve",
+                    "isOneDimension": false,
+                    "type": "histogram",
+                    "jsonpath": "$.metrics[0].value",
+                    "useUtc": true,
+                    "aggregationmodels": [
+                        {
+                            "type": "datehistogram",
+                            "field": "time",
+                            "interval": {
+                                "value": 1,
+                                "unit": "month"
+                            },
+                            "metrics": [
+                                {
+                                    "collect_fct": "avg",
+                                    "collect_field": "monthly_production_surface"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "identifier": "tuto_sunny_osm-month-12-AVG-monthly_potential-asc-field",
+                    "name": "Month",
+                    "title": "Month",
+                    "collection": "tuto_sunny_osm",
+                    "icon": "calendar_month",
+                    "type": "tree",
+                    "jsonpath": "$.metrics[0].value",
+                    "aggregationmodels": [
+                        {
+                            "type": "term",
+                            "field": "month",
+                            "size": 12,
+                            "order": "asc",
+                            "on": "field",
+                            "metrics": [
+                                {
+                                    "collect_fct": "avg",
+                                    "collect_field": "monthly_potential"
+                                }
+                            ]
+                        }
+                    ],
+                    "filterOperator": "Eq",
+                    "allowOperatorChange": true
+                },
+                {
+                    "identifier": "tuto_sunny_osm-type-500-Count-desc-count",
+                    "name": "Type",
+                    "title": "Type",
+                    "collection": "tuto_sunny_osm",
+                    "icon": "store_mall_directory",
+                    "type": "tree",
+                    "jsonpath": "$.count",
+                    "aggregationmodels": [
+                        {
+                            "type": "term",
+                            "field": "type",
+                            "size": 500,
+                            "order": "desc",
+                            "on": "count"
+                        }
+                    ],
+                    "filterOperator": "Eq",
+                    "allowOperatorChange": true
+                },
+                {
+                    "identifier": "tuto_sunny_osm-type-30-",
+                    "name": "Type",
+                    "title": "Type",
+                    "collection": "tuto_sunny_osm",
+                    "icon": "store_mall_directory",
+                    "type": "tree",
+                    "aggregationmodels": [
+                        {
+                            "field": "type",
+                            "size": 30,
+                            "type": "term"
+                        }
+                    ]
+                },
+                {
+                    "identifier": "tuto_sunny_osm-region-500-Count-desc-count",
+                    "name": "Region",
+                    "title": "Region",
+                    "collection": "tuto_sunny_osm",
+                    "icon": "location_pin",
+                    "type": "tree",
+                    "jsonpath": "$.count",
+                    "aggregationmodels": [
+                        {
+                            "type": "term",
+                            "field": "region",
+                            "size": 500,
+                            "order": "desc",
+                            "on": "count"
+                        }
+                    ],
+                    "filterOperator": "Eq",
+                    "allowOperatorChange": true
+                },
+                {
+                    "identifier": "tuto_sunny_osm-department-500-Count-desc-count",
+                    "name": "Department",
+                    "title": "Department",
+                    "collection": "tuto_sunny_osm",
+                    "icon": "location_pin",
+                    "type": "tree",
+                    "jsonpath": "$.count",
+                    "aggregationmodels": [
+                        {
+                            "type": "term",
+                            "field": "department",
+                            "size": 500,
+                            "order": "desc",
+                            "on": "count"
+                        }
+                    ],
+                    "filterOperator": "Eq",
+                    "allowOperatorChange": true
+                },
+                {
+                    "identifier": "tuto_sunny_osm-commune-10-Count-desc-count",
+                    "name": "Commune",
+                    "title": "Commune",
+                    "collection": "tuto_sunny_osm",
+                    "icon": "location_pin",
+                    "type": "tree",
+                    "jsonpath": "$.count",
+                    "aggregationmodels": [
+                        {
+                            "type": "term",
+                            "field": "commune",
+                            "size": 10,
+                            "order": "desc",
+                            "on": "count"
+                        }
+                    ],
+                    "filterOperator": "Eq",
+                    "allowOperatorChange": true
+                },
+                {
+                    "identifier": "tuto_sunny_osm-commune-count-undefined-sum-monthly_production_surface",
+                    "name": "Commune",
+                    "title": "Commune",
+                    "icon": "location_pin",
+                    "type": "metricstable",
+                    "numberOfBuckets": 10,
+                    "sort": {
+                        "collection": "tuto_sunny_osm",
+                        "termfield": "commune",
+                        "order": "desc",
+                        "on": "count"
+                    },
+                    "configuration": [
+                        {
+                            "termfield": "commune",
+                            "collection": "tuto_sunny_osm",
+                            "metrics": [
+                                {
+                                    "metric": "count"
+                                },
+                                {
+                                    "metric": "sum",
+                                    "field": "monthly_production_surface"
+                                }
+                            ]
+                        }
+                    ]
+                },
+                {
+                    "identifier": "tuto_sunny_osm-area-numeric-bucket-Count--50",
+                    "name": "Building area",
+                    "title": "Building area",
+                    "collection": "tuto_sunny_osm",
+                    "icon": "crop",
+                    "charttype": "bars",
+                    "isOneDimension": false,
+                    "type": "histogram",
+                    "numberOfBuckets": 50,
+                    "jsonpath": "$.count",
+                    "aggregationmodels": [
+                        {
+                            "type": "histogram",
+                            "field": "area"
+                        }
+                    ]
+                }
+            ],
+            "components": {
+                "timeline": {
+                    "contributorId": "timeline",
+                    "componentType": "histogram",
+                    "uuid": "",
+                    "input": {
+                        "id": "histogram-timeline",
+                        "xTicks": 9,
+                        "yTicks": 2,
+                        "xLabels": 9,
+                        "yLabels": 2,
+                        "xUnit": "",
+                        "yUnit": "",
+                        "chartXLabel": "",
+                        "shortYLabels": false,
+                        "chartTitle": "Timeline",
+                        "customizedCssClass": "arlas-timeline",
+                        "multiselectable": false,
+                        "brushHandlesHeightWeight": 0.8,
+                        "dataType": "time",
+                        "isHistogramSelectable": true,
+                        "ticksDateFormat": "%b %d %Y  %H:%M",
+                        "chartType": "bars",
+                        "chartHeight": 128,
+                        "chartWidth": null,
+                        "xAxisPosition": "bottom",
+                        "yAxisStartsFromZero": true,
+                        "descriptionPosition": "top",
+                        "showXTicks": true,
+                        "showYTicks": true,
+                        "showXLabels": true,
+                        "showYLabels": true,
+                        "showHorizontalLines": false,
+                        "isSmoothedCurve": true,
+                        "barWeight": 0.8,
+                        "topOffsetRemoveInterval": 10
+                    }
+                },
+                "mapgl": {
+                    "allowMapExtend": true,
+                    "nbVerticesLimit": 100,
+                    "input": {
+                        "defaultBasemapStyle": {
+                            "name": "Streets-light",
+                            "styleFile": "https://api.maptiler.com/maps/208a41eb-368f-4003-8e3c-2dba0d90b3cb/style.json?key=E7xmD2y9rRj1z4TcNnj9",
+                            "image": "https://api.maptiler.com/maps/208a41eb-368f-4003-8e3c-2dba0d90b3cb/0/0/0.png?key=E7xmD2y9rRj1z4TcNnj9",
+                            "type": null
+                        },
+                        "basemapStyles": [
+                            {
+                                "name": "Basic",
+                                "styleFile": "https://api.maptiler.com/maps/basic/style.json?key=E7xmD2y9rRj1z4TcNnj9",
+                                "image": "https://cloud.maptiler.com/static/img/maps/basic.png",
+                                "type": null
+                            },
+                            {
+                                "name": "Satellite Hybrid",
+                                "styleFile": "https://api.maptiler.com/maps/hybrid/style.json?key=E7xmD2y9rRj1z4TcNnj9",
+                                "image": "https://cloud.maptiler.com/static/img/maps/hybrid.png",
+                                "type": null
+                            },
+                            {
+                                "name": "Streets-light",
+                                "styleFile": "https://api.maptiler.com/maps/208a41eb-368f-4003-8e3c-2dba0d90b3cb/style.json?key=E7xmD2y9rRj1z4TcNnj9",
+                                "image": "https://api.maptiler.com/maps/208a41eb-368f-4003-8e3c-2dba0d90b3cb/0/0/0.png?key=E7xmD2y9rRj1z4TcNnj9",
+                                "type": null
+                            }
+                        ],
+                        "margePanForLoad": 5,
+                        "margePanForTest": 5,
+                        "initZoom": 7,
+                        "initCenter": [
+                            3.5,
+                            44.6
+                        ],
+                        "displayScale": true,
+                        "displayCurrentCoordinates": false,
+                        "idFeatureField": "deprecated, to be removed",
+                        "mapLayers": {
+                            "layers": [
+                                {
+                                    "id": "arlas_id:Photovoltaic production (kWh/kWp * m²):1730974820867",
+                                    "type": "fill",
+                                    "source": "feature-metric-osm_id-geometry--14-tuto_sunny_osm",
+                                    "minzoom": 12,
+                                    "maxzoom": 23,
+                                    "layout": {
+                                        "visibility": "visible"
+                                    },
+                                    "paint": {
+                                        "fill-opacity": 1,
+                                        "fill-color": [
+                                            "interpolate",
+                                            [
+                                                "linear"
+                                            ],
+                                            [
+                                                "get",
+                                                "monthly_production_surface_sum_:normalized"
+                                            ],
+                                            0,
+                                            "#53d9e8",
+                                            0.2,
+                                            "#29AFFB",
+                                            0.4,
+                                            "#2874FA",
+                                            0.6,
+                                            "#3b69fa",
+                                            0.8,
+                                            "#eb79fc",
+                                            1,
+                                            "#ef586c"
+                                        ]
+                                    },
+                                    "metadata": {
+                                        "collection": "tuto_sunny_osm",
+                                        "collection-display-name": "Sunny OSM",
+                                        "stroke": {
+                                            "color": [
+                                                "get",
+                                                "type_arlas__color"
+                                            ],
+                                            "width": 1.5,
+                                            "opacity": 1
+                                        }
+                                    },
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all",
+                                            [
+                                                "<",
+                                                [
+                                                    "get",
+                                                    "monthly_production_surface_sum_:normalized"
+                                                ],
+                                                1.7976931348623157e+308
+                                            ],
+                                            [
+                                                ">",
+                                                [
+                                                    "get",
+                                                    "monthly_production_surface_sum_:normalized"
+                                                ],
+                                                -1.7976931348623157e+308
+                                            ]
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "id": "arlas_id:Max photovoltaic production (kWh/kWp * m²):1732545679474",
+                                    "type": "fill",
+                                    "source": "cluster-centroid-Fine-tile-cell-tuto_sunny_osm",
+                                    "minzoom": 0,
+                                    "maxzoom": 12,
+                                    "layout": {
+                                        "visibility": "visible"
+                                    },
+                                    "paint": {
+                                        "fill-opacity": 0.5,
+                                        "fill-color": [
+                                            "interpolate",
+                                            [
+                                                "linear"
+                                            ],
+                                            [
+                                                "get",
+                                                "monthly_production_surface_max_:normalized"
+                                            ],
+                                            0,
+                                            "#53d9e8",
+                                            0.2,
+                                            "#29AFFB",
+                                            0.4,
+                                            "#2874FA",
+                                            0.6,
+                                            "#3b69fa",
+                                            0.8,
+                                            "#eb79fc",
+                                            1,
+                                            "#ef586c"
+                                        ]
+                                    },
+                                    "metadata": {
+                                        "collection": "tuto_sunny_osm",
+                                        "collection-display-name": "Sunny OSM",
+                                        "stroke": {
+                                            "color": "#fff",
+                                            "width": 0,
+                                            "opacity": 0
+                                        }
+                                    },
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all",
+                                            [
+                                                "<",
+                                                [
+                                                    "get",
+                                                    "monthly_production_surface_max_:normalized"
+                                                ],
+                                                1.7976931348623157e+308
+                                            ],
+                                            [
+                                                ">",
+                                                [
+                                                    "get",
+                                                    "monthly_production_surface_max_:normalized"
+                                                ],
+                                                -1.7976931348623157e+308
+                                            ]
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "id": "arlas_id:Max photovoltaic production (kWh/kWp * m²):1732545688487",
+                                    "type": "fill",
+                                    "source": "cluster-centroid-Fine-tile-cell-tuto_sunny_osm",
+                                    "minzoom": 12,
+                                    "maxzoom": 23,
+                                    "layout": {
+                                        "visibility": "visible"
+                                    },
+                                    "paint": {
+                                        "fill-opacity": 0.5,
+                                        "fill-color": [
+                                            "interpolate",
+                                            [
+                                                "linear"
+                                            ],
+                                            [
+                                                "get",
+                                                "monthly_production_surface_max_:normalized"
+                                            ],
+                                            0,
+                                            "#53d9e8",
+                                            0.2,
+                                            "#29AFFB",
+                                            0.4,
+                                            "#2874FA",
+                                            0.6,
+                                            "#3b69fa",
+                                            0.8,
+                                            "#eb79fc",
+                                            1,
+                                            "#ef586c"
+                                        ]
+                                    },
+                                    "metadata": {
+                                        "collection": "tuto_sunny_osm",
+                                        "collection-display-name": "Sunny OSM",
+                                        "stroke": {
+                                            "color": "#fff",
+                                            "width": 0,
+                                            "opacity": 0
+                                        }
+                                    },
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all",
+                                            [
+                                                "<",
+                                                [
+                                                    "get",
+                                                    "monthly_production_surface_max_:normalized"
+                                                ],
+                                                1.7976931348623157e+308
+                                            ],
+                                            [
+                                                ">",
+                                                [
+                                                    "get",
+                                                    "monthly_production_surface_max_:normalized"
+                                                ],
+                                                -1.7976931348623157e+308
+                                            ]
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "id": "arlas_id:Photovoltaic production:1729155439979",
+                                    "type": "symbol",
+                                    "source": "feature-metric-osm_id-centroid--11-tuto_sunny_osm",
+                                    "minzoom": 16,
+                                    "maxzoom": 23,
+                                    "layout": {
+                                        "visibility": "visible",
+                                        "text-field": [
+                                            "get",
+                                            "monthly_production_surface_sum_:_arlas__short_format"
+                                        ],
+                                        "text-font": [
+                                            "Open Sans Bold",
+                                            "Arial Unicode MS Bold"
+                                        ],
+                                        "text-size": 12,
+                                        "text-rotate": 0,
+                                        "text-allow-overlap": false,
+                                        "text-anchor": "center",
+                                        "symbol-placement": "point"
+                                    },
+                                    "paint": {
+                                        "text-color": "#000000",
+                                        "text-opacity": 1,
+                                        "text-halo-color": "#ffffff",
+                                        "text-halo-width": 1.2,
+                                        "text-halo-blur": 0.4,
+                                        "text-translate": [
+                                            0,
+                                            0
+                                        ]
+                                    },
+                                    "metadata": {
+                                        "collection": "tuto_sunny_osm",
+                                        "collection-display-name": "Sunny OSM"
+                                    },
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "id": "arlas_id:Phtovoltaic potential:1729155501988",
+                                    "type": "circle",
+                                    "source": "feature-centroid-wide-tuto_sunny_osm",
+                                    "minzoom": 12,
+                                    "maxzoom": 23,
+                                    "layout": {
+                                        "visibility": "visible"
+                                    },
+                                    "paint": {
+                                        "circle-opacity": 0.2,
+                                        "circle-color": [
+                                            "interpolate",
+                                            [
+                                                "linear"
+                                            ],
+                                            [
+                                                "get",
+                                                "monthly_potential:normalized"
+                                            ],
+                                            0,
+                                            "#cee897",
+                                            0.125,
+                                            "#9dc95b",
+                                            0.25,
+                                            "#4bc71e",
+                                            0.375,
+                                            "#1bc473",
+                                            0.5,
+                                            "#16ccc9",
+                                            0.625,
+                                            "#3619cf",
+                                            0.75,
+                                            "#9317d1",
+                                            0.875,
+                                            "#d11799",
+                                            1,
+                                            "#cf1919"
+                                        ],
+                                        "circle-radius": 10,
+                                        "circle-stroke-width": 0,
+                                        "circle-stroke-color": "#fff",
+                                        "circle-stroke-opacity": 0
+                                    },
+                                    "metadata": {
+                                        "collection": "tuto_sunny_osm",
+                                        "collection-display-name": "Sunny OSM",
+                                        "is-scrollable-layer": false
+                                    },
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all",
+                                            [
+                                                "<",
+                                                [
+                                                    "get",
+                                                    "monthly_potential:normalized"
+                                                ],
+                                                1.7976931348623157e+308
+                                            ],
+                                            [
+                                                ">",
+                                                [
+                                                    "get",
+                                                    "monthly_potential:normalized"
+                                                ],
+                                                -1.7976931348623157e+308
+                                            ]
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "id": "arlas-select-arlas_id:Phtovoltaic potential:1729155501988",
+                                    "type": "circle",
+                                    "source": "feature-centroid-wide-tuto_sunny_osm",
+                                    "minzoom": 12,
+                                    "maxzoom": 23,
+                                    "layout": {
+                                        "visibility": "none"
+                                    },
+                                    "paint": {
+                                        "circle-opacity": 0.2,
+                                        "circle-color": [
+                                            "interpolate",
+                                            [
+                                                "linear"
+                                            ],
+                                            [
+                                                "get",
+                                                "monthly_potential:normalized"
+                                            ],
+                                            0,
+                                            "#cee897",
+                                            0.125,
+                                            "#9dc95b",
+                                            0.25,
+                                            "#4bc71e",
+                                            0.375,
+                                            "#1bc473",
+                                            0.5,
+                                            "#16ccc9",
+                                            0.625,
+                                            "#3619cf",
+                                            0.75,
+                                            "#9317d1",
+                                            0.875,
+                                            "#d11799",
+                                            1,
+                                            "#cf1919"
+                                        ],
+                                        "circle-radius": 10,
+                                        "circle-stroke-width": 12,
+                                        "circle-stroke-color": "#fff",
+                                        "circle-stroke-opacity": 0
+                                    },
+                                    "metadata": {
+                                        "collection": "tuto_sunny_osm",
+                                        "collection-display-name": "Sunny OSM",
+                                        "is-scrollable-layer": false
+                                    },
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all",
+                                            [
+                                                "<",
+                                                [
+                                                    "get",
+                                                    "monthly_potential:normalized"
+                                                ],
+                                                1.7976931348623157e+308
+                                            ],
+                                            [
+                                                ">",
+                                                [
+                                                    "get",
+                                                    "monthly_potential:normalized"
+                                                ],
+                                                -1.7976931348623157e+308
+                                            ]
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "id": "arlas-hover-arlas_id:Phtovoltaic potential:1729155501988",
+                                    "type": "circle",
+                                    "source": "feature-centroid-wide-tuto_sunny_osm",
+                                    "minzoom": 12,
+                                    "maxzoom": 23,
+                                    "layout": {
+                                        "visibility": "none"
+                                    },
+                                    "paint": {
+                                        "circle-opacity": 0.2,
+                                        "circle-color": [
+                                            "interpolate",
+                                            [
+                                                "linear"
+                                            ],
+                                            [
+                                                "get",
+                                                "monthly_potential:normalized"
+                                            ],
+                                            0,
+                                            "#cee897",
+                                            0.125,
+                                            "#9dc95b",
+                                            0.25,
+                                            "#4bc71e",
+                                            0.375,
+                                            "#1bc473",
+                                            0.5,
+                                            "#16ccc9",
+                                            0.625,
+                                            "#3619cf",
+                                            0.75,
+                                            "#9317d1",
+                                            0.875,
+                                            "#d11799",
+                                            1,
+                                            "#cf1919"
+                                        ],
+                                        "circle-radius": 10,
+                                        "circle-stroke-width": 12,
+                                        "circle-stroke-color": "#fff",
+                                        "circle-stroke-opacity": 0
+                                    },
+                                    "metadata": {
+                                        "collection": "tuto_sunny_osm",
+                                        "collection-display-name": "Sunny OSM",
+                                        "is-scrollable-layer": false
+                                    },
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all",
+                                            [
+                                                "<",
+                                                [
+                                                    "get",
+                                                    "monthly_potential:normalized"
+                                                ],
+                                                1.7976931348623157e+308
+                                            ],
+                                            [
+                                                ">",
+                                                [
+                                                    "get",
+                                                    "monthly_potential:normalized"
+                                                ],
+                                                -1.7976931348623157e+308
+                                            ]
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "source": "feature-metric-osm_id-geometry--14-tuto_sunny_osm",
+                                    "id": "arlas-fill_stroke-Photovoltaic production (kWh/kWp * m²):1730974820867",
+                                    "type": "line",
+                                    "maxzoom": 23,
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all",
+                                            [
+                                                "<",
+                                                [
+                                                    "get",
+                                                    "monthly_production_surface_sum_:normalized"
+                                                ],
+                                                1.7976931348623157e+308
+                                            ],
+                                            [
+                                                ">",
+                                                [
+                                                    "get",
+                                                    "monthly_production_surface_sum_:normalized"
+                                                ],
+                                                -1.7976931348623157e+308
+                                            ]
+                                        ]
+                                    ],
+                                    "minzoom": 12,
+                                    "layout": {
+                                        "visibility": "visible"
+                                    },
+                                    "paint": {
+                                        "line-color": [
+                                            "get",
+                                            "type_arlas__color"
+                                        ],
+                                        "line-opacity": 1,
+                                        "line-width": 1.5
+                                    }
+                                },
+                                {
+                                    "source": "cluster-centroid-Fine-tile-cell-tuto_sunny_osm",
+                                    "id": "arlas-fill_stroke-Max photovoltaic production (kWh/kWp * m²):1732545679474",
+                                    "type": "line",
+                                    "maxzoom": 12,
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all",
+                                            [
+                                                "<",
+                                                [
+                                                    "get",
+                                                    "monthly_production_surface_max_:normalized"
+                                                ],
+                                                1.7976931348623157e+308
+                                            ],
+                                            [
+                                                ">",
+                                                [
+                                                    "get",
+                                                    "monthly_production_surface_max_:normalized"
+                                                ],
+                                                -1.7976931348623157e+308
+                                            ]
+                                        ]
+                                    ],
+                                    "minzoom": 0,
+                                    "layout": {
+                                        "visibility": "visible"
+                                    },
+                                    "paint": {
+                                        "line-color": "#fff",
+                                        "line-opacity": 0,
+                                        "line-width": 0
+                                    }
+                                },
+                                {
+                                    "source": "cluster-centroid-Fine-tile-cell-tuto_sunny_osm",
+                                    "id": "arlas-fill_stroke-Max photovoltaic production (kWh/kWp * m²):1732545688487",
+                                    "type": "line",
+                                    "maxzoom": 23,
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all",
+                                            [
+                                                "<",
+                                                [
+                                                    "get",
+                                                    "monthly_production_surface_max_:normalized"
+                                                ],
+                                                1.7976931348623157e+308
+                                            ],
+                                            [
+                                                ">",
+                                                [
+                                                    "get",
+                                                    "monthly_production_surface_max_:normalized"
+                                                ],
+                                                -1.7976931348623157e+308
+                                            ]
+                                        ]
+                                    ],
+                                    "minzoom": 12,
+                                    "layout": {
+                                        "visibility": "visible"
+                                    },
+                                    "paint": {
+                                        "line-color": "#fff",
+                                        "line-opacity": 0,
+                                        "line-width": 0
+                                    }
+                                }
+                            ],
+                            "events": {
+                                "zoomOnClick": [],
+                                "emitOnClick": [],
+                                "onHover": []
+                            },
+                            "externalEventLayers": [
+                                {
+                                    "id": "arlas-hover-arlas_id:Phtovoltaic potential:1729155501988",
+                                    "on": "hover"
+                                },
+                                {
+                                    "id": "arlas-select-arlas_id:Phtovoltaic potential:1729155501988",
+                                    "on": "select"
+                                }
+                            ]
+                        },
+                        "visualisations_sets": [
+                            {
+                                "name": "Detailed information",
+                                "layers": [
+                                    "arlas_id:Photovoltaic production:1729155439979",
+                                    "arlas_id:Phtovoltaic potential:1729155501988"
+                                ],
+                                "enabled": false
+                            },
+                            {
+                                "name": "Photovoltaic production",
+                                "layers": [
+                                    "arlas_id:Photovoltaic production (kWh/kWp * m²):1730974820867",
+                                    "arlas_id:Max photovoltaic production (kWh/kWp * m²):1732545679474",
+                                    "arlas_id:Max photovoltaic production (kWh/kWp * m²):1732545688487"
+                                ],
+                                "enabled": true
+                            }
+                        ]
+                    }
+                },
+                "resultlists": [
+                    {
+                        "componentType": "resultlist",
+                        "input": {
+                            "id": "tuto_sunny_osm-unique_id-100-Type-Month-Area -Production-Localisation-Building info-Potential-",
+                            "tableWidth": 445,
+                            "globalActionsList": [],
+                            "searchSize": 100,
+                            "nLastLines": 3,
+                            "detailedGridHeight": 300,
+                            "nbGridColumns": 3,
+                            "displayFilters": false,
+                            "hasGridMode": false,
+                            "defautMode": "list",
+                            "visualisationLink": "",
+                            "downloadLink": "",
+                            "isBodyHidden": false,
+                            "isGeoSortActived": false,
+                            "isAutoGeoSortActived": null,
+                            "selectedItemsEvent": null,
+                            "consultedItemEvent": null,
+                            "actionOnItemEvent": null,
+                            "globalActionEvent": 300,
+                            "useColorService": true,
+                            "cellBackgroundStyle": "filled",
+                            "options": {
+                                "showActionsOnhover": "true",
+                                "showDetailIconName": "keyboard_arrow_down",
+                                "hideDetailIconName": "keyboard_arrow_up",
+                                "icon": "short_text",
+                                "showName": true,
+                                "showIcon": true
+                            }
+                        },
+                        "contributorId": "tuto_sunny_osm-unique_id-100-Type-Month-Area -Production-Localisation-Building info-Potential-",
+                        "uuid": "188b199c-7b90-4c30-ba1a-62beb5749584",
+                        "usage": "analytics"
+                    }
+                ],
+                "share": {
+                    "geojson": {
+                        "max_for_feature": 5000,
+                        "max_for_topology": 5000,
+                        "sort_excluded_type": [
+                            "TEXT",
+                            "GEO_POINT"
+                        ]
+                    }
+                },
+                "download": {}
+            },
+            "analytics": [
+                {
+                    "groupId": "Photovoltaic potential-0",
+                    "title": "General statistics",
+                    "tab": "Photovoltaic potential",
+                    "icon": "functions",
+                    "components": [
+                        {
+                            "componentType": "metric",
+                            "input": {
+                                "customizedCssClass": "power",
+                                "shortValue": false,
+                                "valuePrecision": 1,
+                                "chartWidth": 217,
+                                "afterValue": "buildings"
+                            },
+                            "contributorId": "tuto_sunny_osm-osm_id-cardinality-0",
+                            "uuid": "a675f586-ab65-46ac-85e2-14635c088110",
+                            "usage": "analytics"
+                        },
+                        {
+                            "componentType": "metric",
+                            "input": {
+                                "customizedCssClass": "power",
+                                "shortValue": false,
+                                "valuePrecision": 0,
+                                "chartWidth": 217,
+                                "beforeValue": "Average production per building",
+                                "afterValue": "kWh"
+                            },
+                            "contributorId": "tuto_sunny_osm-m[0] * 0.22monthly_production_surface-avg-0",
+                            "uuid": "5436606f-8a34-4088-8ff1-1071ef6ef219",
+                            "usage": "analytics"
+                        },
+                        {
+                            "componentType": "metric",
+                            "input": {
+                                "customizedCssClass": "power",
+                                "shortValue": true,
+                                "valuePrecision": 1,
+                                "chartWidth": 217,
+                                "beforeValue": "Potential",
+                                "afterValue": "kWh/kWp"
+                            },
+                            "contributorId": "tuto_sunny_osm-monthly_potential-sum-0",
+                            "uuid": "597ba86d-04a6-4b50-b6e5-f36550266364",
+                            "usage": "analytics"
+                        },
+                        {
+                            "componentType": "metric",
+                            "input": {
+                                "customizedCssClass": "power",
+                                "shortValue": true,
+                                "valuePrecision": 2,
+                                "chartWidth": 217,
+                                "beforeValue": "Production with 220 kWp/m²",
+                                "afterValue": "Wh"
+                            },
+                            "contributorId": "tuto_sunny_osm-m[0] * 0.22 * 1000monthly_production_surface-sum-0",
+                            "uuid": "42ef1209-5408-4d58-8f2c-4b7ef1310108",
+                            "usage": "analytics"
+                        },
+                        {
+                            "componentType": "metric",
+                            "input": {
+                                "customizedCssClass": "power",
+                                "shortValue": true,
+                                "valuePrecision": 3,
+                                "chartWidth": 217,
+                                "beforeValue": "Total surface",
+                                "afterValue": "m²"
+                            },
+                            "contributorId": "tuto_sunny_osm-area-sum-0",
+                            "uuid": "0e10697c-111e-406f-8fe6-c908ea107840",
+                            "usage": "analytics"
+                        }
+                    ]
+                },
+                {
+                    "groupId": "Photovoltaic potential-1",
+                    "title": "Sun Potential",
+                    "tab": "Photovoltaic potential",
+                    "icon": "sunny",
+                    "components": [
+                        {
+                            "input": {
+                                "id": "tuto_sunny_osm-monthly_potential-numeric-bucket-Count--50",
+                                "isHistogramSelectable": true,
+                                "multiselectable": true,
+                                "topOffsetRemoveInterval": 40,
+                                "leftOffsetRemoveInterval": 18,
+                                "brushHandlesHeightWeight": 0.8,
+                                "yAxisStartsFromZero": true,
+                                "chartType": "bars",
+                                "chartTitle": "Sun Potential",
+                                "chartHeight": 100,
+                                "chartWidth": 445,
+                                "xAxisPosition": "bottom",
+                                "descriptionPosition": "bottom",
+                                "xTicks": 4,
+                                "yTicks": 1,
+                                "xLabels": 4,
+                                "yLabels": 4,
+                                "xUnit": "",
+                                "yUnit": "monthly estimates",
+                                "chartXLabel": "",
+                                "chartYLabel": "",
+                                "shortYLabels": false,
+                                "showXTicks": true,
+                                "showYTicks": true,
+                                "showXLabels": true,
+                                "showYLabels": true,
+                                "showHorizontalLines": true,
+                                "barWeight": 0.8,
+                                "dataType": "numeric",
+                                "customizedCssClass": "arlas-histogram-analytics",
+                                "isSmoothedCurve": false
+                            },
+                            "componentType": "histogram",
+                            "showExportCsv": "",
+                            "contributorId": "tuto_sunny_osm-monthly_potential-numeric-bucket-Count--50",
+                            "uuid": "ee99666e-d6d1-407e-9742-8a0d7dbbd492",
+                            "usage": "analytics"
+                        },
+                        {
+                            "input": {
+                                "id": "tuto_sunny_osm-time-time-interval-AVG-monthly_production_surface-1-month",
+                                "isHistogramSelectable": true,
+                                "multiselectable": true,
+                                "topOffsetRemoveInterval": 40,
+                                "leftOffsetRemoveInterval": 18,
+                                "brushHandlesHeightWeight": 0.8,
+                                "yAxisStartsFromZero": true,
+                                "chartType": "curve",
+                                "chartTitle": "Average production over time",
+                                "chartHeight": 100,
+                                "chartWidth": 445,
+                                "xAxisPosition": "bottom",
+                                "descriptionPosition": "bottom",
+                                "xTicks": 4,
+                                "yTicks": 1,
+                                "xLabels": 4,
+                                "yLabels": 4,
+                                "xUnit": "",
+                                "yUnit": "kWh / kWp * m²",
+                                "chartXLabel": "",
+                                "chartYLabel": "",
+                                "shortYLabels": false,
+                                "showXTicks": true,
+                                "showYTicks": true,
+                                "showXLabels": true,
+                                "showYLabels": true,
+                                "showHorizontalLines": true,
+                                "barWeight": 0.8,
+                                "dataType": "time",
+                                "ticksDateFormat": "%b %d %Y  %H:%M",
+                                "customizedCssClass": "arlas-timeline-analytics",
+                                "isSmoothedCurve": false
+                            },
+                            "componentType": "histogram",
+                            "showExportCsv": "",
+                            "contributorId": "tuto_sunny_osm-time-time-interval-AVG-monthly_production_surface-1-month",
+                            "uuid": "d1709628-4ea9-4d42-87f2-95f674c9d038",
+                            "usage": "analytics"
+                        }
+                    ]
+                },
+                {
+                    "groupId": "Photovoltaic potential-2",
+                    "title": "Month",
+                    "tab": "Photovoltaic potential",
+                    "icon": "calendar_month",
+                    "components": [
+                        {
+                            "showExportCsv": true,
+                            "componentType": "powerbars",
+                            "input": {
+                                "chartTitle": "Month",
+                                "powerbarTitle": "Month",
+                                "displayFilter": true,
+                                "scrollable": true,
+                                "filterOperator": {
+                                    "value": "Eq",
+                                    "display": true
+                                },
+                                "useColorService": false,
+                                "useColorFromData": false,
+                                "unit": "kWh/kWp",
+                                "chartWidth": 445
+                            },
+                            "contributorId": "tuto_sunny_osm-month-12-AVG-monthly_potential-asc-field",
+                            "uuid": "7efd29e4-2756-492a-903c-1104ad892782",
+                            "usage": "analytics"
+                        }
+                    ]
+                },
+                {
+                    "groupId": "Buildings-0",
+                    "title": "Building types",
+                    "tab": "Buildings",
+                    "icon": "store_mall_directory",
+                    "components": [
+                        {
+                            "showExportCsv": true,
+                            "componentType": "powerbars",
+                            "input": {
+                                "chartTitle": "Type",
+                                "powerbarTitle": "Type",
+                                "displayFilter": true,
+                                "scrollable": true,
+                                "filterOperator": {
+                                    "value": "Eq",
+                                    "display": true
+                                },
+                                "useColorService": true,
+                                "useColorFromData": false,
+                                "unit": "",
+                                "chartWidth": 217
+                            },
+                            "contributorId": "tuto_sunny_osm-type-500-Count-desc-count",
+                            "uuid": "70812844-c65f-4e9d-bcf8-dde6cffcceb3",
+                            "usage": "analytics"
+                        },
+                        {
+                            "componentType": "donut",
+                            "showExportCsv": "",
+                            "input": {
+                                "id": "tuto_sunny_osm-type-30-",
+                                "customizedCssClass": "arlas-donuts-analytics",
+                                "diameter": 170,
+                                "containerWidth": 223,
+                                "multiselectable": true,
+                                "opacity": 0.4
+                            },
+                            "contributorId": "tuto_sunny_osm-type-30-",
+                            "uuid": "fff34c8d-9491-4d18-a914-71d3bf111aae",
+                            "usage": "analytics"
+                        }
+                    ]
+                },
+                {
+                    "groupId": "Buildings-1",
+                    "title": "Location",
+                    "tab": "Buildings",
+                    "icon": "location_pin",
+                    "components": [
+                        {
+                            "showExportCsv": true,
+                            "componentType": "powerbars",
+                            "input": {
+                                "chartTitle": "Region",
+                                "powerbarTitle": "Region",
+                                "displayFilter": true,
+                                "scrollable": true,
+                                "filterOperator": {
+                                    "value": "Eq",
+                                    "display": true
+                                },
+                                "useColorService": false,
+                                "useColorFromData": false,
+                                "unit": "",
+                                "chartWidth": 445
+                            },
+                            "contributorId": "tuto_sunny_osm-region-500-Count-desc-count",
+                            "uuid": "9e1a8e6e-ff77-4bc9-88dd-28c77cc29a69",
+                            "usage": "analytics"
+                        },
+                        {
+                            "showExportCsv": true,
+                            "componentType": "powerbars",
+                            "input": {
+                                "chartTitle": "Department",
+                                "powerbarTitle": "Department",
+                                "displayFilter": true,
+                                "scrollable": true,
+                                "filterOperator": {
+                                    "value": "Eq",
+                                    "display": true
+                                },
+                                "useColorService": false,
+                                "useColorFromData": false,
+                                "unit": "",
+                                "chartWidth": 445
+                            },
+                            "contributorId": "tuto_sunny_osm-department-500-Count-desc-count",
+                            "uuid": "a0bdbb81-04a6-406c-bcb5-1226694490c8",
+                            "usage": "analytics"
+                        },
+                        {
+                            "showExportCsv": true,
+                            "componentType": "powerbars",
+                            "input": {
+                                "chartTitle": "Commune",
+                                "powerbarTitle": "Commune",
+                                "displayFilter": true,
+                                "scrollable": true,
+                                "filterOperator": {
+                                    "value": "Eq",
+                                    "display": true
+                                },
+                                "useColorService": false,
+                                "useColorFromData": false,
+                                "unit": "",
+                                "chartWidth": 445
+                            },
+                            "contributorId": "tuto_sunny_osm-commune-10-Count-desc-count",
+                            "uuid": "a49ad448-2af7-4dbe-9597-e279d4c6466c",
+                            "usage": "analytics"
+                        },
+                        {
+                            "componentType": "metricstable",
+                            "input": {
+                                "filterOperator": {
+                                    "value": "Eq",
+                                    "display": true
+                                },
+                                "useColorService": true,
+                                "normaliseBy": "column",
+                                "showRowField": false,
+                                "applyColorTo": "row",
+                                "headerDisplayMode": "title",
+                                "selectWithCheckbox": false
+                            },
+                            "contributorId": "tuto_sunny_osm-commune-count-undefined-sum-monthly_production_surface",
+                            "uuid": "5841492d-da0e-40a3-a65d-149bd14dbc08",
+                            "usage": "analytics"
+                        }
+                    ]
+                },
+                {
+                    "groupId": "Buildings-2",
+                    "title": "Building area",
+                    "tab": "Buildings",
+                    "icon": "crop",
+                    "components": [
+                        {
+                            "input": {
+                                "id": "tuto_sunny_osm-area-numeric-bucket-Count--50",
+                                "isHistogramSelectable": true,
+                                "multiselectable": true,
+                                "topOffsetRemoveInterval": 40,
+                                "leftOffsetRemoveInterval": 18,
+                                "brushHandlesHeightWeight": 0.8,
+                                "yAxisStartsFromZero": true,
+                                "chartType": "bars",
+                                "chartTitle": "Building area",
+                                "chartHeight": 100,
+                                "chartWidth": 445,
+                                "xAxisPosition": "bottom",
+                                "descriptionPosition": "bottom",
+                                "xTicks": 4,
+                                "yTicks": 1,
+                                "xLabels": 4,
+                                "yLabels": 4,
+                                "xUnit": "m²",
+                                "yUnit": "monthly estimates",
+                                "chartXLabel": "",
+                                "chartYLabel": "",
+                                "shortYLabels": false,
+                                "showXTicks": true,
+                                "showYTicks": true,
+                                "showXLabels": true,
+                                "showYLabels": true,
+                                "showHorizontalLines": true,
+                                "barWeight": 0.8,
+                                "dataType": "numeric",
+                                "customizedCssClass": "arlas-histogram-analytics",
+                                "isSmoothedCurve": false
+                            },
+                            "componentType": "histogram",
+                            "showExportCsv": "",
+                            "contributorId": "tuto_sunny_osm-area-numeric-bucket-Count--50",
+                            "uuid": "2d78e2d9-98f4-447e-8500-a85ccd1904f0",
+                            "usage": "analytics"
+                        }
+                    ]
+                }
+            ],
+            "filters_shortcuts": [],
+            "colorGenerator": {
+                "keysToColors": [
+                    [
+                        "No type",
+                        "#ff7c5e"
+                    ],
+                    [
+                        "house",
+                        "#e11996"
+                    ],
+                    [
+                        "terrace",
+                        "#b4ffff"
+                    ],
+                    [
+                        "detached",
+                        "#87ff19"
+                    ],
+                    [
+                        "church",
+                        "#199fff"
+                    ],
+                    [
+                        "apartments",
+                        "#54ff40"
+                    ],
+                    [
+                        "ruins",
+                        "#ffafff"
+                    ],
+                    [
+                        "shed",
+                        "#cc97ff"
+                    ],
+                    [
+                        "garage",
+                        "#303aff"
+                    ],
+                    [
+                        "roof",
+                        "#35f2ff"
+                    ],
+                    [
+                        "OTHER",
+                        "#9d9ca9"
+                    ],
+                    [
+                        "garages",
+                        "#303aff"
+                    ]
+                ]
+            },
+            "options": {
+                "drag_items": true,
+                "zoom_to_strategy": "centroid",
+                "indicators": true,
+                "spinner": {
+                    "show": true,
+                    "color": "accent",
+                    "diameter": 50
+                },
+                "tabs": [
+                    {
+                        "name": "Photovoltaic potential",
+                        "icon": "solar_power",
+                        "showIcon": true,
+                        "showName": true
+                    },
+                    {
+                        "name": "Buildings",
+                        "icon": "maps_home_work",
+                        "showIcon": true,
+                        "showName": true
+                    }
+                ]
+            },
+            "externalNode": {}
+        },
+        "server": {
+            "url": "${ARLAS_SERVER_URL}",
+            "max_age_cache": 120,
+            "collection": {
+                "name": "tuto_sunny_osm"
+            }
+        }
+    },
+    "arlas-wui": {
+        "web": {
+            "app": {
+                "components": {
+                    "chipssearch": {
+                        "name": "Search...",
+                        "icon": "search"
+                    }
+                },
+                "name": "ARLAS",
+                "units": [
+                    {
+                        "collection": "tuto_sunny_osm",
+                        "unit": "monthly estimates",
+                        "ignored": false
+                    }
+                ]
+            }
+        }
+    },
+    "extraConfigs": [],
+    "resources": {
+        "previewId": "486ae649-ab3b-11ef-9773-4235832ec240"
+    }
+}
