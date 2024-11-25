@@ -50,12 +50,12 @@ See [arlas_cli documentation](https://gisaia.github.io/arlas_cli/).
 [Elasticsearch](https://www.elastic.co/fr/elasticsearch) is a distributed, open-source search and analytics engine built on Apache Lucene. 
 It allows users to store, search, and analyze large volumes of structured and unstructured data in near real-time. 
 
-ARLAS rely on Elasticsearch, an open-source search engine to perform quick aggregation requests over data.
+ARLAS relies on Elasticsearch to perform quick aggregation requests over data.
 
 ## ES index
 
 An [Elasticsearch index](https://www.elastic.co/blog/what-is-an-elasticsearch-index/) is a logical container that stores and organizes documents, which are the fundamental data units in Elasticsearch. 
-Each index is made up of one or more shards and can be thought of as similar to a database table, containing related data with a defined structure. 
+Each index can be thought of as similar to a database table, containing related data with a defined structure. 
 It allows efficient storage, search, and retrieval of data by applying indexing and mapping techniques tailored to specific use cases.
 
 ## ES mapping

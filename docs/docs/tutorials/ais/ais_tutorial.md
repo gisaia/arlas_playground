@@ -26,7 +26,7 @@ An ARLAS dashboard with map layers and graphs to explore a sample of AIS data.
 
 ### AIS data
 
-Let's explore some boats position data, provided by __Danish Maritime Authority__ on their [website](https://www.dma.dk/SikkerhedTilSoes/Sejladsinformation/AIS/Sider/default.aspx).
+Let's explore some boats position data, provided by the __Danish Maritime Authority__ on their [website](https://www.dma.dk/SikkerhedTilSoes/Sejladsinformation/AIS/Sider/default.aspx).
 
 This tutorial is based on AIS data emitted from 11/20/2019 to 11/27/2019. We extracted boats positions having the following MMSI :
 
@@ -66,17 +66,17 @@ Apply basic transformations with a python scripts before ingesting the data. Run
 python3.10 ./tutorials/ais/prepare_ais_data.py
 ```
 
-Here the script create the points wkt geometry and a unique identifier and write the data in an NDJson file (`ais/data/ais_data_sample.json`). 
+Here the script creates a point geometry in WKT format as well as a unique identifier and then write the data in an NDJson file (`ais/data/ais_data_sample.json`). 
 
 !!! tip
-    The script can be edited to enrich the data before the exploration.
+    The script can be edited to enrich the data before exploring it.
 
 
 ## Ingest AIS data in ARLAS
 
 ### __Index AIS data in Elasticsearch__
 
-- Create an empty `ais_geopoints` index in Elasticsearch with inferred mapping
+- Create an empty `ais_geopoints` index in Elasticsearch with the mapping inferred by `arlas_cli`
 
 ```shell
 arlas_cli indices \
@@ -142,15 +142,16 @@ Check the state of the data index:
 ```
 !!! Success
     
-    Check that the __162192__ AIS positions are available in the `ais_geopoints`
+    The __162192__ AIS positions are available in the `ais_geopoints`
 
 
 ### __Declare ARLAS collection__
 
-ARLAS-server interfaces with data indexed in Elasticsearch via a collection reference.
+ARLAS-server interfaces with the data indexed in Elasticsearch via a collection reference.
 
 The collection references an identifier, a timestamp, and geographical fields which allows ARLAS-server to perform a spatial-temporal data analysis.
 
+See [ARLAS Collection](../../concepts.md#arlas-collection) for more details.
 
 - Create the `tuto_ais_geopoint` collection in ARLAS
 
@@ -179,7 +180,7 @@ arlas_cli collections \
 ```
 !!! success
 
-    The `tuto_ais_geopoints` is created and target the `ais_geopoints` index.
+    The `tuto_ais_geopoints` is created and targets the `ais_geopoints` index.
 
 <br />
 <br />
@@ -214,7 +215,7 @@ The first thing we need to do is to tell ARLAS which collection of data we want 
 Image: Choose collection
 </p>
 
-We choose the `tuto_ais_geopoints` collection containing the igested data.
+We choose the `tuto_ais_geopoints` collection containing the ingested data.
 <br />
 <br />
 
@@ -234,9 +235,9 @@ Image: Map initialisation
 
 In ARLAS, map layers can be organised in groups called **Visualisation Set**.
 
-All the layers of a group are shown/hidden together
+All the layers of a group are shown/hidden together.
 
-We create a first Visualisation Set that we call `Vessels Location` and we display by default:
+We create a first Visualisation Set that we call `Vessels Location` and we display it by default:
 
 ![Map initialisation](./images/ais_map_visualisation_set.png)
 <p align="center" style="font-style: italic;" >
@@ -258,9 +259,9 @@ Image: Layer view
 
 To do so, let's add a layer named `Ship type` to visualise the boats location colored by their type.
 
-In the Geometry section, choose the `point_geom` features geo-field
+In the Geometry section, choose the `point_geom` features geo-field.
 
-![Adding a Geometric features layer named 'Boats'](./images/ais_geometric_features_geom.png)
+![Adding a Geometric features layer named 'Ship type'](./images/ais_geometric_features_geom.png)
 <p align="center" style="font-style: italic;" >
 Image: Adding a Geometric features layer named 'Ship type'
 </p>
@@ -274,9 +275,9 @@ Now, let's define the layer's style.
 
 As a starter, we choose the best representation of our geometries: Boats positions are points, we represent it as **Circle**. 
 
-We  choose to color the points according to the `Ship type` field values contained in the data.
+We choose to color the points according to the `Ship type` field values contained in the data.
 
-We fix radius of 4 pixels.
+We set the radius to a fixed 4 pixels.
 
 ![Customising 'Ship type' style](./images/ais_geometric_features_style.png)
 <p align="center" style="font-style: italic;" >
@@ -291,7 +292,7 @@ We notice that by default, the layer is displayed for all zoom levels (range **[
 If more geopoints are located in your map extend, the layer will no longer be displayed. 
 This limit is often used to switch between direct geometric features layers and aggregated layers (see [Aggregated layer](#aggregated-layer) below). 
 
-Let's increase the limit number of elements at **10000**.
+Let's increase the limit number of elements to **10000**.
 
 ![Customising 'Ship type' visibility](./images/ais_geometric_features_visibility.png)
 <p align="center" style="font-style: italic;" >
@@ -300,7 +301,7 @@ Image: Customising the 'Ship type' layer visibility
 <br />
 
 !!! success
-    After clicking on Validate, our first layer is created
+    After clicking on `Validate`, our first layer is created
 
 ![New layer 'Ship type' is created](./images/ais_boats_layer.png)
 <p align="center" style="font-style: italic;" >
@@ -314,27 +315,26 @@ Image:  New layer 'Ship type' is created
 
 We can now preview the layer in Preview tab
 
-![Preview of 'Boats' layer](./images/ais_boats_layer_preview.png)
+![Preview of 'Ship type' layer](./images/ais_boats_layer_preview.png)
 <p align="center" style="font-style: italic;" >
-Image:  Preview of the 'Ship type' layer
+Image: Preview of the 'Ship type' layer
 </p>
 <br />
 
-We see now where the boats are passing by thanks to this layer
+We see now where the boats are passing by thanks to this layer.
 <br />
 <br />
 
 #### Geo Big Data: Aggregated Layer
 
-For this tutorial, we only have ~160 000 boats positions to explore.
+For this tutorial, we have ~160 000 boats positions to explore, but ARLAS can handle millions of positions.
 
-But what to do in case we had millions of positions to display ?
-
-It would be very difficult to display them all as it would be very heavy to request all that data at once and the browser will not be able to render as many features. We will end up loosing the user experience fluidity.
+It would be very difficult to display them all as it would be very heavy to request all that data at once and the browser will not be able to render as many features. 
+We will end up loosing the user experience fluidity.
 
 Most importantly, loading millions of boats positions on the map will not be necessarily understandable: we cannot derive clear and synthesized information from it.
 
-That's why ARLAS proposes a geo-analytic view: we can aggregate the boats positions to a geographical grid and obtain a geographical distribution !
+That's why ARLAS proposes a geo-analytic view: we can aggregate the boats positions to a geographical grid and obtain a geographical distribution!
 
 Let's create a dedicated **Cluster** layer for boats positions geographical distribution. We call this layer `Distribution`.
 
@@ -359,9 +359,9 @@ Image: Creating a geographical distribution layer
 We **interpolate** the cells **colors** to the number of boats positions in each cell. 
 That's why we choose **Hits count** that we normalise and choose a color palette.
 
-In the visibility tab, we can also set the **Minimum Features** number at 10000 to switch correctly with the created [location layer](#location-layer-colored-by-ship-type).
+In the visibility tab, we can also set the **Minimum Features** number to 10000 to switch correctly with the created [location layer](#location-layer-colored-by-ship-type).
 
-After saving this layer, we can again visualise it and explore where the positions are geographically in the preview tab
+After saving this layer, we can again visualise it and explore where the positions are geographically in the `Preview` tab.
 
 ![Boats positions geographical distribution](./images/ais_distribution_layer_preview.png)
 <p align="center" style="font-style: italic;" >
@@ -424,7 +424,7 @@ We focused on the geographical and temporal analysis. We can also explore other 
 
 ARLAS proposes to organise all the analytic graphs (widgets) in tabs. A tab can correspond to a thematic analysis.
 
-Let's create a tab called 'Vessels' where will add our widgets.
+Let's create a tab called 'Vessels' where we will add our widgets.
 
 ![Creating tab in Analytics board](./images/ais_analytics_new_tab.png)
 <p align="center" style="font-style: italic;" >
@@ -439,7 +439,7 @@ Once the tab is created, we can add groups and widgets.
 
 #### Distribution of Vessel type (term)
 
-We want to observe the distribution of the geopoints number per ship type.
+We want to observe the distribution of the geopoints per ship type.
 
 The first step is to create a group that we call 'Ship type' (we can configure its icon) and create a widget.
 
@@ -529,7 +529,7 @@ Image: Preview heading distribution histogram
 </p>
 
 !!! tip 
-    Feel free to add all the widget you want to explore the data ! 
+    Feel free to add all the widgets you want to explore the data ! 
 <br />
 
 ## Explore the dashboard in ARLAS-Wui
@@ -541,7 +541,7 @@ Now we defined :
  - The search bar
  - The widgets
 
-Let's save this dashboard by clicking on the 'Disk' icon at the left-bottom of the page.
+Let's save this dashboard by clicking on the 'Disk' icon at the bottom-left of the page.
 
 If we go back to [ARLAS Hub](http://localhost/hub/), we'll find the Boats dashboard created.
 
@@ -562,6 +562,6 @@ Image: Exploring Boats dashboard in ARLAS-wui
  
 As you can see we created a simple dashboard to start exploring raw AIS data!
 
-Check out a more sophisticated dashboards about the AIS data [demo space](https://cloud.arlas.io/arlas/wui/?config_id=99acb6b7-3cfd-11ef-aee2-2e6497b109c4&org=gisaia.com&filter=%7B%7D&extend=7.397853293111297,53.8052254753901,15.97747124933531,56.56474293095991&vs=Departures;Arrivals;Boats%20courses%20distribution;Ship%20type%20light)!
+Check out a more sophisticated dashboards about the AIS data in our [demo space](https://cloud.arlas.io/arlas/wui/hub/)!
 
-You can get inspired from our different [demos](https://cloud.arlas.io/arlas/wui/hub/) to build other map layers and other widgets.
+You can get inspired from our different demos to build other map layers and other widgets.

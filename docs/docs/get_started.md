@@ -86,7 +86,7 @@ pip install -r requirements.txt
 pip install arlas_cli
 ```
 
-Check it is installed and you have the latest version:
+Check if it is installed and that you have the latest version:
 
 ```shell
 arlas_cli --version
@@ -104,9 +104,9 @@ For more details, check the [full arlas_cli documentation](https://gisaia.github
 ## Install and run ARLAS Exploration Stack
 
 !!! warning
-    You don't need to install and ARLAS Exploration Stack if you are using ARLAS Cloud.
+    You don't need to install and launch ARLAS Exploration Stack if you are using ARLAS Cloud.
 
-To run the simplest ARLAS stack and elasticsearch on the local machine, clone the [ARLAS Stack Exploration](https://github.com/gisaia/ARLAS-Exploration-stack) project and run the stack:
+To run the simplest ARLAS stack and Elasticsearch on the local machine, clone the [ARLAS Stack Exploration](https://github.com/gisaia/ARLAS-Exploration-stack) project and run the stack:
 
 ```shell
 git clone https://github.com/gisaia/ARLAS-Exploration-stack.git
@@ -114,7 +114,7 @@ cd ARLAS-Exploration-stack
 ./start.sh
 ```
 
-More details about deployment can be found on [ARLAS Stack Exploration project](https://github.com/gisaia/ARLAS-Exploration-stack).
+More details about the deployment can be found on the [ARLAS Stack Exploration project](https://github.com/gisaia/ARLAS-Exploration-stack).
 
 ## Now you can play
 
