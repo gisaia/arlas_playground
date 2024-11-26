@@ -1,0 +1,39 @@
+site_name: ARLAS Playground Tutorials
+site_url: "https://gisaia.github.io/arlas_cli"
+site_author: Gisaïa - SCALING GEOSPATIAL INTELLIGENCE
+site_description: Documentation for the ARLAS Playground Tutorials
+
+# Repository
+repo_name: gisaia/arlas_playground
+repo_url: https://github.com/gisaia/arlas_playground
+edit_uri: ""
+
+markdown_extensions:
+  - admonition
+  - codehilite
+  - markdown.extensions.admonition
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+
+theme:
+  name: material
+  highlightjs: true
+  palette:
+    primary: 'pink'
+    accent: 'light-blue'
+
+nav:
+- ARLAS Playground: index.md
+- Getting started: get_started.md
+- Tutorials:
+  - Vessel location (AIS): tutorials/ais/ais_tutorial.md
+- Concepts: concepts.md
+
+plugins:
+  - termynal:
+      prompt_literal_start:
+        - ">"
