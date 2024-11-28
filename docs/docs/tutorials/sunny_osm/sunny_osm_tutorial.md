@@ -76,13 +76,20 @@ If the script does not work, the files can directly be retrieved on [Google Clou
 
 To transform the data and cross the data sources, a notebook (`tutorials/sunny_osm/tutorial.ipynb`) is available.
 
-To run the notebook, you can run jupyter at the project root and open it:
+You can open a notebook with different tools.
 
-```shell
-jupyter notebook
-```
+!!! tip
+    For example, you can use Jupyter Notebook locally.
+    
+    To do this, open a terminal at the project root and run the following command:
 
-Open the notebook and follow the guidance
+    ```shell
+    jupyter notebook
+    ```
+    
+    Then, use the Jupyter interface to navigate to and open the notebook.
+
+Once the notebook is open, follow the provided guidance to proceed.
 
 ![Example of notebook cells](images/notebook.png)
 
@@ -200,7 +207,7 @@ You can set a preview by editing the dashboard and choosing a view in the map `P
 Set Sunny OSM dashboard preview
 </p>
 
-The created dashboard has now it's preview in ARLAS Hub:
+The created dashboard has now its preview in ARLAS Hub:
 
 ![ARLAS with the created "Sunny OSM" dashboard and its preview](images/hub_preview.png)
 
