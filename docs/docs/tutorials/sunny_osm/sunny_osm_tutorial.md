@@ -76,7 +76,7 @@ If the script does not work, the files can directly be retrieved on [Google Clou
 
 To transform the data and cross the data sources, a notebook (`tutorials/sunny_osm/tutorial.ipynb`) is available.
 
-You can open a notebook with different tools.
+You can open a notebook using various tools, such as Jupyter, VSCode, or any compatible code editor.
 
 !!! tip
     For example, you can use Jupyter Notebook locally.
