@@ -129,3 +129,4 @@ For the different examples, you will see how to:
 You can now choose an example of ARLAS usage on spatio-temporal data:
 
 - [AIS Vessels location](tutorials/ais/ais_tutorial.md)
+- [Sun potential of buildings roofs](tutorials/sunny_osm/sunny_osm_tutorial.md)
