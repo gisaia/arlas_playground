@@ -1,0 +1,1464 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the ARLAS Playground Tutorials">
+      
+      
+        <meta name="author" content="Gisaïa - SCALING GEOSPATIAL INTELLIGENCE">
+      
+      
+        <link rel="canonical" href="https://gisaia.github.io/arlas_cli/tutorials/ais/ais_tutorial/">
+      
+      
+        <link rel="prev" href="../../../get_started/">
+      
+      
+        <link rel="next" href="../../sunny_osm/sunny_osm_tutorial/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.28">
+    
+    
+      
+        <title>Vessel location (AIS) - ARLAS Playground Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../termynal.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#vessel-location-ais-tutorial" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="ARLAS Playground Tutorials" class="md-header__button md-logo" aria-label="ARLAS Playground Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ARLAS Playground Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Vessel location (AIS)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/gisaia/arlas_playground" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    gisaia/arlas_playground
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ARLAS Playground Tutorials" class="md-nav__button md-logo" aria-label="ARLAS Playground Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ARLAS Playground Tutorials
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/gisaia/arlas_playground" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    gisaia/arlas_playground
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ARLAS Playground
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get_started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Vessel location (AIS)
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Vessel location (AIS)
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-this-tutorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      About this tutorial
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="About this tutorial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-will-you-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What will you learn ?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-will-you-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What will you need ?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-will-you-get" class="md-nav__link">
+    <span class="md-ellipsis">
+      What will you get ?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-tutorial-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      The tutorial data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The tutorial data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ais-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      AIS data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prepare-ais-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prepare AIS data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingest-ais-data-in-arlas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ingest AIS data in ARLAS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ingest AIS data in ARLAS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#index-ais-data-in-elasticsearch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Index AIS data in Elasticsearch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#declare-arlas-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Declare ARLAS collection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-dashboard-to-explore-ais-data-with-arlas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a dashboard to explore AIS data with ARLAS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a dashboard to explore AIS data with ARLAS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a dashboard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Map configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Map configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visualisation-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualisation set
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#location-layer-colored-by-ship-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Location layer colored by ship type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geo-big-data-aggregated-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geo Big Data: Aggregated Layer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeline-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timeline configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search-bar-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search Bar configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics-board" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analytics board
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analytics board">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a tab
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distribution-of-vessel-type-term" class="md-nav__link">
+    <span class="md-ellipsis">
+      Distribution of Vessel type (term)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Distribution of Vessel type (term)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-donut" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Donut
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-powerbars" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Powerbars
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distribution-of-heading-number" class="md-nav__link">
+    <span class="md-ellipsis">
+      Distribution of Heading (number)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explore-the-dashboard-in-arlas-wui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explore the dashboard in ARLAS-Wui
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../sunny_osm/sunny_osm_tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Buildings Solar Potential
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-this-tutorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      About this tutorial
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="About this tutorial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-will-you-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What will you learn ?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-will-you-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What will you need ?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-will-you-get" class="md-nav__link">
+    <span class="md-ellipsis">
+      What will you get ?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-tutorial-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      The tutorial data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The tutorial data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ais-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      AIS data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prepare-ais-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prepare AIS data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingest-ais-data-in-arlas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ingest AIS data in ARLAS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ingest AIS data in ARLAS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#index-ais-data-in-elasticsearch" class="md-nav__link">
+    <span class="md-ellipsis">
+      Index AIS data in Elasticsearch
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#declare-arlas-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Declare ARLAS collection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-a-dashboard-to-explore-ais-data-with-arlas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a dashboard to explore AIS data with ARLAS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create a dashboard to explore AIS data with ARLAS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-dashboard" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a dashboard
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#map-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Map configuration
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Map configuration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#visualisation-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      Visualisation set
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#location-layer-colored-by-ship-type" class="md-nav__link">
+    <span class="md-ellipsis">
+      Location layer colored by ship type
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#geo-big-data-aggregated-layer" class="md-nav__link">
+    <span class="md-ellipsis">
+      Geo Big Data: Aggregated Layer
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#timeline-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Timeline configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#search-bar-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      Search Bar configuration
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analytics-board" class="md-nav__link">
+    <span class="md-ellipsis">
+      Analytics board
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Analytics board">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-tab" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a tab
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distribution-of-vessel-type-term" class="md-nav__link">
+    <span class="md-ellipsis">
+      Distribution of Vessel type (term)
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Distribution of Vessel type (term)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-donut" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Donut
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-powerbars" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create a Powerbars
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#distribution-of-heading-number" class="md-nav__link">
+    <span class="md-ellipsis">
+      Distribution of Heading (number)
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#explore-the-dashboard-in-arlas-wui" class="md-nav__link">
+    <span class="md-ellipsis">
+      Explore the dashboard in ARLAS-Wui
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="vessel-location-ais-tutorial">Vessel location (AIS) Tutorial</h1>
+<h2 id="about-this-tutorial">About this tutorial</h2>
+<h3 id="what-will-you-learn">What will you learn ?</h3>
+<p>With this tutorial, you'll be able to:</p>
+<ul>
+<li>Index some AIS data in Elasticsearch</li>
+<li>Reference the indexed AIS data in ARLAS</li>
+<li>Create a view of ARLAS-wui (a dashboard) to explore the AIS data using ARLAS-wui-hub and ARLAS-wui-builder</li>
+</ul>
+<h3 id="what-will-you-need">What will you need ?</h3>
+<p>Follow the <a href="../../../get_started/">Get Started</a> guide to configure your environment.</p>
+<h3 id="what-will-you-get">What will you get ?</h3>
+<p>An ARLAS dashboard with map layers and graphs to explore a sample of AIS data.</p>
+<p><img alt="Exploration app created in this tutorial" src="../images/ais_arlas_wui_widgets.png" /></p>
+<p align="center" style="font-style: italic;" >
+ Exploration app created in this tutorial
+</p>
+
+<h2 id="the-tutorial-data">The tutorial data</h2>
+<h3 id="ais-data">AIS data</h3>
+<p>Let's explore some boats position data, provided by the <strong>Danish Maritime Authority</strong> on their <a href="https://www.dma.dk/SikkerhedTilSoes/Sejladsinformation/AIS/Sider/default.aspx">website</a>.</p>
+<p>This tutorial is based on AIS data emitted from 11/20/2019 to 11/27/2019. We extracted boats positions having the following MMSI :</p>
+<ul>
+<li>257653000</li>
+<li>265177000</li>
+<li>220051000</li>
+<li>240305000</li>
+</ul>
+<p>We built a subset named <code>ais_data_sample.csv</code>. It contains around 162192 boats positions described with 26 columns.</p>
+<p>Example of some columns:</p>
+<ul>
+<li>Timestamp: Moment when the position is emitted</li>
+<li>MMSI: Identifier of the boats emitter</li>
+<li>Name: Name of the boat</li>
+<li>Ship type: Type of the boat</li>
+</ul>
+<p>A line of the csv file looks like:</p>
+<table>
+<thead>
+<tr>
+<th>Timestamp</th>
+<th>Type of mobile</th>
+<th>MMSI</th>
+<th>Latitude</th>
+<th>Longitude</th>
+<th>Navigational status</th>
+<th>ROT</th>
+<th>SOG</th>
+<th>COG</th>
+<th>Heading</th>
+<th>IMO</th>
+<th>Callsign</th>
+<th>Name</th>
+<th>Ship type</th>
+<th>Cargo type</th>
+<th>Width</th>
+<th>Length</th>
+<th>Type of position fixing device</th>
+<th>Draught</th>
+<th>Destination</th>
+<th>ETA</th>
+<th>Data source type</th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>20/11/2019 06:45:09</td>
+<td>Class A</td>
+<td>240305000</td>
+<td>55.931783</td>
+<td>17.345067</td>
+<td>Under way using engine</td>
+<td>0.0</td>
+<td>10.5</td>
+<td>257.0</td>
+<td>259</td>
+<td>9288710</td>
+<td>SYEF</td>
+<td>DELTA CAPTAIN</td>
+<td>Tanker</td>
+<td>""</td>
+<td>44</td>
+<td>249</td>
+<td>GPS</td>
+<td>10.0</td>
+<td>FOR ORDERS</td>
+<td>22/11/2019 06:00:00</td>
+<td>AIS</td>
+<td>216</td>
+<td>33</td>
+<td>22</td>
+<td>22</td>
+</tr>
+</tbody>
+</table>
+<h3 id="prepare-ais-data"><strong>Prepare AIS data</strong></h3>
+<p>We will explore this data using ARLAS.</p>
+<ul>
+<li>Check that <code>ais_data_sample.csv</code> file is downloaded</li>
+</ul>
+<div class="highlight"><pre><span></span><code>ls<span class="w"> </span>-l<span class="w"> </span>./tutorials/ais/data/ais_data_sample.csv
+</code></pre></div>
+<p>Apply basic transformations with a python scripts before ingesting the data. Run in a terminal at the project root:</p>
+<div class="highlight"><pre><span></span><code>python3.10<span class="w"> </span>./tutorials/ais/prepare_ais_data.py
+</code></pre></div>
+<p>Here the script creates a point geometry in WKT format as well as a unique identifier and then write the data in an NDJson file (<code>ais/data/ais_data_sample.json</code>). </p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The script can be edited to enrich the data before exploring it.</p>
+</div>
+<h2 id="ingest-ais-data-in-arlas">Ingest AIS data in ARLAS</h2>
+<h3 id="index-ais-data-in-elasticsearch"><strong>Index AIS data in Elasticsearch</strong></h3>
+<ul>
+<li>Create an empty <code>ais_geopoints</code> index in Elasticsearch with the mapping inferred by <code>arlas_cli</code></li>
+</ul>
+<div class="highlight"><pre><span></span><code>arlas_cli<span class="w"> </span>indices<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--config<span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>mapping<span class="w"> </span>tutorials/ais/data/ais_data_sample.json/part-00000-*.json<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--no-fulltext<span class="w"> </span>unique_id<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--field-mapping<span class="w"> </span>MMSI:keyword<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--field-mapping<span class="w"> </span>Timestamp:date-<span class="s2">&quot;dd/MM/yyyy HH:mm:ss&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--push-on<span class="w"> </span>ais_geopoints
+</code></pre></div>
+<p>Check that the index has been created:</p>
+<div class="termy" data-termynal data-ty-macos data-ty-title="bash"><span data-ty="input" data-ty-prompt="&gt;">arlas_cli indices --config local list</span><span data-ty>+---------------+--------+-------+------+<br>| name          | status | count | size |<br>+---------------+--------+-------+------+<br>| .arlas        | open   | 0     | 247b |<br>| ais_geopoints | open   | 0     | 225b |<br>+---------------+--------+-------+------+<br></span></div>
+
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>The index exists. It does not contain any data yet.</p>
+</div>
+<p>You can check that the data model is correct:</p>
+<div class="termy" data-termynal data-ty-macos data-ty-title="bash"><span data-ty="input" data-ty-prompt="&gt;">arlas_cli indices --config local describe ais_geopoints</span><span data-ty>+--------------------------------+-----------+<br>| field name                     | type      |<br>+--------------------------------+-----------+<br>| A                              | long      |<br>| B                              | long      |<br>...<br>| point_geom                     | geo_point |<br>| unique_id                      | keyword   |<br>+--------------------------------+-----------+<br></span></div>
+
+<ul>
+<li>Index data that is in <code>ais_data_sample.json</code> in Elasticsearch with <code>arlas_cli</code>
+<div class="highlight"><pre><span></span><code>arlas_cli<span class="w"> </span>indices<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--config<span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>data<span class="w"> </span>ais_geopoints<span class="w"> </span>tutorials/ais/data/ais_data_sample.json/*.json
+</code></pre></div></li>
+</ul>
+<p>Check the state of the data index:</p>
+<div class="termy" data-termynal data-ty-macos data-ty-title="bash"><span data-ty="input" data-ty-prompt="&gt;">arlas_cli indices --config local list</span><span data-ty>+---------------+--------+--------+--------+<br>| name          | status | count  | size   |<br>+---------------+--------+--------+--------+<br>| .arlas        | open   | 4      | 12.1kb |<br>| ais_geopoints | open   | 162192 | 33.2mb |<br>+---------------+--------+--------+--------+<br></span></div>
+
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>The <strong>162192</strong> AIS positions are available in the <code>ais_geopoints</code></p>
+</div>
+<h3 id="declare-arlas-collection"><strong>Declare ARLAS collection</strong></h3>
+<p>ARLAS-server interfaces with the data indexed in Elasticsearch via a collection reference.</p>
+<p>The collection references an identifier, a timestamp, and geographical fields which allows ARLAS-server to perform a spatial-temporal data analysis.</p>
+<p>See <a href="../../../concepts/#arlas-collection">ARLAS Collection</a> for more details.</p>
+<ul>
+<li>Create the <code>tuto_ais_geopoint</code> collection in ARLAS</li>
+</ul>
+<div class="highlight"><pre><span></span><code>arlas_cli<span class="w"> </span>collections<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--config<span class="w"> </span><span class="nb">local</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>create<span class="w"> </span>tuto_ais_geopoints<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--index<span class="w"> </span>ais_geopoints<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--display-name<span class="w"> </span><span class="s2">&quot;AIS Geopoints&quot;</span><span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--id-path<span class="w"> </span>unique_id<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--centroid-path<span class="w"> </span>point_geom<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--geometry-path<span class="w"> </span>point_geom<span class="w"> </span><span class="se">\</span>
+<span class="w">    </span>--date-path<span class="w"> </span>Timestamp
+</code></pre></div>
+<ul>
+<li>Check that the collection is created:</li>
+</ul>
+<div class="termy" data-termynal data-ty-macos data-ty-title="bash"><span data-ty="input" data-ty-prompt="&gt;">arlas_cli collections --config local list</span><span data-ty>+--------------------+---------------+<br>| name               | index         |<br>+--------------------+---------------+<br>| tuto_ais_geopoints | ais_geopoints |<br>+--------------------+---------------+<br></span></div>
+
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>The <code>tuto_ais_geopoints</code> is created and targets the <code>ais_geopoints</code> index.</p>
+</div>
+<p><br />
+<br /></p>
+<h2 id="create-a-dashboard-to-explore-ais-data-with-arlas"><strong>Create a dashboard to explore <code>AIS data</code> with ARLAS</strong></h2>
+<p>The ARLAS stack is up and running, and AIS position data is available for exploration.</p>
+<p>We can now create our first dashboard composed of:</p>
+<ul>
+<li>A map to observe the boats positions' geographical distribution</li>
+<li>A timeline presenting the number of boats positions over time</li>
+<li>A search bar to look for boats by their names for instance</li>
+<li>Some widgets to analyse the data from another axis such as the speed distribution.</li>
+</ul>
+<h3 id="create-a-dashboard">Create a dashboard</h3>
+<p>To do so, let's go to <a href="http://localhost/hub/">ARLAS-wui-hub</a> and create a new dashboard named <code>Boats dashboard</code></p>
+<p><img alt="Creation of a dashboard in ARLAS-wui-hub" src="../images/ais_create_dashboard.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Creation of a dashboard in ARLAS-wui-hub
+</p>
+
+<p>After clicking on <strong>Create</strong>, you are automatically redirected to ARLAS-wui-builder to start configuring your dashboard.</p>
+<p>The first thing we need to do is to tell ARLAS which collection of data we want to use to create our dashboard.</p>
+<p><img alt="Choose collection" src="../images/ais_choose_collection.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Choose collection
+</p>
+
+<p>We choose the <code>tuto_ais_geopoints</code> collection containing the ingested data.
+<br />
+<br /></p>
+<h3 id="map-configuration">Map configuration</h3>
+<p>As a first step, let's set the map at <strong>zoom level 13</strong> and the map's center coordinates at <strong>Latitude=57.451545</strong> and <strong>Longitude=10.787131</strong>.</p>
+<p>This way, when loading the dashboard in ARLAS-wui, the map will be positioned over Denmark.</p>
+<p><img alt="Map initialisation" src="../images/ais_global_map.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Map initialisation
+</p>
+<p><br /></p>
+<h4 id="visualisation-set">Visualisation set</h4>
+<p>In ARLAS, map layers can be organised in groups called <strong>Visualisation Set</strong>.</p>
+<p>All the layers of a group are shown/hidden together.</p>
+<p>We create a first Visualisation Set that we call <code>Vessels Location</code> and we display it by default:</p>
+<p><img alt="Map initialisation" src="../images/ais_map_visualisation_set.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Create a visualisation set called Vessel Location
+</p>
+<p><br /></p>
+<h4 id="location-layer-colored-by-ship-type">Location layer colored by ship type</h4>
+<p>Currently, the map is empty. </p>
+<p>Our first goal is to determine where the boats are located and identify their ship types.</p>
+<p><img alt="Layer view" src="../images/ais_layer_view.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Layer view
+</p>
+<p><br /></p>
+<p>To do so, let's add a layer named <code>Ship type</code> to visualise the boats location colored by their type.</p>
+<p>In the Geometry section, choose the <code>point_geom</code> features geo-field.</p>
+<p><img alt="Adding a Geometric features layer named 'Ship type'" src="../images/ais_geometric_features_geom.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Adding a Geometric features layer named 'Ship type'
+</p>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The layer is included in the visualisation set <code>Vessels Location</code>.</p>
+</div>
+<p><br /></p>
+<p>Now, let's define the layer's style. </p>
+<p>As a starter, we choose the best representation of our geometries: Boats positions are points, we represent it as <strong>Circle</strong>. </p>
+<p>We choose to color the points according to the <code>Ship type</code> field values contained in the data.</p>
+<p>We set the radius to a fixed 4 pixels.</p>
+<p><img alt="Customising 'Ship type' style" src="../images/ais_geometric_features_style.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Customising the 'Ship type' layer style
+</p>
+<p><br /></p>
+<p>Let's switch to the visibility tab.</p>
+<p>We notice that by default, the layer is displayed for all zoom levels (range <strong>[0-23]</strong>) and for a maximum number of elements of <strong>5000</strong>.</p>
+<p>If more geopoints are located in your map extend, the layer will no longer be displayed. 
+This limit is often used to switch between direct geometric features layers and aggregated layers (see <a href="#aggregated-layer">Aggregated layer</a> below). </p>
+<p>Let's increase the limit number of elements to <strong>10000</strong>.</p>
+<p><img alt="Customising 'Ship type' visibility" src="../images/ais_geometric_features_visibility.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Customising the 'Ship type' layer visibility
+</p>
+<p><br /></p>
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>After clicking on <code>Validate</code>, our first layer is created</p>
+</div>
+<p><img alt="New layer 'Ship type' is created" src="../images/ais_boats_layer.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image:  New layer 'Ship type' is created
+</p>
+
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We can edit each layer with the Actions button.</p>
+</div>
+<p><br /></p>
+<p>We can now preview the layer in Preview tab</p>
+<p><img alt="Preview of 'Ship type' layer" src="../images/ais_boats_layer_preview.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Preview of the 'Ship type' layer
+</p>
+<p><br /></p>
+<p>We see now where the boats are passing by thanks to this layer.
+<br />
+<br /></p>
+<h4 id="geo-big-data-aggregated-layer">Geo Big Data: Aggregated Layer</h4>
+<p>For this tutorial, we have ~160 000 boats positions to explore, but ARLAS can handle millions of positions.</p>
+<p>It would be very difficult to display them all as it would be very heavy to request all that data at once and the browser will not be able to render as many features. 
+We will end up loosing the user experience fluidity.</p>
+<p>Most importantly, loading millions of boats positions on the map will not be necessarily understandable: we cannot derive clear and synthesized information from it.</p>
+<p>That's why ARLAS proposes a geo-analytic view: we can aggregate the boats positions to a geographical grid and obtain a geographical distribution!</p>
+<p>Let's create a dedicated <strong>Cluster</strong> layer for boats positions geographical distribution. We call this layer <code>Distribution</code>.</p>
+<p><img alt="Creating a geographical distribution layer" src="../images/ais_distribution_layer.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Creating a geographical distribution layer called 'Distribution'
+</p>
+<p><br /></p>
+<p>We choose the <strong>Cluster</strong> type, we aggregate the <code>point_geom</code> geo-field to a geographical <strong>Tile Grid</strong> and we choose a <strong>fine</strong> granularity for this grid.</p>
+<p>We will display on the map the grid's cells.</p>
+<p>Let's define the style of these cells in <code>Style</code> section:</p>
+<p><img alt="Creating a geographical distribution layer" src="../images/ais_distribution_layer_style.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Creating a geographical distribution layer
+</p>
+<p><br /></p>
+<p>We <strong>interpolate</strong> the cells <strong>colors</strong> to the number of boats positions in each cell. 
+That's why we choose <strong>Hits count</strong> that we normalise and choose a color palette.</p>
+<p>In the visibility tab, we can also set the <strong>Minimum Features</strong> number to 10000 to switch correctly with the created <a href="#location-layer-colored-by-ship-type">location layer</a>.</p>
+<p>After saving this layer, we can again visualise it and explore where the positions are geographically in the <code>Preview</code> tab.</p>
+<p><img alt="Boats positions geographical distribution" src="../images/ais_distribution_layer_preview.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Boats positions geographical distribution
+</p>
+
+<p><br /></p>
+<p>In the preview tab, you can save your current visualisation as <strong>Preview</strong> that will be displayed to represent the dashboard in the hub.</p>
+<p>Save your modifications and switch to ARLAS Hub:</p>
+<p><img alt="Dashboard preview in ARLAS Hub" src="../images/arlas_hub.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Dashboard preview in ARLAS Hub
+</p>
+
+<h3 id="timeline-configuration">Timeline configuration</h3>
+<p>Let's find out the time period when these positions were emitted.</p>
+<p>For that, let's define a timeline: a histogram that will represent the number of boats positions over time.</p>
+<p>For the x-Axis we choose the timestamp field and for the y-Axis we choose Hits count: the number of positions in each bucket. We set 50 buckets in this example</p>
+<p><img alt="Define timeline" src="../images/ais_timeline_data.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Define timeline
+</p>
+<p><br /></p>
+<p>In the Render tab we can set a title for the timeline, date format and the histogram type.</p>
+<p><img alt="Rendering of timeline" src="../images/ais_timeline_render.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Rendering of timeline
+</p>
+<p><br /></p>
+<h3 id="search-bar-configuration">Search Bar configuration</h3>
+<p>To define the search bar we can set :</p>
+<ul>
+<li>the placeholder string</li>
+<li>the field used to search keywords</li>
+<li>the field used to autocomplete the searched words</li>
+</ul>
+<p><img alt="Define search bar" src="../images/ais_search.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Define search bar
+</p>
+<p><br /></p>
+<h3 id="analytics-board">Analytics board</h3>
+<p>We focused on the geographical and temporal analysis. We can also explore other dimensions of the data.</p>
+<h4 id="create-a-tab">Create a tab</h4>
+<p>ARLAS proposes to organise all the analytic graphs (widgets) in tabs. A tab can correspond to a thematic analysis.</p>
+<p>Let's create a tab called 'Vessels' where we will add our widgets.</p>
+<p><img alt="Creating tab in Analytics board" src="../images/ais_analytics_new_tab.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Creating tab in Analytics board
+</p>
+<p><br /></p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We can configure the tab "icon" that will represent the tab in the dashboard.</p>
+</div>
+<p>Once the tab is created, we can add groups and widgets.</p>
+<h4 id="distribution-of-vessel-type-term">Distribution of Vessel type (term)</h4>
+<p>We want to observe the distribution of the geopoints per ship type.</p>
+<p>The first step is to create a group that we call 'Ship type' (we can configure its icon) and create a widget.</p>
+<p><img alt="Creating tab in Analytics board" src="../images/ais_analytics_ship_type_group.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Creating a 'Ship Type' group and add a widget
+</p>
+<p><br /></p>
+<p>The <strong>Donut</strong> widget and the <strong>Powerbars</strong> are well adapted to explore a term field distribution.</p>
+<h5 id="create-a-donut">Create a Donut</h5>
+<p>Let's create a <strong>Donut</strong> widget</p>
+<p><img alt="Add a Ship type Donut" src="../images/ais_analytics_ship_type_donut.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Creating a Donut widget to explore 'Ship Type' distribution
+</p>
+
+<p>The donut is base on the <code>Ship type</code> data field.</p>
+<p><br /></p>
+<h5 id="create-a-powerbars">Create a Powerbars</h5>
+<p>Let's create a <strong>Powerbars</strong> widget to complement the Ship type exploration:</p>
+<p><img alt="Add a Ship type Powerbar" src="../images/ais_analytics_ship_type_add_powerbars.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Add a Powerbar widget to explore 'Ship Type' distribution
+</p>
+<p><br /></p>
+<p>We create a <strong>Powerbars</strong> where each value of the aggregation field (<code>Ship type</code>) is represented by a bar corresponding to its number of datapoints.</p>
+<p><img alt="Add a Ship type Powerbar" src="../images/ais_analytics_ship_type_powerbars.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Configure the Powerbar widget to explore 'Ship Type' distribution
+</p>
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>In the <code>Render</code> tab, you can color the powerbars </p>
+</div>
+<p><br /></p>
+<p>The two widgets to explore the <code>Ship type</code> information are now available:</p>
+<p><img alt="Add a Ship type Powerbar" src="../images/ais_analytics_ship_type_widgets.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Configure the Powerbar widget to explore 'Ship Type' distribution
+</p>
+
+<p>We can add as many tabs, groups and widgets as we want to explore our data.</p>
+<p><br /></p>
+<h4 id="distribution-of-heading-number">Distribution of Heading (number)</h4>
+<p>Let's see what does the heading distribution of these vessels looks like.</p>
+<p>We add a new group we call 'Heading' and create a histogram.</p>
+<p><img alt="Creating a group in Analytics board tab" src="../images/ais_analytics_heading_add_histogram.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Creating a group in Analytics board tab
+</p>
+<p><br /></p>
+<p>Let's configure our histogram. We can give a title to the Heading distribution histogram.</p>
+<p>For the x-Axis we choose <code>Heading</code> field and for the y-Axis we choose <code>Hits count</code>: the number of positions in each bucket. </p>
+<p><img alt="Defining heading distribution histogram" src="../images/ais_analytics_heading_histogram.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Defining heading distribution histogram
+</p>
+<p><br /></p>
+<p>When we save the histogram we automatically get a preview of it in the analytics board.</p>
+<p><img alt="Preview heading distribution histogram" src="../images/ais_analytics_widgets.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Preview heading distribution histogram
+</p>
+
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Feel free to add all the widgets you want to explore the data ! </p>
+</div>
+<p><br /></p>
+<h2 id="explore-the-dashboard-in-arlas-wui">Explore the dashboard in ARLAS-Wui</h2>
+<p>Now we defined :</p>
+<ul>
+<li>The map layers</li>
+<li>The timeline </li>
+<li>The search bar</li>
+<li>The widgets</li>
+</ul>
+<p>Let's save this dashboard by clicking on the 'Disk' icon at the bottom-left of the page.</p>
+<p>If we go back to <a href="http://localhost/hub/">ARLAS Hub</a>, we'll find the Boats dashboard created.</p>
+<p><img alt="List of created dashboards" src="../images/arlas_hub.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: List of created dashboards
+</p>
+<p><br /></p>
+<p>We can now open it in ARLAS-Wui to explore AIS locations:</p>
+<p><img alt="Exploring Boats dashboard in ARLAS-wui" src="../images/ais_arlas_wui_widgets.png" /></p>
+<p align="center" style="font-style: italic;" >
+Image: Exploring Boats dashboard in ARLAS-wui
+</p>
+<p><br />
+<br /></p>
+<p>As you can see we created a simple dashboard to start exploring raw AIS data!</p>
+<p>Check out a more sophisticated dashboards about the AIS data in our <a href="https://cloud.arlas.io/arlas/wui/hub/">demo space</a>!</p>
+<p>You can get inspired from our different demos to build other map layers and other widgets.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../../../termynal.js"></script>
+      
+    
+  </body>
+</html>
