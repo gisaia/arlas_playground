@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+         <loc>https://gisaia.github.io/arlas_cli/</loc>
+         <lastmod>2024-12-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://gisaia.github.io/arlas_cli/concepts/</loc>
+         <lastmod>2024-12-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://gisaia.github.io/arlas_cli/get_started/</loc>
+         <lastmod>2024-12-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://gisaia.github.io/arlas_cli/tutorials/ais/ais_tutorial/</loc>
+         <lastmod>2024-12-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://gisaia.github.io/arlas_cli/tutorials/sunny_osm/sunny_osm_tutorial/</loc>
+         <lastmod>2024-12-02</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+</urlset>
