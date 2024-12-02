@@ -1,0 +1,954 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Documentation for the ARLAS Playground Tutorials">
+      
+      
+        <meta name="author" content="Gisaïa - SCALING GEOSPATIAL INTELLIGENCE">
+      
+      
+        <link rel="canonical" href="https://gisaia.github.io/arlas_cli/tutorials/sunny_osm/sunny_osm_tutorial/">
+      
+      
+        <link rel="prev" href="../../ais/ais_tutorial/">
+      
+      
+        <link rel="next" href="../../../concepts/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.28">
+    
+    
+      
+        <title>Buildings Solar Potential - ARLAS Playground Tutorials</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../termynal.css">
+    
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="pink" data-md-color-accent="light-blue">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#osm-and-photovoltaic-data" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../.." title="ARLAS Playground Tutorials" class="md-header__button md-logo" aria-label="ARLAS Playground Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            ARLAS Playground Tutorials
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Buildings Solar Potential
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/gisaia/arlas_playground" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    gisaia/arlas_playground
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../.." title="ARLAS Playground Tutorials" class="md-nav__button md-logo" aria-label="ARLAS Playground Tutorials" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    ARLAS Playground Tutorials
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/gisaia/arlas_playground" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2024 Fonticons, Inc.--><path d="M439.55 236.05 244 40.45a28.87 28.87 0 0 0-40.81 0l-40.66 40.63 51.52 51.52c27.06-9.14 52.68 16.77 43.39 43.68l49.66 49.66c34.23-11.8 61.18 31 35.47 56.69-26.49 26.49-70.21-2.87-56-37.34L240.22 199v121.85c25.3 12.54 22.26 41.85 9.08 55a34.34 34.34 0 0 1-48.55 0c-17.57-17.6-11.07-46.91 11.25-56v-123c-20.8-8.51-24.6-30.74-18.64-45L142.57 101 8.45 235.14a28.86 28.86 0 0 0 0 40.81l195.61 195.6a28.86 28.86 0 0 0 40.8 0l194.69-194.69a28.86 28.86 0 0 0 0-40.81z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    gisaia/arlas_playground
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ARLAS Playground
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../get_started/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Getting started
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Tutorials
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            Tutorials
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../ais/ais_tutorial/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Vessel location (AIS)
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Buildings Solar Potential
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    Buildings Solar Potential
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-this-tutorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      About this tutorial
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="About this tutorial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-will-you-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What will you learn ?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-will-you-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What will you need ?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-will-you-get" class="md-nav__link">
+    <span class="md-ellipsis">
+      What will you get ?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-tutorial-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      The tutorial data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The tutorial data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#osm" class="md-nav__link">
+    <span class="md-ellipsis">
+      OSM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#admin-express" class="md-nav__link">
+    <span class="md-ellipsis">
+      ADMIN Express
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#photovoltaic-potential" class="md-nav__link">
+    <span class="md-ellipsis">
+      Photovoltaic potential
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get the data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transform-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transform the data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingest-data-in-arlas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ingest data in ARLAS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ingest data in ARLAS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-empty-index-with-correct-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create empty index with correct mapping
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#index-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Index data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create collection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-an-arlas-dashboard-from-a-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create an ARLAS dashboard from a configuration file
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../concepts/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Concepts
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#about-this-tutorial" class="md-nav__link">
+    <span class="md-ellipsis">
+      About this tutorial
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="About this tutorial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#what-will-you-learn" class="md-nav__link">
+    <span class="md-ellipsis">
+      What will you learn ?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-will-you-need" class="md-nav__link">
+    <span class="md-ellipsis">
+      What will you need ?
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#what-will-you-get" class="md-nav__link">
+    <span class="md-ellipsis">
+      What will you get ?
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-tutorial-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      The tutorial data
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The tutorial data">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#osm" class="md-nav__link">
+    <span class="md-ellipsis">
+      OSM
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#admin-express" class="md-nav__link">
+    <span class="md-ellipsis">
+      ADMIN Express
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#photovoltaic-potential" class="md-nav__link">
+    <span class="md-ellipsis">
+      Photovoltaic potential
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#get-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Get the data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#transform-the-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Transform the data
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ingest-data-in-arlas" class="md-nav__link">
+    <span class="md-ellipsis">
+      Ingest data in ARLAS
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Ingest data in ARLAS">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-empty-index-with-correct-mapping" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create empty index with correct mapping
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#index-data" class="md-nav__link">
+    <span class="md-ellipsis">
+      Index data
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#delete-index" class="md-nav__link">
+    <span class="md-ellipsis">
+      Delete index
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-collection" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create collection
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#create-an-arlas-dashboard-from-a-configuration-file" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create an ARLAS dashboard from a configuration file
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+<h1 id="osm-and-photovoltaic-data">OSM and photovoltaic data</h1>
+<h2 id="about-this-tutorial">About this tutorial</h2>
+<h3 id="what-will-you-learn">What will you learn ?</h3>
+<p>With this tutorial, you'll be able to:</p>
+<ul>
+<li>Process multiple data sources (vector and raster data) in a jupyter notebook</li>
+<li>Index the processed buildings solar potential data in Elasticsearch</li>
+<li>Reference the indexed solar data in ARLAS</li>
+<li>Create a view of ARLAS-wui (a dashboard) from a configuration file</li>
+</ul>
+<h3 id="what-will-you-need">What will you need ?</h3>
+<p>Follow the <a href="../../../get_started/">Get Started</a> guide to configure your environment.</p>
+<p>There also are additional requirements:</p>
+<ul>
+<li>Java</li>
+<li>gsutil</li>
+<li>Jupyter</li>
+</ul>
+<p>On Linux, they can be installed by doing</p>
+<div class="highlight"><pre><span></span><code>apt<span class="w"> </span>install<span class="w"> </span>default-jdk<span class="w"> </span>gsutil
+pip<span class="w"> </span>install<span class="w"> </span>jupyter
+</code></pre></div>
+<h3 id="what-will-you-get">What will you get ?</h3>
+<p>An ARLAS dashboard with map layers and graphs to explore the photovoltaic potential of buildings of the Lozère french department.</p>
+<p><img alt="Exploration app created in this tutorial" src="../images/dashboard.png" /></p>
+<p align="center" style="font-style: italic;" >
+ Exploration app created in this tutorial
+</p>
+
+<h2 id="the-tutorial-data">The tutorial data</h2>
+<p>This tutorial use three different open data sources to explore the buildings solar potential.</p>
+<h3 id="osm">OSM</h3>
+<p><a href="https://en.wikipedia.org/wiki/OpenStreetMap">OpenStreetMap</a> (abbreviated OSM) is a website that uses an open geographic database which is updated and maintained by a community of volunteers via open collaboration. Contributors collect data from surveys, trace from aerial photo imagery or satellite imagery, and also import from other freely licensed geodata sources. OpenStreetMap is freely licensed under the Open Database License and as a result commonly used to make electronic maps, inform turn-by-turn navigation, assist in humanitarian aid and data visualisation. OpenStreetMap uses its own topology to store geographical features which can then be exported into other GIS file formats. The OpenStreetMap website itself is an online map, geodata search engine and editor.</p>
+<p>OSM data is a very valuable tool when it comes to datascience as it can bring freely licensed building data quite reliably all across the globe. In order to limit the volume of the downloaded data, websites like <a href="https://www.geofabrik.de/data/download.html">Geofabrik's</a> are particularly helpful to easily select a chunk of the data, here Languedoc-Roussillon.</p>
+<h3 id="admin-express">ADMIN Express</h3>
+<p><a href="https://www.ign.fr/institut/identity-card">The National Institute of Geographic and Forest Information (IGN)</a> is a public administrative establishment placed under the joint authority of the Ministries in charge of ecology and forestry. Their goal is to guarantee the availability of geolocalised data and in particular sovereign data for the State, foster the appropriation and use of geographic data as well as maintain a high level of competence in the field of geographic information.</p>
+<p>They produce a wide variety of interesting datasets when working with French geospatial data, as they give us information to enrich our own data with, for a better exploration. In this example, we will use their <a href="https://geoservices.ign.fr/adminexpress">ADMIN Express</a> dataset to add the town info to each OSM building.</p>
+<h3 id="photovoltaic-potential">Photovoltaic potential</h3>
+<p><a href="https://solargis.com">Solargis</a> is a Slovakian company that provides online access to high-resolution solar data and services around the domain of solar energy. They provide regional and <a href="https://solargis.com/resources/free-maps-and-gis-data?locality=france">by country</a> solar resource maps that can be used as is or, in our case, to enrich data.</p>
+<h3 id="get-the-data">Get the data</h3>
+<p>All the necessary data is stored in the Gisaïa bucket, and can be downloaded with:
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">ARLAS_DEMO_REMOTE_DATA_PATH</span><span class="o">=</span><span class="s2">&quot;gs://gisaia-public/demo&quot;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">ARLAS_DEMO_LOCAL_DATA_PATH</span><span class="o">=</span><span class="s2">&quot;tutorials/sunny_osm/data&quot;</span>
+python3<span class="w"> </span>tutorials/sunny_osm/download_raw_data.py
+</code></pre></div></p>
+<p>The OSM and IGN data are a section of the original data, with only the buildings with a type and the towns of Occitanie kept to limit the size of the downloads.</p>
+<p>The path <code>ARLAS_DEMO_LOCAL_DATA_PATH</code> can be changed to any path of your liking.</p>
+<p>If the script does not work, the files can directly be retrieved on <a href="https://console.cloud.google.com/storage/browser/gisaia-public/demo/sunny_osm">Google Cloud</a>.</p>
+<h3 id="transform-the-data">Transform the data</h3>
+<p>To transform the data and cross the data sources, a notebook (<code>tutorials/sunny_osm/tutorial.ipynb</code>) is available.</p>
+<p>You can open a notebook using various tools, such as Jupyter, VSCode, or any compatible code editor.</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>For example, you can use Jupyter Notebook locally.</p>
+<p>To do this, open a terminal at the project root and run the following command:</p>
+<div class="highlight"><pre><span></span><code>jupyter<span class="w"> </span>notebook
+</code></pre></div>
+<p>Then, use the Jupyter interface to navigate to and open the notebook.</p>
+</div>
+<p>Once the notebook is open, follow the provided guidance to proceed.</p>
+<p><img alt="Example of notebook cells" src="../images/notebook.png" /></p>
+<p align="center" style="font-style: italic;" >
+ Example of notebook cells
+</p>
+
+<p>It creates a NDJSON file ready to be ingested in ARLAS at <code>tutorials/sunny_osm/data/osm_sunny.json</code></p>
+<h2 id="ingest-data-in-arlas">Ingest data in ARLAS</h2>
+<h3 id="create-empty-index-with-correct-mapping">Create empty index with correct mapping</h3>
+<p>Infer mapping directly from the data:</p>
+<div class="highlight"><pre><span></span><code>arlas_cli indices \
+    --config local \
+    mapping tutorials/sunny_osm/data/sunny_osm/osm_sunny.json/part-00000-*.json \
+    --no-fulltext osm_id \
+    --no-fulltext month \
+    --no-fulltext unique_id \
+    --no-fulltext name \
+    --field-mapping time:date-epoch_second \
+    --field-mapping area:integer \
+    --nb-lines 1000 \
+    --push-on sunny_osm
+</code></pre></div>
+<h3 id="index-data">Index data</h3>
+<p>To index the object data created in <code>sunny_osm/osm_sunny.json</code>, run:
+<div class="highlight"><pre><span></span><code>arlas_cli indices \
+    --config local  \
+    data sunny_osm \
+    tutorials/sunny_osm/data/sunny_osm/osm_sunny.json/*.json
+</code></pre></div></p>
+<h3 id="delete-index">Delete index</h3>
+<p>If you want to delete the index, run:
+<div class="highlight"><pre><span></span><code>arlas_cli indices \
+    --config local-admin \
+    delete sunny_osm
+</code></pre></div></p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Before reindexing data, don't forget to <a href="#create-empty-index-with-correct-mapping">recreate empty index with mapping</a>.</p>
+</div>
+<h3 id="create-collection">Create collection</h3>
+<p>To create the ARLAS collection, run:
+<div class="highlight"><pre><span></span><code>arlas_cli collections \
+    --config local \
+    create tuto_sunny_osm \
+    --index sunny_osm \
+    --display-name &quot;Sunny OSM&quot; \
+    --centroid-path centroid \
+    --geometry-path geometry \
+    --date-path time \
+    --id-path unique_id \
+    --owner tmp
+</code></pre></div></p>
+<h2 id="create-an-arlas-dashboard-from-a-configuration-file">Create an ARLAS dashboard from a configuration file</h2>
+<p>Depending on your deployment, change the ARLAS server URL in the dashboard configuration. </p>
+<p>Run at the project root:</p>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Local</label><label for="__tabbed_1_2">ARLAS Cloud</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>export ARLAS_SERVER_URL=http://localhost/arlas
+
+envsubst &#39;$ARLAS_SERVER_URL&#39; &lt; tutorials/sunny_osm/data/arlas/template.config.dashboard.json &gt; tutorials/sunny_osm/data/arlas/config.dashboard.json
+</code></pre></div>
+<p>Then create the ARLAS dashboard from 
+<div class="highlight"><pre><span></span><code>arlas_cli persist \
+    --config local \
+    add tutorials/sunny_osm/data/arlas/config.dashboard.json config.json --name &quot;Sunny OSM&quot;
+</code></pre></div></p>
+</div>
+<div class="tabbed-block">
+<div class="highlight"><pre><span></span><code>export ARLAS_SERVER_URL=https://cloud.arlas.io/arlas/server
+
+envsubst &#39;$ARLAS_SERVER_URL&#39; &lt; tutorials/sunny_osm/data/arlas/template.config.dashboard.json &gt; tutorials/sunny_osm/data/arlas/config.dashboard.json
+
+arlas_cli persist \
+    add tutorials/sunny_osm/data/arlas/config.dashboard.json config.json --name &quot;Sunny OSM&quot;
+</code></pre></div>
+</div>
+</div>
+</div>
+<p><img alt="ARLAS with the created &quot;Sunny OSM&quot; dashboard" src="../images/hub.png" /></p>
+<p align="center" style="font-style: italic;" >
+ ARLAS with the created "Sunny OSM" dashboard
+</p>
+
+<div class="admonition success">
+<p class="admonition-title">Success</p>
+<p>The <code>Sunny OSM</code> Dashboard is accessible in ARLAS.</p>
+</div>
+<p>You can set a preview by editing the dashboard and choosing a view in the map <code>Preview</code> tab:</p>
+<p><img alt="Set Sunny OSM dashboard preview" src="../images/set_preview.png" /></p>
+<p align="center" style="font-style: italic;" >
+Set Sunny OSM dashboard preview
+</p>
+
+<p>The created dashboard has now its preview in ARLAS Hub:</p>
+<p><img alt="ARLAS with the created &quot;Sunny OSM&quot; dashboard and its preview" src="../images/hub_preview.png" /></p>
+<p align="center" style="font-style: italic;" >
+ARLAS with the created "Sunny OSM" dashboard and its preview
+</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../../..", "features": [], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../../../assets/javascripts/bundle.fe8b6f2b.min.js"></script>
+      
+        <script src="../../../termynal.js"></script>
+      
+    
+  </body>
+</html>
