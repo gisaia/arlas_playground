@@ -1,0 +1,1464 @@
+{
+    "arlas": {
+        "web": {
+            "contributors": [
+                {
+                    "type": "map",
+                    "identifier": "tuto_eo_objects",
+                    "name": "Map tuto_eo_objects",
+                    "collection": "tuto_eo_objects",
+                    "geo_query_op": "Intersects",
+                    "geo_query_field": "center_geom",
+                    "icon": "check_box_outline_blank",
+                    "layers_sources": [
+                        {
+                            "id": "arlas_id:Distribution:1733157638173",
+                            "name": "Distribution",
+                            "source": "cluster-center_geom-Fine-tile-cell-tuto_eo_objects",
+                            "minzoom": 0,
+                            "maxzoom": 12,
+                            "include_fields": [],
+                            "short_form_fields": [],
+                            "colors_from_fields": [],
+                            "provided_fields": [],
+                            "normalization_fields": [],
+                            "metrics": [
+                                {
+                                    "field": "",
+                                    "metric": "count",
+                                    "normalize": true
+                                }
+                            ],
+                            "agg_geo_field": "center_geom",
+                            "aggType": "tile",
+                            "granularity": "Fine",
+                            "minfeatures": 0,
+                            "aggregated_geometry": "cell"
+                        },
+                        {
+                            "id": "arlas_id:Distribution:1733157652451",
+                            "name": "Distribution",
+                            "source": "cluster-center_geom-Fine-tile-cell-tuto_eo_objects",
+                            "minzoom": 12,
+                            "maxzoom": 23,
+                            "include_fields": [],
+                            "short_form_fields": [],
+                            "colors_from_fields": [],
+                            "provided_fields": [],
+                            "normalization_fields": [],
+                            "metrics": [
+                                {
+                                    "field": "",
+                                    "metric": "count",
+                                    "normalize": true
+                                }
+                            ],
+                            "agg_geo_field": "center_geom",
+                            "aggType": "tile",
+                            "granularity": "Fine",
+                            "minfeatures": 5000,
+                            "aggregated_geometry": "cell"
+                        },
+                        {
+                            "id": "arlas_id:Bounding box:1725898236413",
+                            "name": "Bounding box",
+                            "source": "feature-geometry-wide-tuto_eo_objects",
+                            "minzoom": 12,
+                            "maxzoom": 23,
+                            "include_fields": [],
+                            "short_form_fields": [],
+                            "colors_from_fields": [],
+                            "provided_fields": [],
+                            "normalization_fields": [],
+                            "metrics": [],
+                            "maxfeatures": 5000,
+                            "returned_geometry": "geometry",
+                            "render_mode": "wide"
+                        },
+                        {
+                            "id": "arlas_id:Boundig box:1725955678342",
+                            "name": "Boundig box",
+                            "source": "feature-geometry-wide-tuto_eo_objects",
+                            "minzoom": 12,
+                            "maxzoom": 23,
+                            "include_fields": [],
+                            "short_form_fields": [],
+                            "colors_from_fields": [
+                                "type_id"
+                            ],
+                            "provided_fields": [],
+                            "normalization_fields": [],
+                            "metrics": [],
+                            "maxfeatures": 5000,
+                            "returned_geometry": "geometry",
+                            "render_mode": "wide"
+                        },
+                        {
+                            "id": "arlas_id:Info:1725957228719",
+                            "name": "Info",
+                            "source": "feature-geometry-window-tuto_eo_objects",
+                            "minzoom": 12,
+                            "maxzoom": 23,
+                            "include_fields": [],
+                            "short_form_fields": [],
+                            "colors_from_fields": [],
+                            "provided_fields": [],
+                            "normalization_fields": [],
+                            "metrics": [],
+                            "returned_geometry": "geometry",
+                            "render_mode": "window"
+                        },
+                        {
+                            "id": "arlas_id:Bounding Box:1727193982726",
+                            "name": "Bounding Box",
+                            "source": "feature-metric-image_id-image_geom--1-tuto_eo_objects",
+                            "minzoom": 0,
+                            "maxzoom": 23,
+                            "include_fields": [],
+                            "short_form_fields": [],
+                            "colors_from_fields": [],
+                            "provided_fields": [],
+                            "normalization_fields": [],
+                            "metrics": [],
+                            "maxfeatures": 10000,
+                            "raw_geometry": {
+                                "geometry": "image_geom",
+                                "sort": ""
+                            },
+                            "geometry_id": "image_id",
+                            "network_fetching_level": 1
+                        },
+                        {
+                            "id": "arlas_id:Bounding Box background:1727194160874",
+                            "name": "Bounding Box background",
+                            "source": "feature-metric-image_id-image_geom--1-tuto_eo_objects",
+                            "minzoom": 0,
+                            "maxzoom": 23,
+                            "include_fields": [],
+                            "short_form_fields": [],
+                            "colors_from_fields": [],
+                            "provided_fields": [],
+                            "normalization_fields": [],
+                            "metrics": [],
+                            "maxfeatures": 10000,
+                            "raw_geometry": {
+                                "geometry": "image_geom",
+                                "sort": ""
+                            },
+                            "geometry_id": "image_id",
+                            "network_fetching_level": 1
+                        },
+                        {
+                            "id": "arlas_id:Type:1727338872737",
+                            "name": "Type",
+                            "source": "feature-geometry-wide-tuto_eo_objects",
+                            "minzoom": 19,
+                            "maxzoom": 23,
+                            "include_fields": [
+                                "type_id"
+                            ],
+                            "short_form_fields": [],
+                            "colors_from_fields": [
+                                "type_id"
+                            ],
+                            "provided_fields": [],
+                            "normalization_fields": [],
+                            "metrics": [],
+                            "maxfeatures": 5000,
+                            "returned_geometry": "geometry",
+                            "render_mode": "wide"
+                        }
+                    ]
+                },
+                {
+                    "type": "search",
+                    "identifier": "search_tuto_eo_objects_internal.fulltext_internal.autocomplete",
+                    "collection": "tuto_eo_objects",
+                    "search_field": "internal.fulltext",
+                    "name": "Search...",
+                    "icon": "search",
+                    "autocomplete_field": "internal.autocomplete",
+                    "autocomplete_size": 10
+                },
+                {
+                    "type": "histogram",
+                    "identifier": "timeline",
+                    "collection": "tuto_eo_objects",
+                    "name": "Timeline",
+                    "icon": "watch_later",
+                    "isOneDimension": false,
+                    "useUtc": true,
+                    "numberOfBuckets": 50,
+                    "aggregationmodels": [
+                        {
+                            "type": "datehistogram",
+                            "field": "timestamp"
+                        }
+                    ],
+                    "additionalCollections": []
+                },
+                {
+                    "identifier": "tuto_eo_objects-object_id-100-Identifier-Ingest time-Type-Object-Image-",
+                    "name": "Objects",
+                    "title": "Objects",
+                    "collection": "tuto_eo_objects",
+                    "icon": "table_chart",
+                    "type": "resultlist",
+                    "search_size": 100,
+                    "fieldsConfiguration": {
+                        "idFieldName": "object_id",
+                        "titleFieldNames": [
+                            {
+                                "fieldPath": "",
+                                "process": ""
+                            }
+                        ],
+                        "tooltipFieldNames": [
+                            {
+                                "fieldPath": "",
+                                "process": ""
+                            }
+                        ],
+                        "iconColorFieldName": "",
+                        "useHttpQuicklooks": false,
+                        "useHttpThumbnails": false,
+                        "urlImageTemplates": []
+                    },
+                    "columns": [
+                        {
+                            "columnName": "Identifier",
+                            "fieldName": "object_id",
+                            "dataType": "",
+                            "process": "",
+                            "useColorService": false,
+                            "sort": ""
+                        },
+                        {
+                            "columnName": "Ingest time",
+                            "fieldName": "ingest_time",
+                            "dataType": "",
+                            "process": "",
+                            "useColorService": false,
+                            "sort": ""
+                        },
+                        {
+                            "columnName": "Type",
+                            "fieldName": "type_id",
+                            "dataType": "",
+                            "process": "",
+                            "useColorService": true,
+                            "sort": ""
+                        }
+                    ],
+                    "details": [
+                        {
+                            "name": "Object",
+                            "order": 1,
+                            "fields": [
+                                {
+                                    "path": "object_id",
+                                    "label": "Identifier",
+                                    "process": ""
+                                },
+                                {
+                                    "path": "type_id",
+                                    "label": "Type",
+                                    "process": ""
+                                },
+                                {
+                                    "path": "edited_by",
+                                    "label": "Edited by",
+                                    "process": ""
+                                },
+                                {
+                                    "path": "ingest_time",
+                                    "label": "Ingest time",
+                                    "process": ""
+                                },
+                                {
+                                    "path": "bounds_imcoords",
+                                    "label": "Coordinates in image",
+                                    "process": ""
+                                }
+                            ]
+                        },
+                        {
+                            "name": "Image",
+                            "order": 2,
+                            "fields": [
+                                {
+                                    "path": "dataset_source",
+                                    "label": "Dataset",
+                                    "process": ""
+                                },
+                                {
+                                    "path": "image_id",
+                                    "label": "Identifier",
+                                    "process": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "includeMetadata": []
+                },
+                {
+                    "type": "detailedhistogram",
+                    "identifier": "detailedTimeline",
+                    "collection": "tuto_eo_objects",
+                    "name": "Timeline",
+                    "icon": "watch_later",
+                    "isOneDimension": false,
+                    "useUtc": true,
+                    "numberOfBuckets": 50,
+                    "aggregationmodels": [
+                        {
+                            "type": "datehistogram",
+                            "field": "timestamp"
+                        }
+                    ],
+                    "annexedContributorId": "timeline",
+                    "selectionExtentPercentage": 0.02,
+                    "additionalCollections": []
+                },
+                {
+                    "identifier": "tuto_eo_objects-type_id-30-",
+                    "name": "Object type",
+                    "title": "Object type",
+                    "collection": "tuto_eo_objects",
+                    "icon": "emoji_transportation",
+                    "type": "tree",
+                    "aggregationmodels": [
+                        {
+                            "field": "type_id",
+                            "size": 30,
+                            "type": "term"
+                        }
+                    ]
+                },
+                {
+                    "identifier": "tuto_eo_objects-type_id-500-Count-desc-count",
+                    "name": "Object type",
+                    "title": "Object type",
+                    "collection": "tuto_eo_objects",
+                    "icon": "emoji_transportation",
+                    "type": "tree",
+                    "jsonpath": "$.count",
+                    "aggregationmodels": [
+                        {
+                            "type": "term",
+                            "field": "type_id",
+                            "size": 500,
+                            "order": "desc",
+                            "on": "count"
+                        }
+                    ],
+                    "filterOperator": "Eq",
+                    "allowOperatorChange": true
+                },
+                {
+                    "identifier": "tuto_eo_objects-image_id-500-Count-desc-count",
+                    "name": "Identifier",
+                    "title": "Identifier",
+                    "collection": "tuto_eo_objects",
+                    "icon": "image",
+                    "type": "tree",
+                    "jsonpath": "$.count",
+                    "aggregationmodels": [
+                        {
+                            "type": "term",
+                            "field": "image_id",
+                            "size": 500,
+                            "order": "desc",
+                            "on": "count"
+                        }
+                    ],
+                    "filterOperator": "Eq",
+                    "allowOperatorChange": true
+                },
+                {
+                    "identifier": "tuto_eo_objects-dataset_source-10-Count-desc-count",
+                    "name": "Source",
+                    "title": "Source",
+                    "collection": "tuto_eo_objects",
+                    "icon": "storage",
+                    "type": "tree",
+                    "jsonpath": "$.count",
+                    "aggregationmodels": [
+                        {
+                            "type": "term",
+                            "field": "dataset_source",
+                            "size": 10,
+                            "order": "desc",
+                            "on": "count"
+                        }
+                    ],
+                    "filterOperator": "Eq",
+                    "allowOperatorChange": true
+                },
+                {
+                    "identifier": "tuto_eo_objects-edited_by-500-Count-desc-count",
+                    "name": "Edited by",
+                    "title": "Edited by",
+                    "collection": "tuto_eo_objects",
+                    "icon": "person",
+                    "type": "tree",
+                    "jsonpath": "$.count",
+                    "aggregationmodels": [
+                        {
+                            "type": "term",
+                            "field": "edited_by",
+                            "size": 500,
+                            "order": "desc",
+                            "on": "count"
+                        }
+                    ],
+                    "filterOperator": "Eq",
+                    "allowOperatorChange": true
+                }
+            ],
+            "components": {
+                "timeline": {
+                    "contributorId": "timeline",
+                    "componentType": "histogram",
+                    "uuid": "",
+                    "input": {
+                        "id": "histogram-timeline",
+                        "xTicks": 9,
+                        "yTicks": 2,
+                        "xLabels": 9,
+                        "yLabels": 2,
+                        "xUnit": "",
+                        "yUnit": "",
+                        "chartXLabel": "",
+                        "shortYLabels": false,
+                        "chartTitle": "Timeline",
+                        "customizedCssClass": "arlas-timeline",
+                        "multiselectable": true,
+                        "brushHandlesHeightWeight": 0.8,
+                        "dataType": "time",
+                        "isHistogramSelectable": true,
+                        "ticksDateFormat": "%b %d %Y  %H:%M",
+                        "chartType": "bars",
+                        "chartHeight": 128,
+                        "chartWidth": null,
+                        "xAxisPosition": "bottom",
+                        "yAxisStartsFromZero": true,
+                        "descriptionPosition": "top",
+                        "showXTicks": true,
+                        "showYTicks": true,
+                        "showXLabels": true,
+                        "showYLabels": true,
+                        "showHorizontalLines": false,
+                        "isSmoothedCurve": true,
+                        "barWeight": 0.8,
+                        "topOffsetRemoveInterval": 10
+                    }
+                },
+                "mapgl": {
+                    "allowMapExtend": true,
+                    "nbVerticesLimit": 100,
+                    "input": {
+                        "defaultBasemapStyle": {
+                            "name": "Streets-light",
+                            "styleFile": "https://api.maptiler.com/maps/208a41eb-368f-4003-8e3c-2dba0d90b3cb/style.json?key=E7xmD2y9rRj1z4TcNnj9",
+                            "image": "https://api.maptiler.com/maps/208a41eb-368f-4003-8e3c-2dba0d90b3cb/0/0/0.png?key=E7xmD2y9rRj1z4TcNnj9",
+                            "type": null
+                        },
+                        "basemapStyles": [
+                            {
+                                "name": "Basic",
+                                "styleFile": "https://api.maptiler.com/maps/basic/style.json?key=E7xmD2y9rRj1z4TcNnj9",
+                                "image": "https://cloud.maptiler.com/static/img/maps/basic.png",
+                                "type": null
+                            },
+                            {
+                                "name": "Bright",
+                                "styleFile": "https://api.maptiler.com/maps/bright/style.json?key=E7xmD2y9rRj1z4TcNnj9",
+                                "image": "https://cloud.maptiler.com/static/img/maps/bright.png",
+                                "type": null
+                            },
+                            {
+                                "name": "Pastel",
+                                "styleFile": "https://api.maptiler.com/maps/pastel/style.json?key=E7xmD2y9rRj1z4TcNnj9",
+                                "image": "https://cloud.maptiler.com/static/img/maps/pastel.png",
+                                "type": null
+                            },
+                            {
+                                "name": "Satellite Hybrid",
+                                "styleFile": "https://api.maptiler.com/maps/hybrid/style.json?key=E7xmD2y9rRj1z4TcNnj9",
+                                "image": "https://cloud.maptiler.com/static/img/maps/hybrid.png",
+                                "type": null
+                            },
+                            {
+                                "name": "Streets",
+                                "styleFile": "https://api.maptiler.com/maps/streets/style.json?key=E7xmD2y9rRj1z4TcNnj9",
+                                "image": "https://cloud.maptiler.com/static/img/maps/streets.png",
+                                "type": null
+                            },
+                            {
+                                "name": "Topo",
+                                "styleFile": "https://api.maptiler.com/maps/topo/style.json?key=E7xmD2y9rRj1z4TcNnj9",
+                                "image": "https://cloud.maptiler.com/static/img/maps/topo.png",
+                                "type": null
+                            },
+                            {
+                                "name": "Topographique",
+                                "styleFile": "https://api.maptiler.com/maps/topographique/style.json?key=E7xmD2y9rRj1z4TcNnj9",
+                                "image": "https://cloud.maptiler.com/static/img/maps/topographique.png",
+                                "type": null
+                            },
+                            {
+                                "name": "Voyager",
+                                "styleFile": "https://api.maptiler.com/maps/voyager/style.json?key=E7xmD2y9rRj1z4TcNnj9",
+                                "image": "https://cloud.maptiler.com/static/img/maps/voyager.png",
+                                "type": null
+                            },
+                            {
+                                "name": "Streets-light",
+                                "styleFile": "https://api.maptiler.com/maps/208a41eb-368f-4003-8e3c-2dba0d90b3cb/style.json?key=E7xmD2y9rRj1z4TcNnj9",
+                                "image": "https://api.maptiler.com/maps/208a41eb-368f-4003-8e3c-2dba0d90b3cb/0/0/0.png?key=E7xmD2y9rRj1z4TcNnj9",
+                                "type": null
+                            }
+                        ],
+                        "margePanForLoad": 5,
+                        "margePanForTest": 5,
+                        "initZoom": 10,
+                        "initCenter": [
+                            23.8,
+                            37.95
+                        ],
+                        "displayScale": true,
+                        "displayCurrentCoordinates": false,
+                        "idFeatureField": "deprecated, to be removed",
+                        "mapLayers": {
+                            "layers": [
+                                {
+                                    "id": "arlas_id:Distribution:1733157638173",
+                                    "type": "fill",
+                                    "source": "cluster-center_geom-Fine-tile-cell-tuto_eo_objects",
+                                    "minzoom": 0,
+                                    "maxzoom": 12,
+                                    "layout": {
+                                        "visibility": "visible"
+                                    },
+                                    "paint": {
+                                        "fill-opacity": 0.7,
+                                        "fill-color": [
+                                            "interpolate",
+                                            [
+                                                "linear"
+                                            ],
+                                            [
+                                                "get",
+                                                "count_:normalized"
+                                            ],
+                                            0,
+                                            "#53d9e8",
+                                            0.15,
+                                            "#29AFFB",
+                                            0.3,
+                                            "#2874FA",
+                                            0.45,
+                                            "#8a77fb",
+                                            0.65,
+                                            "#eb79fc",
+                                            1,
+                                            "#ef586c"
+                                        ]
+                                    },
+                                    "metadata": {
+                                        "collection": "tuto_eo_objects",
+                                        "collection-display-name": "EO Objects",
+                                        "stroke": {
+                                            "color": "#fff",
+                                            "width": 0,
+                                            "opacity": 0
+                                        }
+                                    },
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "id": "arlas_id:Distribution:1733157652451",
+                                    "type": "fill",
+                                    "source": "cluster-center_geom-Fine-tile-cell-tuto_eo_objects",
+                                    "minzoom": 12,
+                                    "maxzoom": 23,
+                                    "layout": {
+                                        "visibility": "visible"
+                                    },
+                                    "paint": {
+                                        "fill-opacity": 0.7,
+                                        "fill-color": [
+                                            "interpolate",
+                                            [
+                                                "linear"
+                                            ],
+                                            [
+                                                "get",
+                                                "count_:normalized"
+                                            ],
+                                            0,
+                                            "#53d9e8",
+                                            0.15,
+                                            "#29AFFB",
+                                            0.3,
+                                            "#2874FA",
+                                            0.45,
+                                            "#8a77fb",
+                                            0.65,
+                                            "#eb79fc",
+                                            1,
+                                            "#ef586c"
+                                        ]
+                                    },
+                                    "metadata": {
+                                        "collection": "tuto_eo_objects",
+                                        "collection-display-name": "EO Objects",
+                                        "stroke": {
+                                            "color": "#fff",
+                                            "width": 0,
+                                            "opacity": 0
+                                        }
+                                    },
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "id": "arlas_id:Bounding box:1725898236413",
+                                    "type": "fill",
+                                    "source": "feature-geometry-wide-tuto_eo_objects",
+                                    "minzoom": 12,
+                                    "maxzoom": 23,
+                                    "layout": {
+                                        "visibility": "visible"
+                                    },
+                                    "paint": {
+                                        "fill-opacity": 0,
+                                        "fill-color": "#ffffff"
+                                    },
+                                    "metadata": {
+                                        "collection": "tuto_eo_objects",
+                                        "collection-display-name": "EO Objects",
+                                        "stroke": {
+                                            "color": "#c00000",
+                                            "width": 2,
+                                            "opacity": 1
+                                        },
+                                        "is-scrollable-layer": false
+                                    },
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "id": "arlas_id:Boundig box:1725955678342",
+                                    "type": "fill",
+                                    "source": "feature-geometry-wide-tuto_eo_objects",
+                                    "minzoom": 12,
+                                    "maxzoom": 23,
+                                    "layout": {
+                                        "visibility": "visible"
+                                    },
+                                    "paint": {
+                                        "fill-opacity": 0,
+                                        "fill-color": "#ffffff"
+                                    },
+                                    "metadata": {
+                                        "collection": "tuto_eo_objects",
+                                        "collection-display-name": "EO Objects",
+                                        "stroke": {
+                                            "color": [
+                                                "get",
+                                                "type_id_arlas__color"
+                                            ],
+                                            "width": 2,
+                                            "opacity": 1
+                                        },
+                                        "is-scrollable-layer": false
+                                    },
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "id": "arlas_id:Info:1725957228719",
+                                    "type": "fill",
+                                    "source": "feature-geometry-window-tuto_eo_objects",
+                                    "minzoom": 12,
+                                    "maxzoom": 23,
+                                    "layout": {
+                                        "visibility": "visible"
+                                    },
+                                    "paint": {
+                                        "fill-opacity": 0.3,
+                                        "fill-color": "#b4b3b3"
+                                    },
+                                    "metadata": {
+                                        "collection": "tuto_eo_objects",
+                                        "collection-display-name": "EO Objects",
+                                        "stroke": {
+                                            "color": "#fff",
+                                            "width": 0,
+                                            "opacity": 0
+                                        },
+                                        "is-scrollable-layer": true
+                                    },
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "id": "arlas_id:Bounding Box:1727193982726",
+                                    "type": "line",
+                                    "source": "feature-metric-image_id-image_geom--1-tuto_eo_objects",
+                                    "minzoom": 0,
+                                    "maxzoom": 23,
+                                    "layout": {
+                                        "visibility": "visible",
+                                        "line-cap": "round",
+                                        "line-join": "round"
+                                    },
+                                    "paint": {
+                                        "line-opacity": 0.8,
+                                        "line-color": "#960000",
+                                        "line-width": 0.5,
+                                        "line-dasharray": [
+                                            2,
+                                            5
+                                        ]
+                                    },
+                                    "metadata": {
+                                        "collection": "tuto_eo_objects",
+                                        "collection-display-name": "EO Objects"
+                                    },
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "id": "arlas_id:Bounding Box background:1727194160874",
+                                    "type": "fill",
+                                    "source": "feature-metric-image_id-image_geom--1-tuto_eo_objects",
+                                    "minzoom": 0,
+                                    "maxzoom": 23,
+                                    "layout": {
+                                        "visibility": "visible"
+                                    },
+                                    "paint": {
+                                        "fill-opacity": 0.05,
+                                        "fill-color": "#c40000"
+                                    },
+                                    "metadata": {
+                                        "collection": "tuto_eo_objects",
+                                        "collection-display-name": "EO Objects",
+                                        "stroke": {
+                                            "color": "#fff",
+                                            "width": 1.5,
+                                            "opacity": 0.8
+                                        }
+                                    },
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "id": "arlas_id:Type:1727338872737",
+                                    "type": "symbol",
+                                    "source": "feature-geometry-wide-tuto_eo_objects",
+                                    "minzoom": 19,
+                                    "maxzoom": 23,
+                                    "layout": {
+                                        "visibility": "visible",
+                                        "text-field": [
+                                            "get",
+                                            "type_id"
+                                        ],
+                                        "text-font": [
+                                            "Open Sans Bold",
+                                            "Arial Unicode MS Bold"
+                                        ],
+                                        "text-size": 12,
+                                        "text-rotate": 0,
+                                        "text-allow-overlap": true,
+                                        "text-anchor": "center",
+                                        "symbol-placement": "point"
+                                    },
+                                    "paint": {
+                                        "text-color": [
+                                            "get",
+                                            "type_id_arlas__color"
+                                        ],
+                                        "text-opacity": 1,
+                                        "text-halo-color": "#000",
+                                        "text-halo-width": 0,
+                                        "text-halo-blur": 0,
+                                        "text-translate": [
+                                            0,
+                                            0
+                                        ]
+                                    },
+                                    "metadata": {
+                                        "collection": "tuto_eo_objects",
+                                        "collection-display-name": "EO Objects",
+                                        "is-scrollable-layer": false
+                                    },
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ]
+                                },
+                                {
+                                    "source": "feature-geometry-wide-tuto_eo_objects",
+                                    "id": "arlas-select-arlas-fill_stroke-Bounding box:1725898236413",
+                                    "type": "line",
+                                    "maxzoom": 23,
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ],
+                                    "minzoom": 12,
+                                    "layout": {
+                                        "visibility": "none"
+                                    },
+                                    "paint": {
+                                        "line-color": "#c00000",
+                                        "line-opacity": 1,
+                                        "line-width": 14
+                                    }
+                                },
+                                {
+                                    "source": "feature-geometry-wide-tuto_eo_objects",
+                                    "id": "arlas-select-arlas-fill_stroke-Boundig box:1725955678342",
+                                    "type": "line",
+                                    "maxzoom": 23,
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ],
+                                    "minzoom": 12,
+                                    "layout": {
+                                        "visibility": "none"
+                                    },
+                                    "paint": {
+                                        "line-color": [
+                                            "get",
+                                            "type_id_arlas__color"
+                                        ],
+                                        "line-opacity": 1,
+                                        "line-width": 14
+                                    }
+                                },
+                                {
+                                    "source": "feature-geometry-window-tuto_eo_objects",
+                                    "id": "arlas-select-arlas-fill_stroke-Info:1725957228719",
+                                    "type": "line",
+                                    "maxzoom": 23,
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ],
+                                    "minzoom": 12,
+                                    "layout": {
+                                        "visibility": "none"
+                                    },
+                                    "paint": {
+                                        "line-color": "#fff",
+                                        "line-opacity": 0,
+                                        "line-width": 12
+                                    }
+                                },
+                                {
+                                    "source": "feature-geometry-wide-tuto_eo_objects",
+                                    "id": "arlas-hover-arlas-fill_stroke-Bounding box:1725898236413",
+                                    "type": "line",
+                                    "maxzoom": 23,
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ],
+                                    "minzoom": 12,
+                                    "layout": {
+                                        "visibility": "none"
+                                    },
+                                    "paint": {
+                                        "line-color": "#c00000",
+                                        "line-opacity": 1,
+                                        "line-width": 14
+                                    }
+                                },
+                                {
+                                    "source": "feature-geometry-wide-tuto_eo_objects",
+                                    "id": "arlas-hover-arlas-fill_stroke-Boundig box:1725955678342",
+                                    "type": "line",
+                                    "maxzoom": 23,
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ],
+                                    "minzoom": 12,
+                                    "layout": {
+                                        "visibility": "none"
+                                    },
+                                    "paint": {
+                                        "line-color": [
+                                            "get",
+                                            "type_id_arlas__color"
+                                        ],
+                                        "line-opacity": 1,
+                                        "line-width": 14
+                                    }
+                                },
+                                {
+                                    "source": "feature-geometry-window-tuto_eo_objects",
+                                    "id": "arlas-hover-arlas-fill_stroke-Info:1725957228719",
+                                    "type": "line",
+                                    "maxzoom": 23,
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ],
+                                    "minzoom": 12,
+                                    "layout": {
+                                        "visibility": "none"
+                                    },
+                                    "paint": {
+                                        "line-color": "#fff",
+                                        "line-opacity": 0,
+                                        "line-width": 12
+                                    }
+                                },
+                                {
+                                    "source": "cluster-center_geom-Fine-tile-cell-tuto_eo_objects",
+                                    "id": "arlas-fill_stroke-Distribution:1733157638173",
+                                    "type": "line",
+                                    "maxzoom": 12,
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ],
+                                    "minzoom": 0,
+                                    "layout": {
+                                        "visibility": "visible"
+                                    },
+                                    "paint": {
+                                        "line-color": "#fff",
+                                        "line-opacity": 0,
+                                        "line-width": 0
+                                    }
+                                },
+                                {
+                                    "source": "cluster-center_geom-Fine-tile-cell-tuto_eo_objects",
+                                    "id": "arlas-fill_stroke-Distribution:1733157652451",
+                                    "type": "line",
+                                    "maxzoom": 23,
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ],
+                                    "minzoom": 12,
+                                    "layout": {
+                                        "visibility": "visible"
+                                    },
+                                    "paint": {
+                                        "line-color": "#fff",
+                                        "line-opacity": 0,
+                                        "line-width": 0
+                                    }
+                                },
+                                {
+                                    "source": "feature-geometry-wide-tuto_eo_objects",
+                                    "id": "arlas-fill_stroke-Bounding box:1725898236413",
+                                    "type": "line",
+                                    "maxzoom": 23,
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ],
+                                    "minzoom": 12,
+                                    "layout": {
+                                        "visibility": "visible"
+                                    },
+                                    "paint": {
+                                        "line-color": "#c00000",
+                                        "line-opacity": 1,
+                                        "line-width": 2
+                                    }
+                                },
+                                {
+                                    "source": "feature-geometry-wide-tuto_eo_objects",
+                                    "id": "arlas-fill_stroke-Boundig box:1725955678342",
+                                    "type": "line",
+                                    "maxzoom": 23,
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ],
+                                    "minzoom": 12,
+                                    "layout": {
+                                        "visibility": "visible"
+                                    },
+                                    "paint": {
+                                        "line-color": [
+                                            "get",
+                                            "type_id_arlas__color"
+                                        ],
+                                        "line-opacity": 1,
+                                        "line-width": 2
+                                    }
+                                },
+                                {
+                                    "source": "feature-geometry-window-tuto_eo_objects",
+                                    "id": "arlas-fill_stroke-Info:1725957228719",
+                                    "type": "line",
+                                    "maxzoom": 23,
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ],
+                                    "minzoom": 12,
+                                    "layout": {
+                                        "visibility": "visible"
+                                    },
+                                    "paint": {
+                                        "line-color": "#fff",
+                                        "line-opacity": 0,
+                                        "line-width": 0
+                                    }
+                                },
+                                {
+                                    "source": "feature-metric-image_id-image_geom--1-tuto_eo_objects",
+                                    "id": "arlas-fill_stroke-Bounding Box background:1727194160874",
+                                    "type": "line",
+                                    "maxzoom": 23,
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ],
+                                    "minzoom": 0,
+                                    "layout": {
+                                        "visibility": "visible"
+                                    },
+                                    "paint": {
+                                        "line-color": "#fff",
+                                        "line-opacity": 0.8,
+                                        "line-width": 1.5
+                                    }
+                                },
+                                {
+                                    "source": "feature-geometry-window-tuto_eo_objects",
+                                    "id": "scrollable_arlas_id:Info:1725957228719",
+                                    "type": "fill",
+                                    "maxzoom": 23,
+                                    "minzoom": 12,
+                                    "metadata": {
+                                        "collection": "tuto_eo_objects",
+                                        "collection-display-name": "EO Objects",
+                                        "is-scrollable-layer": false
+                                    },
+                                    "filter": [
+                                        "all",
+                                        [
+                                            "all"
+                                        ]
+                                    ],
+                                    "layout": {
+                                        "visibility": "visible"
+                                    },
+                                    "paint": {
+                                        "fill-opacity": 0.3,
+                                        "fill-color": "#b4b3b3"
+                                    }
+                                }
+                            ],
+                            "events": {
+                                "zoomOnClick": [],
+                                "emitOnClick": [
+                                    "arlas_id:Info:1725957228719",
+                                    "scrollable_arlas_id:Info:1725957228719"
+                                ],
+                                "onHover": [
+                                    "arlas_id:Info:1725957228719",
+                                    "scrollable_arlas_id:Info:1725957228719"
+                                ]
+                            },
+                            "externalEventLayers": [
+                                {
+                                    "id": "arlas-hover-arlas-fill_stroke-Bounding box:1725898236413",
+                                    "on": "hover"
+                                },
+                                {
+                                    "id": "arlas-hover-arlas-fill_stroke-Boundig box:1725955678342",
+                                    "on": "hover"
+                                },
+                                {
+                                    "id": "arlas-hover-arlas-fill_stroke-Info:1725957228719",
+                                    "on": "hover"
+                                },
+                                {
+                                    "id": "arlas-select-arlas-fill_stroke-Bounding box:1725898236413",
+                                    "on": "select"
+                                },
+                                {
+                                    "id": "arlas-select-arlas-fill_stroke-Boundig box:1725955678342",
+                                    "on": "select"
+                                },
+                                {
+                                    "id": "arlas-select-arlas-fill_stroke-Info:1725957228719",
+                                    "on": "select"
+                                }
+                            ]
+                        },
+                        "visualisations_sets": [
+                            {
+                                "name": "Objects Type",
+                                "layers": [
+                                    "arlas_id:Distribution:1733157638173",
+                                    "arlas_id:Boundig box:1725955678342",
+                                    "arlas_id:Distribution:1733157652451",
+                                    "arlas_id:Info:1725957228719",
+                                    "arlas_id:Type:1727338872737"
+                                ],
+                                "enabled": true
+                            },
+                            {
+                                "name": "Source Images",
+                                "layers": [
+                                    "arlas_id:Bounding Box:1727193982726",
+                                    "arlas_id:Bounding Box background:1727194160874"
+                                ],
+                                "enabled": false
+                            }
+                        ]
+                    }
+                },
+                "resultlists": [
+                    {
+                        "componentType": "resultlist",
+                        "input": {
+                            "id": "tuto_eo_objects-object_id-100-Identifier-Ingest time-Type-Object-Image-",
+                            "tableWidth": 445,
+                            "globalActionsList": [],
+                            "searchSize": 100,
+                            "nLastLines": 3,
+                            "detailedGridHeight": 300,
+                            "nbGridColumns": 3,
+                            "displayFilters": false,
+                            "hasGridMode": false,
+                            "defautMode": "list",
+                            "visualisationLink": "",
+                            "downloadLink": "",
+                            "isBodyHidden": false,
+                            "isGeoSortActived": true,
+                            "isAutoGeoSortActived": null,
+                            "selectedItemsEvent": null,
+                            "consultedItemEvent": null,
+                            "actionOnItemEvent": null,
+                            "globalActionEvent": 300,
+                            "useColorService": true,
+                            "cellBackgroundStyle": "filled",
+                            "options": {
+                                "showActionsOnhover": "true",
+                                "showDetailIconName": "keyboard_arrow_down",
+                                "hideDetailIconName": "keyboard_arrow_up",
+                                "icon": "emoji_transportation",
+                                "showName": true,
+                                "showIcon": true
+                            }
+                        },
+                        "contributorId": "tuto_eo_objects-object_id-100-Identifier-Ingest time-Type-Object-Image-",
+                        "uuid": "923c0e64-edce-4e0a-9a0b-3c05e08f2b96",
+                        "usage": "analytics"
+                    }
+                ],
+                "detailedTimeline": {
+                    "contributorId": "detailedTimeline",
+                    "componentType": "histogram",
+                    "uuid": "",
+                    "input": {
+                        "id": "histogram-detailed-timeline",
+                        "xTicks": 5,
+                        "yTicks": 2,
+                        "xLabels": 5,
+                        "yLabels": 2,
+                        "xUnit": "",
+                        "yUnit": "",
+                        "chartXLabel": "",
+                        "shortYLabels": false,
+                        "chartTitle": "Detailed timeline",
+                        "customizedCssClass": "arlas-detailed-timeline",
+                        "multiselectable": false,
+                        "brushHandlesHeightWeight": 0.8,
+                        "dataType": "time",
+                        "isHistogramSelectable": true,
+                        "ticksDateFormat": "%b %d %Y  %H:%M",
+                        "chartType": "bars",
+                        "chartHeight": 60,
+                        "chartWidth": null,
+                        "xAxisPosition": "top",
+                        "yAxisStartsFromZero": true,
+                        "descriptionPosition": "bottom",
+                        "showXTicks": true,
+                        "showYTicks": true,
+                        "showXLabels": true,
+                        "showYLabels": true,
+                        "showHorizontalLines": false,
+                        "isSmoothedCurve": true,
+                        "barWeight": 0.8
+                    }
+                },
+                "share": {
+                    "geojson": {
+                        "max_for_feature": 5000,
+                        "max_for_topology": 5000,
+                        "sort_excluded_type": [
+                            "TEXT",
+                            "GEO_POINT"
+                        ]
+                    }
+                },
+                "download": {}
+            },
+            "analytics": [
+                {
+                    "groupId": "Objects-0",
+                    "title": "Object Type",
+                    "tab": "Objects",
+                    "icon": "emoji_transportation",
+                    "components": [
+                        {
+                            "componentType": "donut",
+                            "showExportCsv": "",
+                            "input": {
+                                "id": "tuto_eo_objects-type_id-30-",
+                                "customizedCssClass": "arlas-donuts-analytics",
+                                "diameter": 170,
+                                "containerWidth": 223,
+                                "multiselectable": true,
+                                "opacity": 0.4
+                            },
+                            "contributorId": "tuto_eo_objects-type_id-30-",
+                            "uuid": "2299ae55-e17c-401f-9422-befb97f81c46",
+                            "usage": "analytics"
+                        },
+                        {
+                            "showExportCsv": true,
+                            "componentType": "powerbars",
+                            "input": {
+                                "chartTitle": "Object type",
+                                "powerbarTitle": "Object type",
+                                "displayFilter": true,
+                                "scrollable": true,
+                                "filterOperator": {
+                                    "value": "Eq",
+                                    "display": true
+                                },
+                                "useColorService": true,
+                                "useColorFromData": false,
+                                "unit": "objects",
+                                "chartWidth": 217
+                            },
+                            "contributorId": "tuto_eo_objects-type_id-500-Count-desc-count",
+                            "uuid": "39e0f08c-29af-4329-b2f8-1609f2faf263",
+                            "usage": "both"
+                        }
+                    ]
+                },
+                {
+                    "groupId": "Objects-1",
+                    "title": "Image identifier",
+                    "tab": "Objects",
+                    "icon": "image",
+                    "components": [
+                        {
+                            "showExportCsv": true,
+                            "componentType": "powerbars",
+                            "input": {
+                                "chartTitle": "Identifier",
+                                "powerbarTitle": "Identifier",
+                                "displayFilter": true,
+                                "scrollable": true,
+                                "filterOperator": {
+                                    "value": "Eq",
+                                    "display": true
+                                },
+                                "useColorService": false,
+                                "useColorFromData": false,
+                                "unit": "objects",
+                                "chartWidth": 445
+                            },
+                            "contributorId": "tuto_eo_objects-image_id-500-Count-desc-count",
+                            "uuid": "aae41e02-90f3-4f82-8b01-145fedb1690d",
+                            "usage": "analytics"
+                        }
+                    ]
+                },
+                {
+                    "groupId": "Objects-2",
+                    "title": "Dataset",
+                    "tab": "Objects",
+                    "icon": "storage",
+                    "components": [
+                        {
+                            "showExportCsv": true,
+                            "componentType": "powerbars",
+                            "input": {
+                                "chartTitle": "Source",
+                                "powerbarTitle": "Source",
+                                "displayFilter": true,
+                                "scrollable": true,
+                                "filterOperator": {
+                                    "value": "Eq",
+                                    "display": true
+                                },
+                                "useColorService": false,
+                                "useColorFromData": false,
+                                "unit": "objects",
+                                "chartWidth": 445
+                            },
+                            "contributorId": "tuto_eo_objects-dataset_source-10-Count-desc-count",
+                            "uuid": "9eaec7f8-e990-4f54-bdfc-8279126f9bc0",
+                            "usage": "analytics"
+                        }
+                    ]
+                },
+                {
+                    "groupId": "Objects-3",
+                    "title": "Object Annotation",
+                    "tab": "Objects",
+                    "icon": "person",
+                    "components": [
+                        {
+                            "showExportCsv": true,
+                            "componentType": "powerbars",
+                            "input": {
+                                "chartTitle": "Edited by",
+                                "powerbarTitle": "Edited by",
+                                "displayFilter": true,
+                                "scrollable": true,
+                                "filterOperator": {
+                                    "value": "Eq",
+                                    "display": true
+                                },
+                                "useColorService": false,
+                                "useColorFromData": false,
+                                "unit": "objects",
+                                "chartWidth": 445
+                            },
+                            "contributorId": "tuto_eo_objects-edited_by-500-Count-desc-count",
+                            "uuid": "e5b2a036-60eb-4909-89a1-b5e3cc3d162c",
+                            "usage": "analytics"
+                        }
+                    ]
+                }
+            ],
+            "filters_shortcuts": [
+                {
+                    "uuid": "39e0f08c-29af-4329-b2f8-1609f2faf263",
+                    "title": "Object type",
+                    "order": 1
+                }
+            ],
+            "colorGenerator": {
+                "keysToColors": []
+            },
+            "options": {
+                "drag_items": true,
+                "zoom_to_strategy": "centroid",
+                "indicators": true,
+                "spinner": {
+                    "show": true,
+                    "color": "accent",
+                    "diameter": 50
+                },
+                "tabs": [
+                    {
+                        "name": "Objects",
+                        "icon": "emoji_transportation",
+                        "showIcon": true,
+                        "showName": true
+                    }
+                ]
+            },
+            "externalNode": {}
+        },
+        "server": {
+            "url": "${ARLAS_SERVER_URL}",
+            "max_age_cache": 120,
+            "collection": {
+                "name": "tuto_eo_objects"
+            }
+        }
+    },
+    "arlas-wui": {
+        "web": {
+            "app": {
+                "components": {
+                    "chipssearch": {
+                        "name": "Search...",
+                        "icon": "search"
+                    }
+                },
+                "name": "ARLAS",
+                "units": [
+                    {
+                        "collection": "tuto_eo_objects",
+                        "unit": "objects",
+                        "ignored": false
+                    }
+                ]
+            }
+        }
+    },
+    "extraConfigs": [],
+    "resources": {}
+}
