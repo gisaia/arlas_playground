@@ -1,5 +1,5 @@
 site_name: ARLAS Playground Tutorials
-site_url: "https://gisaia.github.io/arlas_cli"
+site_url: "https://gisaia.github.io/arlas_playground"
 site_author: Gisaïa - SCALING GEOSPATIAL INTELLIGENCE
 site_description: Documentation for the ARLAS Playground Tutorials
 
@@ -15,9 +15,8 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.tabbed:
       alternate_style: true
-  - admonition
+  - md_in_html
   - pymdownx.details
-  - pymdownx.superfences
 
 theme:
   name: material
@@ -32,6 +31,7 @@ nav:
 - Tutorials:
   - Vessel location (AIS): tutorials/ais/ais_tutorial.md
   - Buildings Solar Potential: tutorials/sunny_osm/sunny_osm_tutorial.md
+  - Earth Observation Objects: tutorials/eo_objects/eo_objects_tutorial.md
 - Concepts: concepts.md
 
 plugins:
