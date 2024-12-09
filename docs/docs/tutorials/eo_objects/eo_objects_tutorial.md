@@ -6,9 +6,11 @@
 
 With this tutorial, you'll be able to:
 
-- Index some EO objects data in Elasticsearch
-- Reference the indexed objects data in ARLAS
-- Create a view of ARLAS-wui (a dashboard) to explore the objects data using ARLAS-wui-hub and ARLAS-wui-builder
+- Obtain a sample of objects detected in Earth Observation (EO) images.
+- Index the data for these objects in Elasticsearch.
+- Reference the indexed object data within ARLAS.
+- Create an ARLAS dashboard using a configuration file.
+- Configure the dashboard to visualize the images associated with the detected objects
 
 ### What will you need ?
 
@@ -16,7 +18,7 @@ Follow the [Get Started](../../get_started.md) guide to configure your environme
 
 ### What will you get ?
 
-An ARLAS dashboard with map layers and graphs to explore a sample of AIS data.
+An ARLAS dashboard with map layers and widgets to explore a sample of the EO Objects data.
 
 ![Exploration app created in this tutorial](./images/wui_eo_objects.png)
 
@@ -26,8 +28,6 @@ An ARLAS dashboard with map layers and graphs to explore a sample of AIS data.
 
 ## The tutorial data
 
-
-
 ### xView Dataset
 
 The Earth Observation objects are a sample of the [xView dataset](https://xviewdataset.org/). 
@@ -36,13 +36,12 @@ It contains images from complex scenes around the world, annotated using boundin
 
 <figure markdown="span">
   ![xView](./images/xview.png)
-  <figcaption>Example of xView dataset </figcaption>
+  <figcaption>Example of xView dataset</figcaption>
 </figure>
-
 
 This dataset is widely used to train and evaluate machine learning algorithms for object detection in Earth Observation (EO) images.
 
-We processed these data to create a NDJSON file where each row is a detected object and its metadata:
+We processed this data to create a NDJSON file where each row is a detected object and its metadata:
 
 |    bounds_imcoords|         center_geom|dataset_source|         edited_by|feature_id|            geometry|          image_geom|image_id|image_number|         ingest_time|         object_id|original_index| timestamp|       type_id|
 |-------------------|--------------------|--------------|------------------|----------|--------------------|--------------------|--------|------------|--------------------|------------------|--------------|----------|--------------|
@@ -50,7 +49,7 @@ We processed these data to create a NDJSON file where each row is a detected obj
 |4045,1786,4079,1810|POINT (23.572215 ...|        xView1|      wwedithcolon|    352703|POLYGON ((23.5721...|POLYGON ((23.5724...|2547.tif|        2547|2017-07-21 19:36:...|2547.tif_obj.45536|         45536|1500665778|      Building|
 
 
-The original images are geolocated TIFF files. We extracted object images based on their bounding boxes (BBOX) and stored them as JPG files.
+The original images are geolocated TIFF files. We extracted the objects' images based on their bounding boxes (BBOX) and stored them as JPG files.
 
 All these images are stored in a public bucket to make them accessible in ARLAS. In this tutorial, we will use these images to display the objects alongside their source Earth Observation (EO) images.
 
@@ -130,7 +129,7 @@ arlas_cli indices \
     tutorials/eo_objects/data/eo_objects/xView/eo_objects_athens.json/*.json
 ```
 
-Check the state of the data index:
+Check the state of the index:
 <!-- termynal -->
 ```shell
 > arlas_cli indices --config local list
@@ -156,13 +155,13 @@ arlas_cli indices \
 ```
 
 !!! warning
-    Before reindexing data, don't forget to [recreate empty index with mapping](#__index-ais-data-in-elasticsearch__)
+    Before reindexing data, don't forget to [recreate an empty index with mapping](#__index-ais-data-in-elasticsearch__)
 
 ### Create collection
 
 ARLAS-server interfaces with the data indexed in Elasticsearch via a collection reference.
 
-The collection references an identifier, a timestamp, and geographical fields which allows ARLAS-server to perform a spatial-temporal data analysis.
+The collection references an identifier, a timestamp, and geographical fields which allows ARLAS-server to perform a spatial-temporal data analysis, as well as general information about the collection's ownership, visibility and display names.
 
 See [ARLAS Collection](../../concepts.md#arlas-collection) for more details.
 
@@ -201,7 +200,7 @@ arlas_cli collections \
 ## Create a dashboard
 
 !!! note
-    The dashboard `EO Objects` has been created on [cloud.arlas.io](https://cloud.arlas.io/arlas/wui/hub/) to explore the full dataset
+    The dashboard `EO Objects` is available on [cloud.arlas.io](https://cloud.arlas.io/arlas/wui/hub/) to explore the full dataset
 
 ### Create an ARLAS dashboard from a configuration file
 
@@ -216,7 +215,7 @@ Run at the project root:
     envsubst '$ARLAS_SERVER_URL' < tutorials/eo_objects/arlas/template.config.dashboard.json > tutorials/eo_objects/arlas/config.dashboard.json
     ```
     
-    Then create the ARLAS dashboard from 
+    Then create the ARLAS dashboard from the configuration file: 
     ```
     arlas_cli persist \
         --config local \
@@ -229,7 +228,10 @@ Run at the project root:
     export ARLAS_SERVER_URL=https://cloud.arlas.io/arlas/server
 
     envsubst '$ARLAS_SERVER_URL' < tutorials/eo_objects/data/arlas/template.config.dashboard.json > tutorials/eo_objects/data/arlas/config.dashboard.json
+    ```
     
+    Then create the ARLAS dashboard from the configuration file: 
+    ```
     arlas_cli persist \
         add tutorials/eo_objects/data/arlas/config.dashboard.json config.json --name "EO Objects"
     ```
@@ -269,12 +271,13 @@ ARLAS with the created "EO Objects" dashboard and its preview
 The **Data Table** allows you to display data values as a table on the right side of the application. 
 Each row corresponds to an indexed element, such as an EO object detected in an image.
 
-There is strong interaction between the data table and the visible map layers. 
-The displayed information corresponds to objects currently visible on the map.
+There are strong interactions between the data table and the visible map layers. 
+For instance, the displayed elements in the table correspond to objects currently visible on the map. 
+It is also possible to configure layers that only contain the table's data.
 
 #### Creating a data table
 
-To explore object information, you can create a table.
+To explore an item's information and details, you can create a table.
 
 Let’s create a Data Table called **Objects** and choose the data fields to display.
 
@@ -292,7 +295,7 @@ In the `Data` tab, select the main fields that identify the objects:
 Set the objects Data Table main information
 </p>
 
-You can also color the Type column for better visualization.
+You can also color the **Type** column for better visualization.
 
 Now, the Data Table can be opened on the right side of the dashboard.
 
@@ -303,7 +306,7 @@ Visualize Data Table in the ARLAS Dashboard
 </p>
 
 !!! note
-    Hovering over an element in the data table highlights its geometry on the map (here, the pink bbox).
+    Hovering an element in the data table highlights its geometry on the map (here, the pink bbox).
 
     This interactive feature links the information in the table with the element's location on the map.
 
@@ -311,7 +314,7 @@ Visualize Data Table in the ARLAS Dashboard
 
 While the main data fields are set in the Data Table, you can add more fields in the table's `Details` section.
 
-We can organize the data fields into sections. For example, add information related to the object itself and its source image.
+We can organize the data fields into sections. For example, we can add information related to the object itself and its source image.
 
 ![Set the objects Data Table main information](images/builder_data_table_details.png)
 
@@ -340,13 +343,13 @@ The objects can include metadata and associated images, which can also be displa
 The data table can be configured to access images stored on a server. 
 For instance, we stored some EO objects images as `.jpg` in a public [object store](https://console.cloud.google.com/storage/browser/gisaia-public/demo/eo_objects/xView;tab=objects?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&project=arlas-184007&pli=1&prefix=&forceOnObjectsSortingFiltering=false):
 
-These images  can be accessible in ARLAS dashboards using the following url:
+These images can be accessible in ARLAS dashboards using the following url:
 
 `https://storage.googleapis.com/gisaia-public/demo/eo_objects/xView`
 
 ##### Object thumbnails
 
-Let's first configure the object thumbnails. It is a simple object light preview that is stored in *xView/objects_thumbnails
+Let's first configure the object thumbnails. It is a simple light preview of the object that is stored in *xView/objects_thumbnails/jpg*.
 
 It contains the images named using the object identifier: **{object_id}.jpg**
 
@@ -357,7 +360,7 @@ Example:
 2560.tif_obj.46853.jpg
 ```
 
-Let's define the url pattern that will access the associated image for each object based on it's `object_id` value:
+Let's define the url pattern that will access the associated image for each object based on its `object_id` value:
 
 `https://storage.googleapis.com/gisaia-public/demo/eo_objects/xView/objects_thumbnail/jpg/{object_id}.jpg`
 
@@ -367,7 +370,7 @@ In the Data Table `Render` tab, we define this url as the Thumbnail url.
 
     We can add a **Color** field and a **Title** field that will be used to display the image.
 
-    Let's choose the `type_id` field corresponding to the object detected type.
+    Let's choose the `type_id` field corresponding to the object's detected type.
 
 ![Visualize the objects thumbnails](images/wui_data_table_thumbnails.png)
 
@@ -376,7 +379,7 @@ Visualize the objects thumbnails
 </p>
 
 !!! success
-    Now, the object images are visible in the dashboard on the right side.
+    Now, object images are visible in the dashboard on the right side.
 
 You can expand the full grid of thumbnails:  
 
@@ -388,11 +391,11 @@ Visualize the objects thumbnails full grid
 
 You can scroll within the grid to see more object images.
 
-##### EO image quicklook
+##### EO image Quicklook
 
-Thumbnails are usually small, lightweight images. For higher quality, larger images, configure **Quick Looks**.
+Thumbnails are usually small, lightweight images. For higher quality, larger images, we configure **Quicklooks**.
 
-We can define multiple Quick Looks for each object. For example, let's define two Quick Looks:
+We can define multiple Quick Looks for each object. For example, let's define two Quicklooks:
 
 - The cropped object: `https://storage.googleapis.com/gisaia-public/demo/eo_objects/xView/objects_thumbnail/jpg/{object_id}.jpg`
 - Its source image: `https://storage.googleapis.com/gisaia-public/demo/eo_objects/xView/train_images_jpg/{image_number}.jpg`
@@ -403,34 +406,34 @@ We can define multiple Quick Looks for each object. For example, let's define tw
 
     The cropped object uses the `object_id` field in its URL, while the source image uses the `image_number` field.
 
-![Configure the Objects and Source image Quick looks](images/builder_data_table_quicklook.png)
+![Configure the Objects and Source image Quicklooks](images/builder_data_table_quicklook.png)
 
 <p align="center" style="font-style: italic;" >
-Configure the Objects and Source image Quick looks
+Configure the Objects and Source image Quicklooks
 </p>
 
 You can then visualize both images for each object by clicking on its thumbnail.
 
-![Visualise Object Quick looks](images/wui_data_table_quicklook_object.png)
+![Visualise Object Quicklooks](images/wui_data_table_quicklook_object.png)
 
 <p align="center" style="font-style: italic;" >
-Visualise Object Quick looks
+Visualise Object Quicklooks
 </p>
 
 You can switch between Quicklooks.
 
-![Visualise Source Image Quick looks](images/wui_data_table_quicklook_source_image.png)
+![Visualise Source Image Quicklooks](images/wui_data_table_quicklook_source_image.png)
 
 <p align="center" style="font-style: italic;" >
-Visualise Source Image Quick looks
+Visualise Source Image Quicklooks
 </p>
 
-You can also open the Quick Look in full screen:
+You can also open the Quicklook in full screen:
 
-![Visualise Source Image Quick looks](images/wui_data_table_quicklook_full_screen.png)
+![Visualise Source Image Quicklooks](images/wui_data_table_quicklook_full_screen.png)
 
 <p align="center" style="font-style: italic;" >
-Visualise Source Image Quick looks
+Visualise Source Image Quicklooks
 </p>
 
 <br />
