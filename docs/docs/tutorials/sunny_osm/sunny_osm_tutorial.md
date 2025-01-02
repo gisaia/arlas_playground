@@ -101,13 +101,22 @@ It creates a NDJSON file ready to be ingested in ARLAS at `tutorials/sunny_osm/d
 
 ## Ingest data in ARLAS
 
+!!! warning 
+    If `arlas_cli` is configured for local ARLAS, the `--config local` option in all tutorial `arlas_cli` commands must be specified.
+
+    Example:
+    ```shell hl_lines="2"
+    arlas_cli indices \
+        --config local \
+        mapping ...
+    ```
+
 ### Create empty index with correct mapping
 
 Infer mapping directly from the data:
 
 ```
 arlas_cli indices \
-    --config local \
     mapping tutorials/sunny_osm/data/sunny_osm/osm_sunny.json/part-00000-*.json \
     --no-fulltext osm_id \
     --no-fulltext month \
@@ -124,7 +133,6 @@ arlas_cli indices \
 To index the object data created in `sunny_osm/osm_sunny.json`, run:
 ```
 arlas_cli indices \
-    --config local  \
     data sunny_osm \
     tutorials/sunny_osm/data/sunny_osm/osm_sunny.json/*.json
 ```
@@ -133,9 +141,7 @@ arlas_cli indices \
 
 If you want to delete the index, run:
 ```
-arlas_cli indices \
-    --config local-admin \
-    delete sunny_osm
+arlas_cli indices delete sunny_osm
 ```
 
 !!! warning
@@ -146,7 +152,6 @@ arlas_cli indices \
 To create the ARLAS collection, run:
 ```
 arlas_cli collections \
-    --config local \
     create tuto_sunny_osm \
     --index sunny_osm \
     --display-name "Sunny OSM" \

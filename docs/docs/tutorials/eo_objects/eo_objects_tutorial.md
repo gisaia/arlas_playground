@@ -68,13 +68,22 @@ python tutorials/eo_objects/download_eo_objects_data.py
 
 ## Ingest data in ARLAS
 
+!!! warning 
+    If `arlas_cli` is configured for local ARLAS, the `--config local` option in all tutorial `arlas_cli` commands must be specified.
+
+    Example:
+    ```shell hl_lines="2"
+    arlas_cli indices \
+        --config local \
+        mapping ...
+    ```
+
 ### __Index AIS data in Elasticsearch__
 
 - Create an empty eo_objects index in Elasticsearch with the mapping inferred by `arlas_cli`
 
 ```
 arlas_cli indices \
-    --config local \
     mapping tutorials/eo_objects/data/eo_objects/xView/eo_objects_athens.json/part-00000-*.json   \
     --no-fulltext original_index \
     --no-fulltext bounds_imcoords \
@@ -91,7 +100,7 @@ Check that the index has been created:
 
 <!-- termynal -->
 ```shell
-> arlas_cli indices --config local list
+> arlas_cli indices list
 +------------+--------+-------+------+
 | name       | status | count | size |
 +------------+--------+-------+------+
@@ -106,7 +115,7 @@ You can check that the data model is correct:
 
 <!-- termynal -->
 ```shell
-> arlas_cli indices --config local describe eo_objects
+> arlas_cli indices describe eo_objects
 +-----------------------+-----------+
 | field name            | type      |
 +-----------------------+-----------+
@@ -124,7 +133,6 @@ You can check that the data model is correct:
 - Index the `eo_objects.json` data in Elasticsearch with `arlas_cli`
 ```
 arlas_cli indices \
-    --config local  \
     data eo_objects \
     tutorials/eo_objects/data/eo_objects/xView/eo_objects_athens.json/*.json
 ```
@@ -132,7 +140,7 @@ arlas_cli indices \
 Check the state of the index:
 <!-- termynal -->
 ```shell
-> arlas_cli indices --config local list
+> arlas_cli indices list
 +------------+--------+-------+------+
 | name       | status | count | size |
 +------------+--------+-------+------+
@@ -149,9 +157,7 @@ Check the state of the index:
 
 If you want to delete the index, run:
 ```
-arlas_cli indices \
-    --config local \
-    delete eo_objects 
+arlas_cli indices delete eo_objects 
 ```
 
 !!! warning
@@ -168,7 +174,6 @@ See [ARLAS Collection](../../concepts.md#arlas-collection) for more details.
 - Create the `tuto_eo_objects` collection in ARLAS
 ```
 arlas_cli collections \
-    --config local \
     create tuto_eo_objects \
     --index eo_objects \
     --display-name "EO Objects" \
@@ -183,7 +188,7 @@ arlas_cli collections \
 
 <!-- termynal -->
 ```shell
-> arlas_cli collections --config local list
+> arlas_cli collections list
 +-----------------+------------+
 | name            | index      |
 +-----------------+------------+

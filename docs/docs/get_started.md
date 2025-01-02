@@ -2,7 +2,7 @@
 
 ## Clone the project
 
-The **arlas_playground** project contains scripts and resources you need to run the tutorials.
+The [arlas_playground](https://github.com/gisaia/arlas_playground) project contains scripts and resources you need to run the tutorials.
 
 Clone it in your working directory
 
@@ -78,6 +78,24 @@ Once the environment is activated, install the project dependency:
 pip install -r requirements.txt
 ```
 
+## ARLAS Stack
+
+The tutorials require an up and running ARLAS Stack. 
+
+### ARLAS Cloud
+
+The simplest way is to create an ARLAS Cloud account.
+
+See [ARLAS Cloud Guide](https://docs.arlas.io/static_docs/arlas_cloud/)
+
+### Install and run ARLAS Exploration Stack (Optional)
+
+!!! warning
+    You don't need to install and launch ARLAS Exploration Stack if you are using ARLAS Cloud.
+
+To run the simplest ARLAS stack and Elasticsearch on the local machine, follow the [Deploying ARLAS Guide](https://docs.arlas.io/external_docs/ARLAS-Exploration-stack/arlas_exploration_stack).
+
+
 ## Install and configure arlas_cli
 
 `arlas_cli` is installed with the project requirements
@@ -92,29 +110,19 @@ Check if it is installed and that you have the latest version:
 arlas_cli --version
 ```
 
-By default, it is configured for a local ARLAS stack deployment.
+=== "ARLAS Cloud"
+    To configure `arlas_cli` to access your ARLAS Cloud account, see [ARLAS CLI cloud configuration guide](https://docs.arlas.io/external_docs/arlas_cli/configuration/#arlas-cloud-configuration).
 
-To configure `arlas_cli` to access your ARLAS Cloud account, see [arlas_cli documentation](https://gisaia.github.io/arlas_cli/configuration/#arlas-cloud-configuration).
 
-!!! warning 
-    If `arlas_cli` is configured for ARLAS Cloud, the `--config` option in all tutorials `arlas_cli` commands must not be specified.
+=== "Local ARLAS"
 
-For more details, check the [full arlas_cli documentation](https://gisaia.github.io/arlas_cli/).
+    By default, `arlas_cli` is configured for a local ARLAS stack deployment.
 
-## Install and run ARLAS Exploration Stack
+    !!! warning 
+        If `arlas_cli` is configured for local ARLAS, the `--config local` option in all tutorials `arlas_cli` commands must be specified.
 
-!!! warning
-    You don't need to install and launch ARLAS Exploration Stack if you are using ARLAS Cloud.
+For more details, check the [full arlas_cli documentation](https://docs.arlas.io/external_docs/arlas_cli/).
 
-To run the simplest ARLAS stack and Elasticsearch on the local machine, clone the [ARLAS Stack Exploration](https://github.com/gisaia/ARLAS-Exploration-stack) project and run the stack:
-
-```shell
-git clone https://github.com/gisaia/ARLAS-Exploration-stack.git
-cd ARLAS-Exploration-stack
-./start.sh
-```
-
-More details about the deployment can be found on the [ARLAS Stack Exploration project](https://github.com/gisaia/ARLAS-Exploration-stack).
 
 ## Now you can play
 
