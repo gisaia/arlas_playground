@@ -74,13 +74,23 @@ Here the script creates a point geometry in WKT format as well as a unique ident
 
 ## Ingest AIS data in ARLAS
 
+!!! warning 
+    If `arlas_cli` is configured for local ARLAS, the `--config local` option in all tutorial `arlas_cli` commands must be specified.
+
+    Example:
+    ```shell hl_lines="2"
+    arlas_cli indices \
+        --config local \
+        mapping ...
+    ```
+
+
 ### __Index AIS data in Elasticsearch__
 
 - Create an empty `ais_geopoints` index in Elasticsearch with the mapping inferred by `arlas_cli`
 
 ```shell
 arlas_cli indices \
-    --config local \
     mapping tutorials/ais/data/ais_data_sample.json/part-00000-*.json \
     --no-fulltext unique_id \
     --field-mapping MMSI:keyword \
@@ -93,7 +103,7 @@ Check that the index has been created:
 
 <!-- termynal -->
 ```shell
-> arlas_cli indices --config local list
+> arlas_cli indices list
 +---------------+--------+-------+------+
 | name          | status | count | size |
 +---------------+--------+-------+------+
@@ -110,7 +120,7 @@ You can check that the data model is correct:
 
 <!-- termynal -->
 ```shell
-> arlas_cli indices --config local describe ais_geopoints
+> arlas_cli indices describe ais_geopoints
 +--------------------------------+-----------+
 | field name                     | type      |
 +--------------------------------+-----------+
@@ -124,15 +134,13 @@ You can check that the data model is correct:
 
 - Index data that is in `ais_data_sample.json` in Elasticsearch with `arlas_cli`
 ```shell
-arlas_cli indices \
-    --config local \
-    data ais_geopoints tutorials/ais/data/ais_data_sample.json/*.json
+arlas_cli indices data ais_geopoints tutorials/ais/data/ais_data_sample.json/*.json
 ```
 
 Check the state of the data index:
 <!-- termynal -->
 ```shell
-> arlas_cli indices --config local list
+> arlas_cli indices list
 +---------------+--------+--------+--------+
 | name          | status | count  | size   |
 +---------------+--------+--------+--------+
@@ -157,7 +165,6 @@ See [ARLAS Collection](../../concepts.md#arlas-collection) for more details.
 
 ```shell
 arlas_cli collections \
-    --config local \
     create tuto_ais_geopoints \
     --index ais_geopoints \
     --display-name "AIS Geopoints" \
@@ -171,7 +178,7 @@ arlas_cli collections \
 
 <!-- termynal -->
 ```shell
-> arlas_cli collections --config local list
+> arlas_cli collections list
 +--------------------+---------------+
 | name               | index         |
 +--------------------+---------------+

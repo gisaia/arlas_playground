@@ -1,5 +1,5 @@
 
-ARLAS Playground is a project that provides tutorials and materials to help you explore and use ARLAS effectively.
+[ARLAS Playground](https://github.com/gisaia/arlas_playground) is a project that provides tutorials and materials to help you explore and use ARLAS effectively.
 
 Specifically, it guides you through how to:
 
