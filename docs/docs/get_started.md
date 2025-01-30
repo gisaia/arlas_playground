@@ -11,6 +11,15 @@ git clone git@github.com:gisaia/arlas_playground.git
 cd arlas_playground
 ```
 
+!!! tip
+    To add the project root to your PYTHONPATH, simply run in your terminal:
+    ```shell
+    export PYTHONPATH="$(pwd):$PYTHONPATH"
+    ```
+
+    It can be added permanently to your shell configuration file (.bashrc, .bash_profile, or .zshrc) 
+    
+
 ## Prerequisite
 
 This repo illustrates a couple of usages of ARLAS. In order to play with it, you'll need:
