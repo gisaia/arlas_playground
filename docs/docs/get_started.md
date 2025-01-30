@@ -75,11 +75,10 @@ pip install -r requirements.txt
 
 The tutorials require ARLAS up and running.
 
-ARLAS can be managed or deployed locally:
+You can either use the ARLAS cloud service managed by Gisaïa or deploy the ARLAS software stack on your infrastructure/computer:
 
-- **ARLAS Cloud**: The simplest way to access ARLAS is to create an ARLAS Cloud account. See [ARLAS Cloud Guide](../../static_docs/arlas_cloud.md)
-- **Local ARLAS**: To run a simple ARLAS stack and Elasticsearch on the local machine, follow the [Deploying ARLAS Guide](../../external_docs/ARLAS-Exploration-stack/arlas_exploration_stack.md).
-
+- **ARLAS Cloud**: The simplest way to access an ARLAS instance is to create an ARLAS Cloud account. See [ARLAS Cloud Guide](../../static_docs/arlas_cloud.md).
+- **Run ARLAS stack**: To run a simple ARLAS stack and Elasticsearch on your machine, follow the [Deploying ARLAS Guide](../../external_docs/ARLAS-Exploration-stack/arlas_exploration_stack.md).
 
 ## Install and configure arlas_cli
 
