@@ -26,7 +26,7 @@ An ARLAS dashboard with map layers and graphs to explore a sample of AIS data.
 
 ### AIS data
 
-Let's explore some boats position data, provided by the __Danish Maritime Authority__ on their [website](https://www.dma.dk/SikkerhedTilSoes/Sejladsinformation/AIS/Sider/default.aspx).
+Let's explore some boats position data, provided by the __Danish Maritime Authority__ on their [website](https://www.dma.dk/safety-at-sea/navigational-information/ais-data){:target="_blank"}.
 
 This tutorial is based on AIS data emitted from 11/20/2019 to 11/27/2019. We extracted boats positions having the following MMSI :
 
@@ -73,17 +73,6 @@ Here the script creates a point geometry in WKT format as well as a unique ident
 
 
 ## Ingest AIS data in ARLAS
-
-!!! warning 
-    If `arlas_cli` is configured for local ARLAS, the `--config local` option in all tutorial `arlas_cli` commands must be specified.
-
-    Example:
-    ```shell hl_lines="2"
-    arlas_cli indices \
-        --config local \
-        mapping ...
-    ```
-
 
 ### __Index AIS data in Elasticsearch__
 
@@ -159,7 +148,7 @@ ARLAS-server interfaces with the data indexed in Elasticsearch via a collection 
 
 The collection references an identifier, a timestamp, and geographical fields which allows ARLAS-server to perform a spatial-temporal data analysis.
 
-See [ARLAS Collection](../../concepts.md#arlas-collection) for more details.
+See [ARLAS Collection](../../../../static_docs/concepts.md#arlas-collection) for more details.
 
 - Create the `tuto_ais_geopoint` collection in ARLAS
 
@@ -205,7 +194,7 @@ We can now create our first dashboard composed of:
 
 ### Create a dashboard 
 
-To do so, let's go to [ARLAS-wui-hub](http://localhost/hub/) and create a new dashboard named `Boats dashboard`
+To do so, let's go to [ARLAS-wui-hub](http://localhost/hub/){:target="_blank"} and create a new dashboard named `Boats dashboard`
 
 ![Creation of a dashboard in ARLAS-wui-hub](./images/ais_create_dashboard.png)
 
@@ -297,7 +286,7 @@ Let's switch to the visibility tab.
 We notice that by default, the layer is displayed for all zoom levels (range **[0-23]**) and for a maximum number of elements of **5000**.
 
 If more geopoints are located in your map extend, the layer will no longer be displayed. 
-This limit is often used to switch between direct geometric features layers and aggregated layers (see [Aggregated layer](#aggregated-layer) below). 
+This limit is often used to switch between direct geometric features layers and aggregated layers (see [Aggregated layer](#geo-big-data-aggregated-layer) below). 
 
 Let's increase the limit number of elements to **10000**.
 
@@ -550,7 +539,7 @@ Now we defined :
 
 Let's save this dashboard by clicking on the 'Disk' icon at the bottom-left of the page.
 
-If we go back to [ARLAS Hub](http://localhost/hub/), we'll find the Boats dashboard created.
+If we go back to [ARLAS Hub](http://localhost/hub/){:target="_blank"}, we'll find the Boats dashboard created.
 
 ![List of created dashboards](./images/arlas_hub.png)
 <p align="center" style="font-style: italic;" >
@@ -569,6 +558,6 @@ Image: Exploring Boats dashboard in ARLAS-wui
  
 As you can see we created a simple dashboard to start exploring raw AIS data!
 
-Check out a more sophisticated dashboards about the AIS data in our [demo space](https://cloud.arlas.io/arlas/wui/hub/)!
+Check out a more sophisticated dashboards about the AIS data in our [demo space](https://cloud.arlas.io/arlas/wui/hub/){:target="_blank"}!
 
 You can get inspired from our different demos to build other map layers and other widgets.

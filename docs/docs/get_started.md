@@ -2,38 +2,25 @@
 
 ## Clone the project
 
-The [arlas_playground](https://github.com/gisaia/arlas_playground) project contains scripts and resources you need to run the tutorials.
+The **arlas_playground** ([repo](https://github.com/gisaia/arlas_playground){:target="_blank"}) project contains scripts and resources you need to run the tutorials.
 
-Clone it in your working directory
+Clone it in your working directory:
 
 ```shell
 git clone git@github.com:gisaia/arlas_playground.git
 cd arlas_playground
 ```
+    
 
 ## Prerequisite
 
 This repo illustrates a couple of usages of ARLAS. In order to play with it, you'll need:
 
 - git version (>=2.39.3)
-- docker (>=27.0.3)
-- docker compose
 - python 3.10
 - curl (>=8.4.0)
-- csvkit (>=1.4.0)
-- jq (>=1.7.1)
-
-Run `./check_requirements.sh` to check these requirements.
-
-Then, we'll also install:
-
-- arlas_cli
-- ARLAS Exploration Stack (Only to run ARLAS Locally)
-
 
 ## Python virtual environment
-
-### Create the new environment
 
 If it's the first time you run the project, create a virtual env before running the documentation.
 
@@ -43,9 +30,8 @@ Run at project root:
 python -m venv env_arlas_playground
 ```
 
-Now the `env_arlas_playground` env exists and is stored at project root.
-
-### Activate environment
+!!! success
+    Now the `env_arlas_playground` env exists and is stored at project root.
 
 To activate the environment in your terminal/powershell:
 
@@ -68,9 +54,7 @@ To activate the environment in your terminal/powershell:
     Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
     ```
 
-See [venv documentation](https://docs.python.org/3.10/library/venv.html#creating-virtual-environments) for more information.
-
-## Install python dependencies in the environment
+See [venv documentation](https://docs.python.org/3.10/library/venv.html#creating-virtual-environments){:target="_blank"} for more information.
 
 Once the environment is activated, install the project dependency:
 
@@ -78,50 +62,53 @@ Once the environment is activated, install the project dependency:
 pip install -r requirements.txt
 ```
 
-## ARLAS Stack
+!!! tip
+    To add the project root to your PYTHONPATH, simply run in your terminal:
+    ```shell
+    export PYTHONPATH="$(pwd):$PYTHONPATH"
+    ```
 
-The tutorials require an up and running ARLAS Stack. 
+    It can be added permanently to your shell configuration file (.bashrc, .bash_profile, or .zshrc) 
 
-### ARLAS Cloud
 
-The simplest way is to create an ARLAS Cloud account.
+## ARLAS Instance
 
-See [ARLAS Cloud Guide](https://docs.arlas.io/static_docs/arlas_cloud/)
+The tutorials require ARLAS up and running.
 
-### Install and run ARLAS Exploration Stack (Optional)
+You can either use the ARLAS cloud service managed by Gisaïa or deploy the ARLAS software stack on your infrastructure/computer:
 
-!!! warning
-    You don't need to install and launch ARLAS Exploration Stack if you are using ARLAS Cloud.
-
-To run the simplest ARLAS stack and Elasticsearch on the local machine, follow the [Deploying ARLAS Guide](https://docs.arlas.io/external_docs/ARLAS-Exploration-stack/arlas_exploration_stack).
-
+- **ARLAS Cloud**: The simplest way to access an ARLAS instance is to create an ARLAS Cloud account. See [ARLAS Cloud Guide](../../static_docs/arlas_cloud.md).
+- **Run ARLAS stack**: To run a simple ARLAS stack and Elasticsearch on your machine, follow the [Deploying ARLAS Guide](../../external_docs/ARLAS-Exploration-stack/arlas_exploration_stack.md).
 
 ## Install and configure arlas_cli
 
-`arlas_cli` is installed with the project requirements
+Install `arlas_cli` with pip:
 
 ```shell
 pip install arlas_cli
 ```
 
-Check if it is installed and that you have the latest version:
+To ensure that it is installed and that you have the latest version, run:
 
 ```shell
 arlas_cli --version
 ```
 
 === "ARLAS Cloud"
-    To configure `arlas_cli` to access your ARLAS Cloud account, see [ARLAS CLI cloud configuration guide](https://docs.arlas.io/external_docs/arlas_cli/configuration/#arlas-cloud-configuration).
+    To configure `arlas_cli` to access your ARLAS Cloud account, see [ARLAS CLI cloud configuration guide](../../external_docs/arlas_cli/configuration.md/#arlas-cloud-configuration).
 
 
 === "Local ARLAS"
 
-    By default, `arlas_cli` is configured for a local ARLAS stack deployment.
+    When installed, `arlas_cli` is configured for a local ARLAS stack deployment.
 
-    !!! warning 
-        If `arlas_cli` is configured for local ARLAS, the `--config local` option in all tutorials `arlas_cli` commands must be specified.
+    To make sure that the `local` configuration is set as default, run:
 
-For more details, check the [full arlas_cli documentation](https://docs.arlas.io/external_docs/arlas_cli/).
+    ```
+    arlas_cli confs set local
+    ```
+
+For more details, check the [full arlas_cli documentation](../../external_docs/arlas_cli/index.md).
 
 
 ## Now you can play

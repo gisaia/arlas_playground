@@ -43,19 +43,19 @@ This tutorial use three different open data sources to explore the buildings sol
 
 ### OSM
 
-[OpenStreetMap](https://en.wikipedia.org/wiki/OpenStreetMap) (abbreviated OSM) is a website that uses an open geographic database which is updated and maintained by a community of volunteers via open collaboration. Contributors collect data from surveys, trace from aerial photo imagery or satellite imagery, and also import from other freely licensed geodata sources. OpenStreetMap is freely licensed under the Open Database License and as a result commonly used to make electronic maps, inform turn-by-turn navigation, assist in humanitarian aid and data visualisation. OpenStreetMap uses its own topology to store geographical features which can then be exported into other GIS file formats. The OpenStreetMap website itself is an online map, geodata search engine and editor.
+[OpenStreetMap](https://en.wikipedia.org/wiki/OpenStreetMap){:target="_blank"} (abbreviated OSM) is a website that uses an open geographic database which is updated and maintained by a community of volunteers via open collaboration. Contributors collect data from surveys, trace from aerial photo imagery or satellite imagery, and also import from other freely licensed geodata sources. OpenStreetMap is freely licensed under the Open Database License and as a result commonly used to make electronic maps, inform turn-by-turn navigation, assist in humanitarian aid and data visualisation. OpenStreetMap uses its own topology to store geographical features which can then be exported into other GIS file formats. The OpenStreetMap website itself is an online map, geodata search engine and editor.
 
-OSM data is a very valuable tool when it comes to datascience as it can bring freely licensed building data quite reliably all across the globe. In order to limit the volume of the downloaded data, websites like [Geofabrik's](https://www.geofabrik.de/data/download.html) are particularly helpful to easily select a chunk of the data, here Languedoc-Roussillon.
+OSM data is a very valuable tool when it comes to datascience as it can bring freely licensed building data quite reliably all across the globe. In order to limit the volume of the downloaded data, websites like [Geofabrik's](https://www.geofabrik.de/data/download.html){:target="_blank"} are particularly helpful to easily select a chunk of the data, here Languedoc-Roussillon.
 
 ### ADMIN Express
 
-[The National Institute of Geographic and Forest Information (IGN)](https://www.ign.fr/institut/identity-card) is a public administrative establishment placed under the joint authority of the Ministries in charge of ecology and forestry. Their goal is to guarantee the availability of geolocalised data and in particular sovereign data for the State, foster the appropriation and use of geographic data as well as maintain a high level of competence in the field of geographic information.
+[The National Institute of Geographic and Forest Information (IGN)](https://www.ign.fr/institut/identity-card){:target="_blank"} is a public administrative establishment placed under the joint authority of the Ministries in charge of ecology and forestry. Their goal is to guarantee the availability of geolocalised data and in particular sovereign data for the State, foster the appropriation and use of geographic data as well as maintain a high level of competence in the field of geographic information.
 
-They produce a wide variety of interesting datasets when working with French geospatial data, as they give us information to enrich our own data with, for a better exploration. In this example, we will use their [ADMIN Express](https://geoservices.ign.fr/adminexpress) dataset to add the town info to each OSM building.
+They produce a wide variety of interesting datasets when working with French geospatial data, as they give us information to enrich our own data with, for a better exploration. In this example, we will use their [ADMIN Express](https://geoservices.ign.fr/adminexpress){:target="_blank"} dataset to add the town info to each OSM building.
 
 ### Photovoltaic potential
 
-[Solargis](https://solargis.com) is a Slovakian company that provides online access to high-resolution solar data and services around the domain of solar energy. They provide regional and [by country](https://solargis.com/resources/free-maps-and-gis-data?locality=france) solar resource maps that can be used as is or, in our case, to enrich data.
+[Solargis](https://solargis.com){:target="_blank"} is a Slovakian company that provides online access to high-resolution solar data and services around the domain of solar energy. They provide regional and [by country](https://solargis.com/resources/free-maps-and-gis-data?locality=france){:target="_blank"} solar resource maps that can be used as is or, in our case, to enrich data.
 
 ### Get the data
 
@@ -70,7 +70,7 @@ The OSM and IGN data are a section of the original data, with only the buildings
 
 The path `ARLAS_DEMO_LOCAL_DATA_PATH` can be changed to any path of your liking.
 
-If the script does not work, the files can directly be retrieved on [Google Cloud](https://console.cloud.google.com/storage/browser/gisaia-public/demo/sunny_osm).
+If the script does not work, the files can directly be retrieved on [Google Cloud](https://console.cloud.google.com/storage/browser/gisaia-public/demo/sunny_osm){:target="_blank"}.
 
 ### Transform the data
 
@@ -100,16 +100,6 @@ Once the notebook is open, follow the provided guidance to proceed.
 It creates a NDJSON file ready to be ingested in ARLAS at `tutorials/sunny_osm/data/osm_sunny.json`
 
 ## Ingest data in ARLAS
-
-!!! warning 
-    If `arlas_cli` is configured for local ARLAS, the `--config local` option in all tutorial `arlas_cli` commands must be specified.
-
-    Example:
-    ```shell hl_lines="2"
-    arlas_cli indices \
-        --config local \
-        mapping ...
-    ```
 
 ### Create empty index with correct mapping
 
