@@ -169,7 +169,7 @@ ARLAS-server interfaces with the data indexed in Elasticsearch via a collection 
 
 The collection references an identifier, a timestamp, and geographical fields which allows ARLAS-server to perform a spatial-temporal data analysis, as well as general information about the collection's ownership, visibility and display names.
 
-See [ARLAS Collection](../../concepts.md#arlas-collection) for more details.
+See [ARLAS Collection](../static_docs/concepts.md#arlas-collection) for more details.
 
 - Create the `tuto_eo_objects` collection in ARLAS
 ```

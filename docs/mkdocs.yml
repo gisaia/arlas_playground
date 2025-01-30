@@ -32,7 +32,6 @@ nav:
   - Vessel location (AIS): tutorials/ais/ais_tutorial.md
   - Buildings Solar Potential: tutorials/sunny_osm/sunny_osm_tutorial.md
   - Earth Observation Objects: tutorials/eo_objects/eo_objects_tutorial.md
-- Concepts: concepts.md
 
 plugins:
   - termynal:
