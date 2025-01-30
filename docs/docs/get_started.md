@@ -10,14 +10,6 @@ Clone it in your working directory:
 git clone git@github.com:gisaia/arlas_playground.git
 cd arlas_playground
 ```
-
-!!! tip
-    To add the project root to your PYTHONPATH, simply run in your terminal:
-    ```shell
-    export PYTHONPATH="$(pwd):$PYTHONPATH"
-    ```
-
-    It can be added permanently to your shell configuration file (.bashrc, .bash_profile, or .zshrc) 
     
 
 ## Prerequisite
@@ -69,6 +61,15 @@ Once the environment is activated, install the project dependency:
 ```
 pip install -r requirements.txt
 ```
+
+!!! tip
+    To add the project root to your PYTHONPATH, simply run in your terminal:
+    ```shell
+    export PYTHONPATH="$(pwd):$PYTHONPATH"
+    ```
+
+    It can be added permanently to your shell configuration file (.bashrc, .bash_profile, or .zshrc) 
+
 
 ## ARLAS Instance
 
