@@ -82,13 +82,13 @@ ARLAS can be managed or deployed locally:
 
 ## Install and configure arlas_cli
 
-`arlas_cli` is installed with the project requirements.
+Install `arlas_cli` with pip:
 
 ```shell
 pip install arlas_cli
 ```
 
-Check if it is installed and that you have the latest version:
+To ensure that it is installed and that you have the latest version, run:
 
 ```shell
 arlas_cli --version
