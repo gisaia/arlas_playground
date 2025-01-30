@@ -30,7 +30,7 @@ An ARLAS dashboard with map layers and widgets to explore a sample of the EO Obj
 
 ### xView Dataset
 
-The Earth Observation objects are a sample of the [xView dataset](https://xviewdataset.org/). 
+The Earth Observation objects are a sample of the [xView dataset](https://xviewdataset.org/){:target="_blank"}. 
 xView is one of the largest publicly available datasets of overhead imagery. 
 It contains images from complex scenes around the world, annotated using bounding boxes.
 
@@ -68,15 +68,6 @@ python tutorials/eo_objects/download_eo_objects_data.py
 
 ## Ingest data in ARLAS
 
-!!! warning 
-    If `arlas_cli` is configured for local ARLAS, the `--config local` option in all tutorial `arlas_cli` commands must be specified.
-
-    Example:
-    ```shell hl_lines="2"
-    arlas_cli indices \
-        --config local \
-        mapping ...
-    ```
 
 ### __Index AIS data in Elasticsearch__
 
@@ -205,7 +196,7 @@ arlas_cli collections \
 ## Create a dashboard
 
 !!! note
-    The dashboard `EO Objects` is available on [cloud.arlas.io](https://cloud.arlas.io/arlas/wui/hub/) to explore the full dataset
+    The dashboard `EO Objects` is available on [cloud.arlas.io](https://cloud.arlas.io/arlas/wui/hub/){:target="_blank"} to explore the full dataset
 
 ### Create an ARLAS dashboard from a configuration file
 
@@ -346,7 +337,7 @@ Visualize the objects Data Table details
 The objects can include metadata and associated images, which can also be displayed in ARLAS Dashboards.
 
 The data table can be configured to access images stored on a server. 
-For instance, we stored some EO objects images as `.jpg` in a public [object store](https://console.cloud.google.com/storage/browser/gisaia-public/demo/eo_objects/xView;tab=objects?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&project=arlas-184007&pli=1&prefix=&forceOnObjectsSortingFiltering=false):
+For instance, we stored some EO objects images as `.jpg` in a public [object store](https://console.cloud.google.com/storage/browser/gisaia-public/demo/eo_objects/xView/train_images_jpg?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))&inv=1&invt=AboPeQ&project=arlas-184007){:target="_blank"}:
 
 These images can be accessible in ARLAS dashboards using the following url:
 
@@ -457,4 +448,4 @@ Explore EO Objects in ARLAS Dashboard
 
 This simple dashboard allows you to start exploring EO object data!
 
-Check out a more EO objects data and other datasets in our [demo space](https://cloud.arlas.io/arlas/wui/hub/)!
+Check out a more EO objects data and other datasets in our [demo space](https://cloud.arlas.io/arlas/wui/hub/){:target="_blank"}!
