@@ -382,7 +382,9 @@ Let's find out the time period when these positions were emitted.
 
 For that, let's define a timeline: a histogram that will represent the number of boats positions over time.
 
-For the x-Axis we choose the timestamp field and for the y-Axis we choose Hits count: the number of positions in each bucket. We set 50 buckets in this example
+For the x-Axis we choose the timestamp field and we configure to display 50 buckets on this axis.
+
+The y-Axis represents the number of positions in each bucket.
 
 ![Define timeline](./images/ais_timeline_data.png)
 <p align="center" style="font-style: italic;" >
@@ -509,7 +511,9 @@ Image: Creating a group in Analytics board tab
 
 Let's configure our histogram. We can give a title to the Heading distribution histogram.
 
-For the x-Axis we choose `Heading` field and for the y-Axis we choose `Hits count`: the number of positions in each bucket. 
+For the x-Axis we choose `Heading` field and we configure to display 50 buckets on this axis.
+
+For the y-Axis we choose `Hits count`: the number of positions in each bucket. 
 
 ![Defining heading distribution histogram](./images/ais_analytics_heading_histogram.png)
 <p align="center" style="font-style: italic;" >
